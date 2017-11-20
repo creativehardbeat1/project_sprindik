@@ -12,10 +12,10 @@ public function __construct(){
 
 }
 
-/* public function index()
+public function index()
 {
-$this->load->view("index.php");
-} */
+//$this->load->view("index.php");
+}
 
 public function register_user(){
 	$this->form_validation->set_rules('user_name', 'Username', 'required|min_length[4]|max_length[15]');
@@ -51,14 +51,6 @@ public function register_user(){
 
  
 }
-
-/* public function login_view(){
-
-$this->load->view("index.php");
-
-}
- */
-
 
 }
 

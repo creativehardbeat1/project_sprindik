@@ -53,7 +53,6 @@ class Welcome extends CI_Controller {
 	}
 
 	public function login_view(){
-		//$this->load->view("login_register.php");
 		$this->load->view('login_register');
 	}
 
@@ -63,37 +62,26 @@ class Welcome extends CI_Controller {
 	  'user_password'=>md5($this->input->post('form-password'))
 		);
 		$data=$this->auth_model->login_user($user_login['user_name'],$user_login['user_password']);
-		//var_dump($user_login['user_name']);
 		
-		//var_dump($user_login['user_password']);
 		  if($data){
-			/* $this->session->set_userdata('user_id',$data['user_id']);
-			$this->session->set_userdata('user_email',$data['email']);
-			$this->session->set_userdata('user_name',$data['username']);
-			$this->session->set_userdata('user_mobile',$data['no_mobile']); */
 			
 			$this->session->set_userdata('user_id',$data->user_id);
 			$this->session->set_userdata('user_email',$data->email);
 			$this->session->set_userdata('user_name',$data->username);
 			$this->session->set_userdata('user_mobile',$data->no_mobile);
-
-			//$this->load->view('auth/dashboard1.php');
 			$this->load->view('template/v_header');
 		  }else{
 			$this->session->set_flashdata('error_msg', 'Error occured,Try again.');
-			//$this->load->view("auth/login_register.php");
 			$this->load->view('login_register');
 			
 		  }
 	}
 
 	function user_profile(){
-		//$this->load->view('dashboard1.php');
 		$this->load->view('dashboard1');
 	}
 	public function user_logout(){
 	  $this->session->sess_destroy();
 	  redirect('Welcome', 'refresh');
-	  //$this->load->view('login_register');
 	}
 }

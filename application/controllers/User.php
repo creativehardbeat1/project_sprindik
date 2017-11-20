@@ -18,7 +18,6 @@ class User extends CI_Controller {
 	public function ajax_list()
 	{
 		$list = $this->user->get_datatables();
-		//var_dump($list);
 		$data = array();
 		$no = $_POST['start'];
 		foreach ($list as $user) {
