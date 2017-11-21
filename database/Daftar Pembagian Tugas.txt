@@ -1,0 +1,11 @@
+Pengguna -> Rifan
+Pegawai ->  Rifan
+Calon Peserta ->  Pak Purwantoro
+Diklat ->  Rifan
+Permohonan Diklat  -> Mas Barthi
+PersetujuanDokumen  -> Mas Barthi
+Persetujuan Peserta -> Mas Barthi
+Peserta  ->  Pak Purwantoro
+Peserta Diklat  ->  Pak Purwantoro
+Laporan Diklat -> Rifan
+Mockup dan Testing -> Mas Wawan
