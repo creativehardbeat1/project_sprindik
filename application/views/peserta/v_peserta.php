@@ -1,8 +1,8 @@
 <section>
 	 <div class="container">
-        <h1 style="font-size:20pt">Peserta</h1>
+        <h1 style="font-size:20pt"><?php echo $judul ?></h1>
         <br />
-        <button class="btn btn-success" onclick="add_peserta()"><i class="glyphicon glyphicon-plus"></i> Tambah Peserta</button>
+      <!--  <button class="btn btn-success" onclick="add_peserta()"><i class="glyphicon glyphicon-plus"></i> Tambah Peserta Diklat</button>-->
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
         <br />
         <br />
@@ -10,12 +10,15 @@
             <thead>
                 <tr>
 				
-                    <th>id_peserta</th>
-					<th>id_daftar_diklat</th>
-                    <th>flag_approval</th>
-					<th>time_creation</th>
-                    <th>status_peserta</th>
-					<th>status_kegiatan</th>
+                    <!-- <th>ID User</th> -->
+					<th>ID Diklat</th>
+                    <th>Nama</th>
+					<th>Umur</th>
+                    <th>Alamat</th>
+					<th>email</th>
+					<!--<th>KTP</th>
+					<th>Ijazah</th>
+					<th>Time Creation</th> -->
                     <th style="width:125px;">Action</th>
                 </tr>
             </thead>
@@ -82,7 +85,7 @@ function add_peserta()
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Peserta'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Tambah Peserta Diklat'); // Set Title to Bootstrap modal title
 }
 
 function edit_peserta(id)
@@ -100,12 +103,16 @@ function edit_peserta(id)
         success: function(data)
         {
 
-            $('[name="id_peserta"]').val(data.id_peserta);
-            $('[name="id_daftar_diklat"]').val(data.id_daftar_diklat);
-			$('[name="flag_approval"]').val(data.flag_approval);
-			$('[name="time_creation"]').val(data.time_creation);
-            $('[name="status_peserta"]').val(data.status_peserta);
-            $('[name="status_kegiatan"]').val(data.status_kegiatan);
+            //$('[name="id"]').val(data.id);
+			$('[name="id_user"]').val(data.id_user);
+            $('[name="id_diklat"]').val(data.id_diklat);
+			$('[name="nama"]').val(data.nama);
+			$('[name="umur"]').val(data.umur);
+            $('[name="alamat"]').val(data.alamat);
+            $('[name="email"]').val(data.email);
+			$('[name="url_dok_ktp"]').val(data.url_dok_ktp);
+            $('[name="url_dok_ijazah"]').val(data.url_dok_ijazah);
+            $('[name="time_creation"]').val(data.time_creation);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Peserta'); // Set title to Bootstrap modal title
 
@@ -196,51 +203,72 @@ function delete_peserta(id)
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Form Peserta</h3>
+                <h3 class="modal-title">Form Peserta Diklat</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
                     <input type="hidden" value="" name="id"/> 
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label col-md-3">ID Peserta</label>
+                            <label class="control-label col-md-3">ID User</label>
                             <div class="col-md-9">
-                                <input name="id_peserta" placeholder="ID Peserta" class="form-control" type="text">
+                                <input name="id_user" placeholder=" " class="form-control" type="text" disabled>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">ID Pendaftaran</label>
+                            <label class="control-label col-md-3">ID Diklat</label>
                             <div class="col-md-9">
-                                <input name="id_daftar_diklat" placeholder="ID Pendaftaran" class="form-control" type="text">
+                                <input name="id_diklat" placeholder=" " class="form-control" type="text" disabled>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Persetujuan</label>
+                            <label class="control-label col-md-3">Nama</label>
                             <div class="col-md-9">
-                                <input name="flag_approval" placeholder="Persetujuan" class="form-control" type="text">
+                                <input name="nama" placeholder="" class="form-control" type="text" disabled>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Time Creation</label>
+                            <label class="control-label col-md-3">Umur</label>
                             <div class="col-md-9">
-                                <input name="time_creation" placeholder="Disetujui" class="form-control" type="text"></input>
+                                <input name="umur" placeholder="" class="form-control" type="text"></input>
+                                <span class="help-block"></span>
+                            </div>e
+                        </div>
+						<div class="form-group">
+                            <label class="control-label col-md-3">Alamat</label>
+                            <div class="col-md-9">
+                                <input name="alamat" placeholder=" " class="form-control" type="text"></input>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">E-mail</label>
+                            <div class="col-md-9">
+                                <input name="email" placeholder=" " class="form-control" type="text"></input>
                                 <span class="help-block"></span>
                             </div>
                         </div>
 						<div class="form-group">
-                            <label class="control-label col-md-3">Status Peserta</label>
+                            <label class="control-label col-md-3">KTP</label>
                             <div class="col-md-9">
-                                <input name="status_peserta" placeholder="Status Peserta" class="form-control" type="text"></input>
+                                <input name="url_dok_ktp" placeholder=" " class="form-control" type="text"></input>
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Status Kegiatan</label>
+						<div class="form-group">
+                            <label class="control-label col-md-3">Ijazah</label>
                             <div class="col-md-9">
-                                <input name="status_kegiatan" placeholder="Status Kegiatan" class="form-control" type="text"></input>
+                                <input name="url_dok_ijazah" placeholder=" " class="form-control" type="text"></input>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label class="control-label col-md-3">Time Creation</label>
+                            <div class="col-md-9">
+                                <input name="time_creation" placeholder="" class="form-control" type="text"></input>
                                 <span class="help-block"></span>
                             </div>
                         </div>

@@ -1,50 +1,49 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class peserta extends CI_Controller {
+class calon_peserta extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('peserta_model','peserta');
+		$this->load->model('calon_peserta_model','calon_peserta');
 	}
 
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('peserta/v_peserta');
+		$this->load->view('calon_peserta/calon_peserta_view');
 	}
 
 	public function ajax_list()
 	{
-		$list = $this->peserta->get_datatables();
+		$list = $this->calon_peserta->get_datatables();
 		$data = array();
 		$no = $_POST['start'];
-		foreach ($list as $peserta) {
+		foreach ($list as $calon_peserta) {
 			$no++;
 			$row = array();
-			//$row[] = $peserta->id;
-			//$row[] = $peserta->id_user;
-			$row[] = $peserta->id_diklat;
-			$row[] = $peserta->nama;
-			$row[] = $peserta->umur;
-			$row[] = $peserta->alamat;
-			$row[] = $peserta->email;
-			//$row[] = $peserta->url_dok_ktp;
-			//$row[] = $peserta->url_dok_ijazah; 	
-			//$row[] = $peserta->time_creation; 
+			//$row[] = $calon_peserta->id_user;
+			$row[] = $calon_peserta->id_diklat;
+			$row[] = $calon_peserta->nama;
+			$row[] = $calon_peserta->umur;
+			$row[] = $calon_peserta->alamat;
+			$row[] = $calon_peserta->email;
+			$row[] = $calon_peserta->url_dok_ktp;
+			$row[] = $calon_peserta->url_dok_ijazah;
+			$row[] = $calon_peserta->time_creation;
 
 			//add html for action
-			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_peserta('."'".$peserta->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Lihat Detail</a>';
-				 // <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_peserta('."'".$peserta->id."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_calon_peserta('."'".$calon_peserta->id."'".')"> <i class="glyphicon glyphicon-pencil"></i> Ubah</a>';
+				  // <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_calon_peserta('."'".$calon_peserta->id."'".')"> <!-- <i class="glyphicon glyphicon-trash"> --></i> Hapus</a>';
 		
 			$data[] = $row;
 		}
 
 		$output = array(
 						"draw" => $_POST['draw'],
-						"recordsTotal" => $this->peserta->count_all(),
-						"recordsFiltered" => $this->peserta->count_filtered(),
+						"recordsTotal" => $this->calon_peserta->count_all(),
+						"recordsFiltered" => $this->calon_peserta->count_filtered(),
 						"data" => $data,
 				);
 		//output to json format
@@ -53,14 +52,14 @@ class peserta extends CI_Controller {
 
 	public function ajax_edit($id)
 	{
-		$data = $this->peserta->get_by_id($id);
+		$data = $this->calon_peserta->get_by_id($id);
 		echo json_encode($data);
 	}
 
 	public function ajax_add()
 	{
 		$data = array(
-				'id_user' => $this->input->post('id_user'),
+				//'id_user' => $this->input->post('id_user'),
 				'id_diklat' => $this->input->post('id_diklat'),
 				'nama' => $this->input->post('nama'),
 				'umur' => $this->input->post('umur'),
@@ -70,7 +69,7 @@ class peserta extends CI_Controller {
 				'url_dok_ijazah' => $this->input->post('url_dok_ijazah'),
 				'time_creation' => $this->input->post('time_creation'),
 			);
-		$insert = $this->peserta->save($data);
+		$insert = $this->calon_peserta->save($data);
 		echo json_encode(array("status" => TRUE));
 	}
 
@@ -87,13 +86,13 @@ class peserta extends CI_Controller {
 				'url_dok_ijazah' => $this->input->post('url_dok_ijazah'),
 				'time_creation' => $this->input->post('time_creation'),
 			);
-		$this->peserta->update(array('id' => $this->input->post('id')), $data);
+		$this->calon_peserta->update(array('id' => $this->input->post('id')), $data);
 		echo json_encode(array("status" => TRUE));
 	}
 
 	public function ajax_delete($id)
 	{
-		$this->peserta->delete_by_id($id);
+		$this->calon_peserta->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
 	}
 
