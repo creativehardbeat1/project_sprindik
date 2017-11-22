@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_model extends CI_Model {
+class Pegawai_model extends CI_Model {
 
-	var $table = 'oltp_user';
-	var $column_order = array('username','status','email','no_mobile',null); //set column field database for datatable orderable
-	var $column_search = array('username','status','email','no_mobile'); //set column field database for datatable searchable just firstname , lastname , address are searchable
-	var $order = array('id_user' => 'desc'); // default order 
+	var $table = 'ref_pegawai';
+	var $column_order = array('nip','nama_pegawai',null); //set column field database for datatable orderable
+	var $column_search = array('nip','nama_pegawai'); //set column field database for datatable searchable just firstname , lastname , address are searchable
+	var $order = array('nip' => 'desc'); // default order 
 
 	public function __construct()
 	{
@@ -78,7 +78,17 @@ class User_model extends CI_Model {
 	public function get_by_id($id)
 	{
 		$this->db->from($this->table);
-		$this->db->where('id_user',$id);
+		$this->db->where('id',$id);
+		$query = $this->db->get();
+
+		return $query->row();
+	}
+	
+	public function get_by_nip()
+	{
+		$user_id=$this->session->userdata('id_user');
+		$this->db->from($this->table);
+		$this->db->where('id_user',$user_id);
 		$query = $this->db->get();
 
 		return $query->row();
@@ -98,7 +108,7 @@ class User_model extends CI_Model {
 
 	public function delete_by_id($id)
 	{
-		$this->db->where('id_user', $id);
+		$this->db->where('id', $id);
 		$this->db->delete($this->table);
 	}
 

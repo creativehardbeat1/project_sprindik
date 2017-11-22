@@ -29,7 +29,7 @@ class Web extends CI_Controller {
 	public function pegawai(){		
 		$data['judul'] = "Referensi Pegawai";
 		$this->load->view('template/v_header',$data);
-		$this->load->view('person/v_person',$data);
+		$this->load->view('pegawai/v_pegawai',$data);
 		$this->load->view('template/v_footer',$data);
 	}
 	public function profil(){		
