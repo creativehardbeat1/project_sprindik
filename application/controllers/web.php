@@ -78,7 +78,7 @@ class Web extends CI_Controller {
 	public function peserta_diklat(){		
 		$data['judul'] = "Daftar Peserta Diklat";
 		$this->load->view('template/v_header',$data);
-		$this->load->view('peserta/v_peserta_diklat',$data);
+		$this->load->view('peserta_diklat/v_peserta_diklat',$data);
 		$this->load->view('template/v_footer',$data);
 	}
 	public function laporan_diklat(){		

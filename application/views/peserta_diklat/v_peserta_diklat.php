@@ -1,8 +1,8 @@
 <section>
 	 <div class="container">
-        <h1 style="font-size:20pt">Peserta</h1>
+        <h1 style="font-size:20pt"><?php echo $judul ?></h1>
         <br />
-        <button class="btn btn-success" onclick="add_peserta()"><i class="glyphicon glyphicon-plus"></i> Tambah Peserta</button>
+        <button class="btn btn-success" onclick="add_peserta()"><i class="glyphicon glyphicon-plus"></i> Tambah Peserta Diklat</button>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
         <br />
         <br />
@@ -47,7 +47,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('peserta/ajax_list')?>",
+            "url": "<?php echo site_url('peserta_diklat/ajax_list')?>",
             "type": "POST"
         },
 
@@ -82,7 +82,7 @@ function add_peserta()
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Peserta'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Tambah Peserta Diklat'); // Set Title to Bootstrap modal title
 }
 
 function edit_peserta(id)
@@ -94,7 +94,7 @@ function edit_peserta(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('peserta/ajax_edit/')?>/" + id,
+        url : "<?php echo site_url('peserta_diklat/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
@@ -129,9 +129,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('peserta/ajax_add')?>";
+        url = "<?php echo site_url('peserta_diklat/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('peserta/ajax_update')?>";
+        url = "<?php echo site_url('peserta_diklat/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -170,7 +170,7 @@ function delete_peserta(id)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('peserta/ajax_delete')?>/"+id,
+            url : "<?php echo site_url('peserta_diklat/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -196,7 +196,7 @@ function delete_peserta(id)
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Form Peserta</h3>
+                <h3 class="modal-title">Form Peserta Diklat</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">

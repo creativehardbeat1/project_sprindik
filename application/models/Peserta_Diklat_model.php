@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_model extends CI_Model {
+class Peserta_Diklat_model extends CI_Model {
 
-	var $table = 'peserta';
+	var $table = 'oltp_peserta_diklat';
 	var $column_order = array('id_peserta','id_daftar_diklat','flag_aproval','time_creation','status_peserta','status_kegiatan',null); //set column field database for datatable orderable
 	var $column_search = array('id_peserta','id_daftar_diklat','flag_aproval','time_creation','status_peserta','status_kegiatan'); //set column field database for datatable searchable just firstname , lastname , address are searchable
-	var $order = array('id_daftar_diklat' => 'asc'); // default order 
+	var $order = array('id' => 'asc'); // default order 
 
 	public function __construct()
 	{
@@ -75,10 +75,10 @@ class User_model extends CI_Model {
 		return $this->db->count_all_results();
 	}
 
-	public function get_by_id($id_peserta)
+	public function get_by_id($id)
 	{
 		$this->db->from($this->table);
-		$this->db->where('id_peserta',$id_peserta);
+		$this->db->where('id',$id);
 		$query = $this->db->get();
 
 		return $query->row();
@@ -96,9 +96,9 @@ class User_model extends CI_Model {
 		return $this->db->affected_rows();
 	}
 
-	public function delete_by_id($id_peserta)
+	public function delete_by_id($id)
 	{
-		$this->db->where('id_peserta', $id_peserta);
+		$this->db->where('id', $id);
 		$this->db->delete($this->table);
 	}
 
