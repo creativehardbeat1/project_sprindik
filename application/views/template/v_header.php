@@ -24,6 +24,7 @@
 			<li class="active"><a href="#">Home</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/person">Pegawai</a></li>
+			<li><a href="<?php echo base_url().index_page();?>/web/profil">Profil</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/calon_peserta">Calon Peserta</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/diklat">Diklat</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/permohonan_diklat">Permohonan Diklat</a></li>

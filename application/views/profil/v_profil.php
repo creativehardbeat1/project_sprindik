@@ -1,25 +1,43 @@
 <section>
-
      <div class="container">
-        <h1 style="font-size:20pt"><?php echo $judul ?></h1>
+        <h1 style="font-size:20pt">Profil</h1>
 
+        <!-- <h3>Profil Data</h3> -->
         <br />
-        <button class="btn btn-success" onclick="add_diklat()"><i class="glyphicon glyphicon-plus"></i> Tambah Diklat</button>
+        <button class="btn btn-success" onclick="add_profil()"><i class="glyphicon glyphicon-plus"></i> Tambah Profil</button>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
         <br />
         <br />
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>Nama Diklat</th>
-                    <th>Tanggal Mulai</th>
-                    <th>Tanggal Selesai</th>
-                    <th>Status</th>
+                    <th>Id User</th>
+                    <th>Nama</th>
+                    <th>Umur</th>
+                    <th>Alamat</th>
+                    <th>Email</th>
+                    <th>URL KTP</th>
+                    <th>URL Ijazah</th>
+                    <th>time creation</th>
                     <th style="width:125px;">Action</th>
                 </tr>
             </thead>
             <tbody>
             </tbody>
+
+            <tfoot>
+            <tr>
+                <th>Id User</th>
+                <th>Nama</th>
+                <th>Umur</th>
+                <th>Alamat</th>
+                <th>Email</th>
+                <th>URL KTP</th>
+                <th>URL Ijazah</th>
+                <th>time creation</th>
+                <th>Action</th>
+            </tr>
+            </tfoot>
         </table>
     </div>
 
@@ -46,7 +64,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('diklat/ajax_list')?>",
+            "url": "<?php echo site_url('profil/ajax_list')?>",
             "type": "POST"
         },
 
@@ -74,18 +92,17 @@ $(document).ready(function() {
 
 
 
-function add_diklat()
+function add_profil()
 {
     save_method = 'add';
     $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Pengguna'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Tambah Profil'); // Set Title to Bootstrap modal title
 }
 
-
-function edit_diklat(id_diklat)
+function edit_profil(id)
 {
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
@@ -94,25 +111,28 @@ function edit_diklat(id_diklat)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('diklat/ajax_edit/')?>/" + id_diklat,
+        url : "<?php echo site_url('profil/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
 
-            $('[name="id_diklat"]').val(data.id_diklat);
-            $('[name="keterangan"]').val(data.keterangan);
-            $('[name="tgl_mulai"]').datepicker('update',data.tgl_mulai);
-            $('[name="tgl_selesai"]').datepicker('update',data.tgl_selesai);                        
-            $('[name="status"]').val(data.status);
-            $('[name="catatan"]').val(data.catatan);
+            $('[name="id"]').val(data.id);
+            $('[name="id_user"]').val(data.id_user);
+            $('[name="nama"]').val(data.nama);
+            $('[name="umur"]').val(data.umur);
+            $('[name="alamat"]').val(data.alamat);
+            $('[name="email"]').val(data.email);
+            $('[name="url_dok_ktp"]').val(data.url_dok_ktp);
+            $('[name="url_dok_ijazah"]').val(data.url_dok_ijazah);
+            $('[name="time_creation"]').datepicker('update',data.time_creation);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Ubah Diklat'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Ubah Profil'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-            alert('Gagal Menampilkan Data');
+            alert('Error get data from ajax');
         }
     });
 }
@@ -129,9 +149,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('diklat/ajax_add')?>";
+        url = "<?php echo site_url('profil/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('diklat/ajax_update')?>";
+        url = "<?php echo site_url('profil/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -164,13 +184,13 @@ function save()
     });
 }
 
-function delete_diklat(id_diklat)
+function delete_profil(id)
 {
     if(confirm('Anda yakin menghapus data ini?'))
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('diklat/ajax_delete')?>/"+id_diklat,
+            url : "<?php echo site_url('profil/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -181,7 +201,7 @@ function delete_diklat(id_diklat)
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-                alert('Gagal menghapus data');
+                alert('Error deleting data');
             }
         });
 
@@ -196,46 +216,65 @@ function delete_diklat(id_diklat)
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Diklat Form</h3>
+                <h3 class="modal-title">Form Profil</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="" name="id_diklat"/> 
+                    <input type="hidden" value="" name="id"/> 
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label col-md-3">Nama Diklat</label>
+                            <label class="control-label col-md-3">ID User</label>
                             <div class="col-md-9">
-                                <input name="keterangan" placeholder="Nama Diklat" class="form-control" type="text">
+                                <input name="id_user" placeholder="ID User" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Tanggal Mulai</label>
+                            <label class="control-label col-md-3">Nama</label>
                             <div class="col-md-9">
-                                <input name="tgl_mulai" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
-                            <label class="control-label col-md-3">Tanggal Selesai</label>
-                            <div class="col-md-9">
-                                <input name="tgl_selesai" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
+                                <input name="nama" placeholder="Nama" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
-                        </div>                        
+                        </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Status</label>
+                            <label class="control-label col-md-3">Umur</label>
                             <div class="col-md-9">
-                                <select name="status" class="form-control">
-                                    <option value="">--Pilih Status--</option>
-                                    <option value="Pendaftaran Dibuka">Pendaftaran Dibuka</option>
-                                    <option value="Pendaftaran Ditutup">Pendaftaran Ditutup</option>
-                                    <option value="Sedang Berjalan">Sedang Berjalan</option>
-                                    <option value="Selesai">Selesai</option>
-                                </select>
-                            <label class="control-label col-md-3">Flag Status</label>
+                                <input name="umur" placeholder="Umur" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Address</label>
                             <div class="col-md-9">
-                                <select name="flag_status" class="form-control">
-                                    <option value="">--Pilih Flag Status--</option>
-                                    <option value="1">Aktif</option>
-                                    <option value="2">Non Aktif</option>
-                                </select>
+                                <textarea name="alamat" placeholder="Alamat" class="form-control"></textarea>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Email</label>
+                            <div class="col-md-9">
+                                <input name="email" placeholder="Email" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Upload KTP</label>
+                            <div class="col-md-9">
+                                <input name="url_dok_ktp" placeholder="Upload KTP" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Upload Ijazah</label>
+                            <div class="col-md-9">
+                                <input name="url_dok_ijazah" placeholder="Upload Ijazah" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Time Creation</label>
+                            <div class="col-md-9">
+                                <input name="time_creation" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -243,13 +282,13 @@ function delete_diklat(id_diklat)
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- End Bootstrap modal -->
-	
+    
 </section>
-		
+        

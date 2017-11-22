@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Diklat_model extends CI_Model {
+class Profil_model extends CI_Model {
 
-	var $table = 'ref_diklat';
-	var $column_order = array('keterangan','tgl_mulai','tgl_selesai','status','catatan',null); //set column //field database for datatable orderable
-	var $column_search = array('keterangan','status'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
-	var $order = array('tgl_mulai' => 'desc'); // default order 
+	var $table = 'profil';
+	var $column_order = array('id_user','nama','umur','alamat','email','url_dok_ktp','url_dok_ijazah','time_creation',null); //set column //field database for datatable orderable
+	var $column_search = array('nama','umur','alamat'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
+	var $order = array('id' => 'desc'); // default order 
 
 	public function __construct()
 	{
@@ -78,7 +78,7 @@ class Diklat_model extends CI_Model {
 	public function get_by_id($id)
 	{
 		$this->db->from($this->table);
-		$this->db->where('id_diklat',$id);
+		$this->db->where('id',$id);
 		$query = $this->db->get();
 
 		return $query->row();
@@ -98,7 +98,7 @@ class Diklat_model extends CI_Model {
 
 	public function delete_by_id($id)
 	{
-		$this->db->where('id_diklat', $id);
+		$this->db->where('id', $id);
 		$this->db->delete($this->table);
 	}
 

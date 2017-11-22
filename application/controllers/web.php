@@ -32,6 +32,12 @@ class Web extends CI_Controller {
 		$this->load->view('person/v_person',$data);
 		$this->load->view('template/v_footer',$data);
 	}
+	public function profil(){		
+		$data['judul'] = "Profil User";
+		$this->load->view('template/v_header',$data);
+		$this->load->view('profil/v_profil',$data);
+		$this->load->view('template/v_footer',$data);
+	}
 	public function calon_peserta(){		
 		$data['judul'] = "Daftar Calon Peserta";
 		$this->load->view('template/v_header',$data);
