@@ -14,7 +14,7 @@ public function __construct(){
 
 public function index()
 {
-//$this->load->view("index.php");
+$this->load->view("login_register.php");
 }
 
 public function register_user(){

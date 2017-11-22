@@ -19,6 +19,7 @@
             <tbody>
             </tbody>
         </table>
+		<p style="text-align: center"><a href="<?php echo base_url()?>claporanpdf/cetakpdf">Cetak PDF</a>   </p>
     </div>
 
 <script src="<?php echo assets_url();?>/datatables/jquery/jquery-2.1.4.min.js"></script>

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Profil_model extends CI_Model {
 
-	var $table = 'profil';
+	var $table = 'oltp_profil';
 	var $column_order = array('id_user','nama','umur','alamat','email','url_dok_ktp','url_dok_ijazah','time_creation',null); //set column //field database for datatable orderable
 	var $column_search = array('nama','umur','alamat'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
 	var $order = array('id' => 'desc'); // default order 

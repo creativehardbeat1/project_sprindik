@@ -1,7 +1,7 @@
 Pengguna -> Rifan
 Pegawai ->  Rifan
 Calon Peserta ->  Pak Purwantoro
-Diklat ->  Rifan
+Diklat ->  Mas Barthi
 Permohonan Diklat  -> Mas Barthi
 PersetujuanDokumen  -> Mas Barthi
 Persetujuan Peserta -> Mas Barthi
