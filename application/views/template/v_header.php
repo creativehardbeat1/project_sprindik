@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ajax CRUD with Bootstrap modals and Datatables</title>
+    <title>Aplikasi Sistem Perekaman Diklat</title>
     <link href="<?php echo assets_url();?>/datatables/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo assets_url();?>/datatables/datatables/css/dataTables.bootstrap.css" rel="stylesheet">
     <link href="<?php echo assets_url();?>/datatables/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">

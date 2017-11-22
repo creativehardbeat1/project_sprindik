@@ -1,0 +1,1 @@
+create trigger oltp_user_after_ins_trig after insert on oltp_user for each row begin insert into oltp_profil (id_user, email) values (new.id_user, new.email); end#

@@ -1,7 +1,7 @@
 Pengguna -> Rifan
 Pegawai ->  Rifan
 Calon Peserta ->  Pak Purwantoro
-Diklat ->  Rifan
+Diklat ->  Mas Barthi
 Permohonan Diklat  -> Mas Barthi
 PersetujuanDokumen  -> Mas Barthi
 Persetujuan Peserta -> Mas Barthi
@@ -9,3 +9,16 @@ Peserta  ->  Pak Purwantoro
 Peserta Diklat  ->  Pak Purwantoro
 Laporan Diklat -> Rifan
 Mockup dan Testing -> Mas Wawan
+
+
+status user
+1. Administrator 1
+2. Pegawai 2
+3. Guest 3
+
+
+Authorize Terdaftar sebagai user dan password
+Authentifikasi Terdaftar sebagai user dan password
+Accounting Terdaftar sebagai user dan password
+
+SARG CAPPI

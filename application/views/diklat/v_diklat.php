@@ -1,6 +1,7 @@
 <section>
+
      <div class="container">
-        <h1 style="font-size:20pt">Data Diklat</h1>
+        <h1 style="font-size:20pt"><?php echo $judul ?></h1>
 
         <br />
         <button class="btn btn-success" onclick="add_diklat()"><i class="glyphicon glyphicon-plus"></i> Tambah Diklat</button>
@@ -90,8 +91,9 @@ function add_diklat()
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Diklat'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Tambah Pengguna'); // Set Title to Bootstrap modal title
 }
+
 
 function edit_diklat(id_diklat)
 {
@@ -120,7 +122,7 @@ function edit_diklat(id_diklat)
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-            alert('Error get data from ajax');
+            alert('Gagal Menampilkan Data');
         }
     });
 }
@@ -189,7 +191,7 @@ function delete_diklat(id_diklat)
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-                alert('Error deleting data');
+                alert('Gagal menghapus data');
             }
         });
 
@@ -221,10 +223,6 @@ function delete_diklat(id_diklat)
                             <label class="control-label col-md-3">Tanggal Mulai</label>
                             <div class="col-md-9">
                                 <input name="tgl_mulai" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label class="control-label col-md-3">Tanggal Selesai</label>
                             <div class="col-md-9">
                                 <input name="tgl_selesai" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
@@ -241,16 +239,16 @@ function delete_diklat(id_diklat)
                                     <option value="Sedang Berjalan">Sedang Berjalan</option>
                                     <option value="Selesai">Selesai</option>
                                 </select>
+                            <label class="control-label col-md-3">Flag Status</label>
+                            <div class="col-md-9">
+                                <select name="flag_status" class="form-control">
+                                    <option value="">--Pilih Flag Status--</option>
+                                    <option value="1">Aktif</option>
+                                    <option value="2">Non Aktif</option>
+                                </select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Catatan</label>
-                            <div class="col-md-9">
-                                <textarea rows="4" cols="50" name="catatan" placeholder="Penjelasan Tambahan"></textarea>
-                                <span class="help-block"></span>
-                            </div>
-                        </div>                         
                     </div>
                 </form>
             </div>
@@ -262,6 +260,6 @@ function delete_diklat(id_diklat)
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- End Bootstrap modal -->
-    
+	
 </section>
-        
+		

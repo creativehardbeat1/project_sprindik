@@ -1,6 +1,6 @@
 <section>
      <div class="container">
-        <h1 style="font-size:20pt">Permohonan Pendaftaran Diklat</h1>
+        <h1 style="font-size:20pt"><?php echo $judul ?></h1>
 
         <br />
 <!--         <button class="btn btn-success" onclick="add_diklat()"><i class="glyphicon glyphicon-plus"></i> Tambah Diklat</button> -->
