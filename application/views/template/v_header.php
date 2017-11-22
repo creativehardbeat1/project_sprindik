@@ -23,7 +23,7 @@
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#">Home</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
-			<li><a href="<?php echo base_url().index_page();?>/web/person">Pegawai</a></li>
+			<li><a href="<?php echo base_url().index_page();?>/web/pegawai">Pegawai</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/profil">Profil</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/calon_peserta">Calon Peserta</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/diklat">Diklat</a></li>
@@ -38,4 +38,19 @@
 		</ul>
 	  </div>
 </nav>
+<?php
+$username=$this->session->userdata('user_name');
+$user_id=$this->session->userdata('id_user');
+
+if(!$user_id){
+  redirect(base_url().index_page().'/Welcome');
+}else{
+ echo '<h2 style="font-size:30pt">'.$username.'</h1>';
+ 
+	
+} 
+?>
+
+
+ 
     </head>
