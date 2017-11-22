@@ -25,7 +25,7 @@
             <tbody>
             </tbody>
 
-            <tfoot>
+<!--             <tfoot>
             <tr>
                 <th>Id User</th>
                 <th>Nama</th>
@@ -37,7 +37,7 @@
                 <th>time creation</th>
                 <th>Action</th>
             </tr>
-            </tfoot>
+            </tfoot> -->
         </table>
     </div>
 

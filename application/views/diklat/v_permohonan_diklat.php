@@ -4,8 +4,8 @@
 
         <br />
 <!--         <button class="btn btn-success" onclick="add_diklat()"><i class="glyphicon glyphicon-plus"></i> Tambah Diklat</button> -->
-        <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
-        <br />
+<!--         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+        <br /> -->
         <br />
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
@@ -20,7 +20,7 @@
             <tbody>
             </tbody>
 
-            <tfoot>
+<!--             <tfoot>
             <tr>
                 <th>Nama Diklat</th>
                 <th>Tanggal Mulai</th>
@@ -28,7 +28,7 @@
                 <th>Status</th>
                 <th>Action</th>
             </tr>
-            </tfoot>
+            </tfoot> -->
         </table>
     </div>
 

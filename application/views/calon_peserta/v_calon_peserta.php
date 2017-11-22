@@ -1,34 +1,23 @@
 <section>
      <div class="container">
-        <h1 style="font-size:20pt">Data Diklat</h1>
+        <h1 style="font-size:20pt">Data Calon Peserta</h1>
 
         <br />
-        <button class="btn btn-success" onclick="add_diklat()"><i class="glyphicon glyphicon-plus"></i> Tambah Diklat</button>
+<!--         <button class="btn btn-success" onclick="add_calon()"><i class="glyphicon glyphicon-plus"></i> Tambah Calon</button>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
-        <br />
+        <br /> -->
         <br />
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>Nama Diklat</th>
-                    <th>Tanggal Mulai</th>
-                    <th>Tanggal Selesai</th>
+                    <th>ID User</th>
+                    <th>ID Diklat</th>
                     <th>Status</th>
-                    <th style="width:125px;">Action</th>
+<!--                    <th style="width:125px;">Action</th> -->
                 </tr>
             </thead>
             <tbody>
             </tbody>
-
-<!--             <tfoot>
-            <tr>
-                <th>Nama Diklat</th>
-                <th>Tanggal Mulai</th>
-                <th>Tanggal Selesai</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-            </tfoot> -->
         </table>
     </div>
 
@@ -55,7 +44,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('diklat/ajax_list')?>",
+            "url": "<?php echo site_url('calon/ajax_list')?>",
             "type": "POST"
         },
 
@@ -83,17 +72,17 @@ $(document).ready(function() {
 
 
 
-function add_diklat()
+function add_calon()
 {
     save_method = 'add';
     $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Diklat'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Tambah Calon'); // Set Title to Bootstrap modal title
 }
 
-function edit_diklat(id_diklat)
+function edit_calon(id)
 {
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
@@ -102,20 +91,18 @@ function edit_diklat(id_diklat)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('diklat/ajax_edit/')?>/" + id_diklat,
+        url : "<?php echo site_url('calon/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
 
-            $('[name="id_diklat"]').val(data.id_diklat);
-            $('[name="keterangan"]').val(data.keterangan);
-            $('[name="tgl_mulai"]').datepicker('update',data.tgl_mulai);
-            $('[name="tgl_selesai"]').datepicker('update',data.tgl_selesai);                        
+            $('[name="id"]').val(data.id);
+            $('[name="id_user"]').val(data.id_user);
+            $('[name="id_diklat"]').val(data.id_diklat);                      
             $('[name="status"]').val(data.status);
-            $('[name="catatan"]').val(data.catatan);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Ubah Diklat'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Ubah Calon'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
@@ -137,9 +124,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('diklat/ajax_add')?>";
+        url = "<?php echo site_url('calon/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('diklat/ajax_update')?>";
+        url = "<?php echo site_url('calon/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -172,13 +159,13 @@ function save()
     });
 }
 
-function delete_diklat(id_diklat)
+function delete_calon(id)
 {
     if(confirm('Anda yakin menghapus data ini?'))
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('diklat/ajax_delete')?>/"+id_diklat,
+            url : "<?php echo site_url('calon/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -204,59 +191,45 @@ function delete_diklat(id_diklat)
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Diklat Form</h3>
+                <h3 class="modal-title">Form Calon Peserta</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="" name="id_diklat"/> 
+                    <input type="hidden" value="" name="id"/> 
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label col-md-3">Nama Diklat</label>
+                            <label class="control-label col-md-3">ID User</label>
                             <div class="col-md-9">
-                                <input name="keterangan" placeholder="Nama Diklat" class="form-control" type="text">
+                                <input name="id_user" placeholder="ID User" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Tanggal Mulai</label>
+                            <label class="control-label col-md-3">ID Diklat</label>
                             <div class="col-md-9">
-                                <input name="tgl_mulai" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
+                                <input name="id_diklat" placeholder="ID Diklat" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Tanggal Selesai</label>
-                            <div class="col-md-9">
-                                <input name="tgl_selesai" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
-                                <span class="help-block"></span>
-                            </div>
-                        </div>                        
+                        </div>                     
                         <div class="form-group">
                             <label class="control-label col-md-3">Status</label>
                             <div class="col-md-9">
                                 <select name="status" class="form-control">
                                     <option value="">--Pilih Status--</option>
-                                    <option value="Pendaftaran Dibuka">Pendaftaran Dibuka</option>
-                                    <option value="Pendaftaran Ditutup">Pendaftaran Ditutup</option>
-                                    <option value="Sedang Berjalan">Sedang Berjalan</option>
-                                    <option value="Selesai">Selesai</option>
+                                    <option value="0">Calon Baru</option>
+                                    <option value="1">Persetujuan 1</option>
+                                    <option value="2">Persetujuan 2</option>
+                                    <option value="3">Disetujui</option>
                                 </select>
                                 <span class="help-block"></span>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Catatan</label>
-                            <div class="col-md-9">
-                                <textarea rows="4" cols="50" name="catatan" placeholder="Penjelasan Tambahan"></textarea>
-                                <span class="help-block"></span>
-                            </div>
-                        </div>                         
+                        </div>                       
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
