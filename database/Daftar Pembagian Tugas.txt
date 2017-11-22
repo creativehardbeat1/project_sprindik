@@ -1,20 +1,30 @@
-Pengguna -> Rifan
-Pegawai ->  Rifan
-Calon Peserta ->  Pak Purwantoro
-Diklat ->  Mas Barthi
-Permohonan Diklat  -> Mas Barthi
-PersetujuanDokumen  -> Mas Barthi
-Persetujuan Peserta -> Mas Barthi
-Peserta  ->  Pak Purwantoro
-Peserta Diklat  ->  Pak Purwantoro
-Laporan Diklat -> Rifan
 Mockup dan Testing -> Mas Wawan
 
 
 status user
 1. Administrator 1
+Pegawai ->  Rifan ok
+Pengguna -> Rifan ok
+Diklat ->  Mas Barthi ok
+Status
+
 2. Pegawai 2
+PersetujuanDokumen  -> Mas Barthi
+Persetujuan Peserta -> Mas Barthi
+Pegawai ->  Rifan ok
+Laporan Diklat -> Rifan
+Peserta Diklat  ->  Pak Purwantoro
+Peserta  ->  Pak Purwantoro
+Diklat ->  Mas Barthi ok
+Pengguna -> Rifan ok
+
+
 3. Guest 3
+Calon Peserta ->  Pak Purwantoro
+Permohonan Diklat  -> Mas Barthi
+Peserta  ->  Pak Purwantoro
+Profile  -> Mas Barthi
+Pengguna -> Rifan ok
 
 
 Authorize Terdaftar sebagai user dan password
