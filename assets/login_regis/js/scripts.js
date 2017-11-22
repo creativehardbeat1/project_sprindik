@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
     /*
         Fullscreen background
     */
-    $.backstretch("./1.jpg");
+    $.backstretch("http://localhost:83/project_sprindik/assets/login_regis/img/backgrounds/1.jpg");
     
     /*
         Login form validation

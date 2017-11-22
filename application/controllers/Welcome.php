@@ -65,7 +65,7 @@ class Welcome extends CI_Controller {
 		
 		  if($data){
 			
-			$this->session->set_userdata('user_id',$data->user_id);
+			$this->session->set_userdata('id_user',$data->id_user);
 			$this->session->set_userdata('user_email',$data->email);
 			$this->session->set_userdata('user_name',$data->username);
 			$this->session->set_userdata('user_mobile',$data->no_mobile);

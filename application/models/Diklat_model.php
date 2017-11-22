@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_model extends CI_Model {
+class Diklat_model extends CI_Model {
 
 	var $table = 'oltp_user';
 	var $column_order = array('username','status','email','no_mobile',null); //set column field database for datatable orderable
