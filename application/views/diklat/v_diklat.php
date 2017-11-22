@@ -2,7 +2,7 @@
 
      <div class="container">
         <h1 style="font-size:20pt"><?php echo $judul ?></h1>
-
+<?php echo $id_user; ?>
         <br />
         <button class="btn btn-success" onclick="add_diklat()"><i class="glyphicon glyphicon-plus"></i> Tambah Diklat</button>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
@@ -116,6 +116,7 @@ function edit_diklat(id_diklat)
             $('[name="tgl_selesai"]').datepicker('update',data.tgl_selesai);                        
             $('[name="status"]').val(data.status);
             $('[name="catatan"]').val(data.catatan);
+            $('[name="flag_status"]').val(data.flag_status);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Ubah Diklat'); // Set title to Bootstrap modal title
 
@@ -223,6 +224,10 @@ function delete_diklat(id_diklat)
                             <label class="control-label col-md-3">Tanggal Mulai</label>
                             <div class="col-md-9">
                                 <input name="tgl_mulai" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">                                
                             <label class="control-label col-md-3">Tanggal Selesai</label>
                             <div class="col-md-9">
                                 <input name="tgl_selesai" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
@@ -239,6 +244,17 @@ function delete_diklat(id_diklat)
                                     <option value="Sedang Berjalan">Sedang Berjalan</option>
                                     <option value="Selesai">Selesai</option>
                                 </select>
+                            </div>   
+                        </div>
+                        <div class="form-group">                                
+                            <label class="control-label col-md-3">Tanggal Selesai</label>
+                            <div class="col-md-9">
+                                <!-- <input name="catatan" placeholder="catatan tambahan...." class="form-control" type="text"> -->
+                                <textarea rows="4" cols="50" name="catatan" placeholder="catatan tambahan...."></textarea>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>                        
+                        <div class="form-group">    
                             <label class="control-label col-md-3">Flag Status</label>
                             <div class="col-md-9">
                                 <select name="flag_status" class="form-control">
@@ -248,7 +264,7 @@ function delete_diklat(id_diklat)
                                 </select>
                                 <span class="help-block"></span>
                             </div>
-                        </div>
+                         </div>
                     </div>
                 </form>
             </div>

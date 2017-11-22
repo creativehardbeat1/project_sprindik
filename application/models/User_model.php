@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User_model extends CI_Model {
 
 	var $table = 'oltp_user';
-	var $column_order = array('username','status','email','no_mobile',null); //set column field database for datatable orderable
-	var $column_search = array('username','status','email','no_mobile'); //set column field database for datatable searchable just firstname , lastname , address are searchable
+	var $column_order = array('username','email','no_mobile','status',null); //set column field database for datatable orderable
+	var $column_search = array('username','email','no_mobile','status'); //set column field database for datatable searchable just firstname , lastname , address are searchable
 	var $order = array('id_user' => 'desc'); // default order 
 
 	public function __construct()

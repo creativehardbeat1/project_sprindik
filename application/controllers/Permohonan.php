@@ -53,13 +53,15 @@ class Permohonan extends CI_Controller {
 
 	public function ajax_add()
 	{
+		// var $x = '0';
 		$data = array(
-				'keterangan' => $this->input->post('keterangan'),
-				'tgl_mulai' => $this->input->post('tgl_mulai'),
-				'tgl_selesai' => $this->input->post('tgl_selesai'),
-				'status' => $this->input->post('status'),
+				'id_diklat' => $this->input->post('id_diklat'),
+				// 'keterangan' => $this->input->post('keterangan'),
+				// 'tgl_mulai' => $this->input->post('tgl_mulai'),
+				// 'tgl_selesai' => $this->input->post('tgl_selesai'),
+				'status' => '0'
 			);
-		$insert = $this->diklat->save($data);
+		$insert = $this->calon->save($data);
 		echo json_encode(array("status" => TRUE));
 	}
 

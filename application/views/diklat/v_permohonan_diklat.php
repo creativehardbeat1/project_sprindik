@@ -139,7 +139,7 @@ function save()
     if(save_method == 'add') {
         url = "<?php echo site_url('permohonan/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('permohonan/ajax_update')?>";
+        url = "<?php echo site_url('permohonan/ajax_add')?>";
     }
 
     // ajax adding data to database
@@ -210,6 +210,13 @@ function save()
                 <form action="#" id="form" class="form-horizontal">
                     <input type="hidden" value="" name="id_diklat"/> 
                     <div class="form-body">
+                        <div class="form-group" disable>
+                            <label class="control-label col-md-3">ID Diklat</label>
+                            <div class="col-md-9">
+                                <input name="id_diklat" placeholder="ID Diklat" class="form-control" type="text" disabled>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
                         <div class="form-group" disable>
                             <label class="control-label col-md-3">Nama Diklat</label>
                             <div class="col-md-9">

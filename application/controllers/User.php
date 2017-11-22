@@ -6,7 +6,7 @@ class User extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('User_model','user');
+		$this->load->model('user_model','user');
 	}
 
 	public function index()
@@ -24,10 +24,10 @@ class User extends CI_Controller {
 			$no++;
 			$row = array();
 			$row[] = $user->username;
-			$row[] = $user->status;
 			$row[] = $user->email;
 			$row[] = $user->no_mobile;
-
+			$row[] = $user->status;
+			
 			//add html for action
 			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
 				  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
