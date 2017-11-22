@@ -139,6 +139,12 @@
 				                        	<label class="sr-only" for="form-last-name">Nomor Handphone</label>
 				                        	<input type="text" name="user_mobile" placeholder="Nomor Handphone..." class="form-last-name form-control" id="form-last-name">
 				                        </div>
+										<div class="form-group">
+				                        	<input type="hidden" name="status" value="3">
+				                        </div>
+										<div class="form-group">
+				                        	<input type="hidden" name="flag" value="1">
+				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-email">Email</label>
 				                        	<input type="text" name="user_email" placeholder="Email..." class="form-email form-control" id="form-email">

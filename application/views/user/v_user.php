@@ -219,9 +219,9 @@ function delete_user(id)
                             <div class="col-md-9">
                                 <select name="status" class="form-control">
                                     <option value="">--Pilih Status--</option>
-                                    <option value="Guest">Guest</option>
-                                    <option value="Administrator">Administrator</option>
-									 <option value="Operator">Operator</option>
+                                    <option value="1">Administrator</option>
+									 <option value="2">Pegawai</option>
+                                    <option value="3">Umum</option>
                                 </select>
                                 <span class="help-block"></span>
                             </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2017 at 02:29 PM
+-- Generation Time: Nov 22, 2017 at 07:29 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `dbsprindik`
 --
+CREATE DATABASE IF NOT EXISTS `dbsprindik` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `dbsprindik`;
 
 -- --------------------------------------------------------
 
@@ -36,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `oltp_calon_peserta` (
   `email` varchar(50) DEFAULT NULL,
   `url_dok_ktp` varchar(255) DEFAULT NULL,
   `url_dok_ijazah` varchar(255) DEFAULT NULL,
-  `time_creation` date DEFAULT NULL,
+  `time_creation` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `id_daftar_diklat` (`id_diklat`,`id_user`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
@@ -88,18 +90,17 @@ CREATE TABLE IF NOT EXISTS `oltp_peserta` (
   `email` varchar(50) DEFAULT NULL,
   `url_dok_ktp` varchar(255) DEFAULT NULL,
   `url_dok_ijazah` varchar(255) DEFAULT NULL,
-  `time_creation` date DEFAULT NULL,
+  `time_creation` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `id_daftar_diklat` (`id_diklat`,`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `oltp_peserta`
 --
 
 INSERT INTO `oltp_peserta` (`id`, `id_user`, `id_diklat`, `nama`, `umur`, `alamat`, `email`, `url_dok_ktp`, `url_dok_ijazah`, `time_creation`) VALUES
-(1, '18', NULL, NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, NULL),
-(2, '19', NULL, NULL, NULL, NULL, 'tes2@gmail.com', NULL, NULL, NULL);
+(3, '25', '001', 'Pak Purwontoro', 32, 'Jalan Kebumen', NULL, NULL, NULL, '2017-11-22 22:57:03');
 
 -- --------------------------------------------------------
 
@@ -113,6 +114,7 @@ CREATE TABLE IF NOT EXISTS `oltp_peserta_diklat` (
   `time_creation` datetime DEFAULT CURRENT_TIMESTAMP,
   `id_daftar_diklat` varchar(50) DEFAULT NULL,
   `id_peserta` varchar(50) DEFAULT NULL,
+  `id_diklat` varchar(50) DEFAULT NULL,
   `status_peserta` varchar(50) DEFAULT NULL,
   `status_kegiatan` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -122,9 +124,8 @@ CREATE TABLE IF NOT EXISTS `oltp_peserta_diklat` (
 -- Dumping data for table `oltp_peserta_diklat`
 --
 
-INSERT INTO `oltp_peserta_diklat` (`id`, `flag_approval`, `time_creation`, `id_daftar_diklat`, `id_peserta`, `status_peserta`, `status_kegiatan`) VALUES
-(18, NULL, '2017-11-22 13:18:06', NULL, NULL, NULL, NULL),
-(19, NULL, '2017-11-22 13:31:29', NULL, NULL, NULL, NULL);
+INSERT INTO `oltp_peserta_diklat` (`id`, `flag_approval`, `time_creation`, `id_daftar_diklat`, `id_peserta`, `id_diklat`, `status_peserta`, `status_kegiatan`) VALUES
+(19, NULL, '2017-11-22 13:31:29', NULL, '3', '001', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -141,17 +142,16 @@ CREATE TABLE IF NOT EXISTS `oltp_profil` (
   `email` varchar(50) DEFAULT NULL,
   `url_dok_ktp` varchar(255) DEFAULT NULL,
   `url_dok_ijazah` varchar(255) DEFAULT NULL,
-  `time_creation` date DEFAULT NULL,
+  `time_creation` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `oltp_profil`
 --
 
 INSERT INTO `oltp_profil` (`id`, `id_user`, `nama`, `umur`, `alamat`, `email`, `url_dok_ktp`, `url_dok_ijazah`, `time_creation`) VALUES
-(3, '18', NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, NULL),
-(4, '19', NULL, NULL, NULL, 'tes2@gmail.com', NULL, NULL, NULL);
+(10, '25', NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, '2017-11-22 14:35:47');
 
 -- --------------------------------------------------------
 
@@ -169,15 +169,14 @@ CREATE TABLE IF NOT EXISTS `oltp_user` (
   `time_creation` datetime DEFAULT CURRENT_TIMESTAMP,
   `flag_status` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `oltp_user`
 --
 
 INSERT INTO `oltp_user` (`id_user`, `username`, `password`, `status`, `email`, `no_mobile`, `time_creation`, `flag_status`) VALUES
-(18, 'tes1', 'c4ca4238a0b923820dcc509a6f75849b', NULL, 'tes1@gmail.com', '1', '2017-11-22 13:18:06', NULL),
-(19, 'tes2', 'c4ca4238a0b923820dcc509a6f75849b', NULL, 'tes2@gmail.com', '1', '2017-11-22 13:31:29', NULL);
+(25, 'tes1', 'c4ca4238a0b923820dcc509a6f75849b', '3', 'tes1@gmail.com', '1', '2017-11-22 21:35:47', '1');
 
 --
 -- Triggers `oltp_user`
@@ -264,11 +263,8 @@ CREATE TABLE IF NOT EXISTS `ref_diklat` (
 --
 
 INSERT INTO `ref_diklat` (`id`, `id_diklat`, `keterangan`, `tgl_mulai`, `tgl_selesai`, `status`, `catatan`) VALUES
-(1, NULL, 'Diklat ilmu bumi', '2017-11-01', '2017-11-30', 'Sedang Berjalan', NULL),
-(2, NULL, 'Diklat ilmu Tanah', '2017-11-23', '2017-11-29', 'Pendaftaran Dibuka', 'Persyaratan:\r\n- Minimal Ijazah SMA/D1\r\n- Umur 35 tahun\r\n- Belum Pernah mengikuti diklat yang sama sebelumnya\r\n- Surat Keterangan sehat dari dokter pemerintah'),
-(3, NULL, 'Diklat YYY', '2017-11-22', '2017-11-24', 'Pendaftaran Dibuka', NULL),
-(4, NULL, 'Diklat ilmu Tanah 1', '2017-11-22', '2017-11-23', 'Pendaftaran Ditutup', NULL),
-(5, NULL, 'Diklat ABC', '2017-11-22', '2017-11-23', 'Sedang Berjalan', 'nice');
+(1, '001', 'Diklat ilmu bumi', '2017-11-01', '2017-11-30', 'Sedang Berjalan', 'Persyaratan:'),
+(2, '002', 'Diklat ilmu Tanah', '2017-11-23', '2017-11-29', 'Pendaftaran Dibuka', 'Persyaratan:\r\n- Minimal Ijazah SMA/D1\r\n- Umur 35 tahun\r\n- Belum Pernah mengikuti diklat yang sama sebelumnya\r\n- Surat Keterangan sehat dari dokter pemerintah');
 
 -- --------------------------------------------------------
 
@@ -342,6 +338,27 @@ INSERT INTO `ref_status` (`id`, `id_status`, `keterangan`, `status`, `catatan`) 
 (3, NULL, 'Diklat YYY', 'Pendaftaran Dibuka', NULL),
 (4, NULL, 'Diklat ilmu Tanah 1', 'Pendaftaran Ditutup', NULL),
 (5, NULL, 'Diklat ABC', 'Sedang Berjalan', 'nice');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `view_laporan_diklat`
+--
+CREATE TABLE IF NOT EXISTS `view_laporan_diklat` (
+`id` varchar(50)
+,`nama` varchar(100)
+,`keterangan` varchar(255)
+,`tgl_mulai` date
+,`tgl_selesai` date
+);
+-- --------------------------------------------------------
+
+--
+-- Structure for view `view_laporan_diklat`
+--
+DROP TABLE IF EXISTS `view_laporan_diklat`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_laporan_diklat` AS select `a`.`id_peserta` AS `id`,`b`.`nama` AS `nama`,`c`.`keterangan` AS `keterangan`,`c`.`tgl_mulai` AS `tgl_mulai`,`c`.`tgl_selesai` AS `tgl_selesai` from ((`oltp_peserta_diklat` `a` left join `oltp_peserta` `b` on((`a`.`id_peserta` = `b`.`id`))) left join `ref_diklat` `c` on((`a`.`id_diklat` = `c`.`id_diklat`)));
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

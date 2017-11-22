@@ -75,7 +75,7 @@ class User extends CI_Controller {
 				'no_mobile' => $this->input->post('no_mobile'),
 				'flag_status' => $this->input->post('flag_status'),
 			);
-		$this->user->update(array('user_id' => $this->input->post('id')), $data);
+		$this->user->update(array('id_user' => $this->input->post('id')), $data);
 		echo json_encode(array("status" => TRUE));
 	}
 
