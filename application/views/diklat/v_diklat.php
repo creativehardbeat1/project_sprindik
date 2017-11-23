@@ -2,7 +2,6 @@
 
      <div class="container">
         <h1 style="font-size:20pt"><?php echo $judul ?></h1>
-<?php echo $id_user; ?>
         <br />
         <button class="btn btn-success" onclick="add_diklat()"><i class="glyphicon glyphicon-plus"></i> Tambah Diklat</button>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
@@ -247,7 +246,7 @@ function delete_diklat(id_diklat)
                             </div>   
                         </div>
                         <div class="form-group">                                
-                            <label class="control-label col-md-3">Tanggal Selesai</label>
+                            <label class="control-label col-md-3">Catatan</label>
                             <div class="col-md-9">
                                 <!-- <input name="catatan" placeholder="catatan tambahan...." class="form-control" type="text"> -->
                                 <textarea rows="4" cols="50" name="catatan" placeholder="catatan tambahan...."></textarea>

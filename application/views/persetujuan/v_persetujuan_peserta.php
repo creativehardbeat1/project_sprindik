@@ -1,6 +1,6 @@
 <section>
      <div class="container">
-        <h1 style="font-size:20pt">Data Calon Peserta</h1>
+        <h1 style="font-size:20pt">Persetujuan Peserta</h1>
 
         <br />
 <!--         <button class="btn btn-success" onclick="add_calon()"><i class="glyphicon glyphicon-plus"></i> Tambah Calon</button>
@@ -10,12 +10,19 @@
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
+                    <th>Nama</th>
+                    <th>Umur</th>
+                    <th>Alamat</th>
+                    <th>Email</th>
+                    <th>KTP</th>
+                    <th>Ijazah</th>
+                    <th>Nomor HP</th>
                     <th>Nama Diklat</th>
                     <th>Tgl Mulai</th>
                     <th>Tgl Selesai</th>
                     <th>Status Diklat</th>
                     <th>Status Permohonan</th>
-<!--                    <th style="width:125px;">Action</th> -->
+                  <!-- <th style="width:125px;">Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -46,7 +53,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('calon/ajax_list')?>",
+            "url": "<?php echo site_url('persetujuan_peserta/ajax_list')?>",
             "type": "POST"
         },
 

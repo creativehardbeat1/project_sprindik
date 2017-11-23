@@ -1,29 +1,36 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Calon extends CI_Controller {
+class Persetujuan_peserta extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('calon_model','calon');
+		// $this->load->model('calon_model','calon');
 		$this->load->model('user_diklat_model','udiklat');
 	}
 
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('calon_peserta/calon_view');
+		$this->load->view('persetujuan/persetujuan_peserta_view');
 	}
 
 	public function ajax_list()
 	{
-		$list = $this->udiklat->get_datatables();
+		$list = $this->udiklat->get_datatables_persetujuan_b();
 		$data = array();
 		$no = $_POST['start'];
 		foreach ($list as $udiklat) {
 			$no++;
 			$row = array();
+			$row[] = $udiklat->nama;
+			$row[] = $udiklat->umur;
+			$row[] = $udiklat->alamat;
+			$row[] = $udiklat->email;
+			$row[] = $udiklat->url_dok_ktp;
+			$row[] = $udiklat->url_dok_ijazah;
+			$row[] = $udiklat->no_mobile;
 			$row[] = $udiklat->keterangan;
 			$row[] = $udiklat->tgl_mulai;
 			$row[] = $udiklat->tgl_selesai;

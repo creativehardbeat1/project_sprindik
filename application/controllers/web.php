@@ -52,7 +52,7 @@ class Web extends CI_Controller {
 	}
 	
 	public function permohonan_diklat(){		
-		$data['judul'] = "Daftar Permohonan Diklat";
+		$data['judul'] = "Pendaftaran Permohonan Diklat";
 		$this->load->view('template/v_header',$data);
 		$this->load->view('diklat/v_permohonan_diklat',$data);
 		$this->load->view('template/v_footer',$data);

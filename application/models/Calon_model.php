@@ -16,8 +16,9 @@ class Calon_model extends CI_Model {
 
 	private function _get_datatables_query()
 	{
-		
+		$user_id=$this->session->userdata('id_user');
 		$this->db->from($this->table);
+		$this->db->where('id_user',$user_id);
 
 		$i = 0;
 	

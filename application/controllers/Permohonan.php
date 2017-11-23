@@ -53,8 +53,9 @@ class Permohonan extends CI_Controller {
 
 	public function ajax_add()
 	{
-		// var $x = '0';
+		$user_id=$this->session->userdata('id_user');
 		$data = array(
+				'id_user' => $user_id,
 				'id_diklat' => $this->input->post('id_diklat'),
 				// 'keterangan' => $this->input->post('keterangan'),
 				// 'tgl_mulai' => $this->input->post('tgl_mulai'),

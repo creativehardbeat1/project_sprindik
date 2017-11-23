@@ -28,8 +28,8 @@
 			<li><a href="<?php echo base_url().index_page();?>/web/calon_peserta">Calon Peserta</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/diklat">Diklat</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/permohonan_diklat">Permohonan Diklat</a></li>
-			<li><a href="<?php echo base_url().index_page();?>/web/setuju_dokumen">Persetujuan Dokumen</a></li>
-			<li><a href="<?php echo base_url().index_page();?>/web/setuju_peserta">Persetujuan Peserta</a></li>
+			<li><a href="<?php echo base_url().index_page();?>/web/persetujuan_dokumen">Persetujuan Dokumen</a></li>
+			<li><a href="<?php echo base_url().index_page();?>/web/persetujuan_peserta">Persetujuan Peserta</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/peserta">Peserta</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/peserta_diklat">Peserta Diklat</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/laporan_diklat">Laporan Diklat</a></li>
@@ -38,18 +38,18 @@
 		</ul>
 	  </div>
 </nav>
-<?php
+<!-- <?php
 $username=$this->session->userdata('user_name');
 $user_id=$this->session->userdata('id_user');
 
 if(!$user_id){
   redirect(base_url().index_page().'/Welcome');
 }else{
- echo '<h2 style="font-size:30pt">'.$username.'</h1>';
+ echo '<h2 style="font-size:30pt">'.$user_id.'</h1>';
  
 	
 } 
-?>
+?> -->
 
 
  
