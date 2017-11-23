@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Calon_peserta_model extends CI_Model {
 
 	var $table = 'oltp_calon_peserta';
-	var $column_order = array('id_user','id_diklat','nama','umur','alamat','email','url_dok_ktp','url_dok_ijazah','time_creation',null); //set column //field database for datatable orderable
-	var $column_search = array('nama','id_diklat','umur','alamat'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
+	var $column_order = array('id_diklat','status',null); //set column //field database for datatable orderable
+	var $column_search = array('id_diklat','status'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
 	var $order = array('id' => 'desc'); // default order 
 
 	public function __construct()
@@ -60,6 +60,15 @@ class Calon_peserta_model extends CI_Model {
 		$this->db->limit($_POST['length'], $_POST['start']);
 		$query = $this->db->get();
 		return $query->result();
+	}
+	function get_datatables_id_user()
+	{
+		$user_id=$this->session->userdata('id_user');
+		$this->db->from($this->table);
+		$this->db->where('id_user',$user_id);
+		$query = $this->db->get();
+		return $query->result();
+			
 	}
 
 	function count_filtered()

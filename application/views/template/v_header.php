@@ -1,3 +1,19 @@
+<?php
+
+$user_id=$this->session->userdata('id_user');
+
+if(!$user_id){
+	redirect(base_url().index_page().'/Welcome');
+}else{
+	$username=$this->session->userdata('user_name');
+	echo '<h2 style="font-size:20pt">Username :'.$username.'</h1>';
+	$status=$this->session->userdata('user_status');
+	echo '<h2 style="font-size:20pt">Level User :'.$status.'</h1>';
+	$user_id=$this->session->userdata('id_user');
+	echo '<h2 style="font-size:20pt">User Id :'.$user_id.'</h1>';
+
+} 
+?>
 <!DOCTYPE html>
 <html>
     <head> 
@@ -21,8 +37,44 @@
 		  <a class="navbar-brand" href="#">Aplikasi Sistem Perekaman Diklat</a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
+			<li class="active"><a href="<?php echo base_url().index_page();?>/web">Home</a></li>
+		<?php
+		if($status=="1"){ //level admin
+		?>
+		<li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/web/pegawai">Pegawai</a></li>
+		<?php
+		}elseif($status=="2"){ //level pegawai sesuai id_usernya
+		?>
+		<li><a href="<?php echo base_url().index_page();?>/web/diklat">Diklat</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/web/pegawai">Pegawai</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/web/peserta">Peserta</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/web/setuju_dokumen">Persetujuan Dokumen</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/web/setuju_peserta">Persetujuan Peserta</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/web/peserta_diklat">Peserta Diklat</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/web/laporan_diklat">Laporan Diklat</a></li>
+
+		<?php	
+		}elseif($status=="3"){ //level umum sesuai id_usernya
+		?>
 			<li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
+			<li><a href="<?php echo base_url().index_page();?>/web/profil">Profil</a></li>
+			<li><a href="<?php echo base_url().index_page();?>/web/diklat">Diklat</a></li>
+			<li><a href="<?php echo base_url().index_page();?>/web/permohonan_diklat">Permohonan Diklat</a></li>
+			<li><a href="<?php echo base_url().index_page();?>/web/calon_peserta">Calon Peserta</a></li>
+			<li><a href="<?php echo base_url().index_page();?>/web/peserta">Peserta</a></li>
+			<li><a href="<?php echo base_url().index_page();?>/web/peserta_diklat">Peserta Diklat
+
+		<?php	
+		}else{
+		?>
+
+		<?php
+		};
+		?>
+		<li><a href="<?php echo base_url().index_page();?>/web/about">About</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Welcome/user_logout">Logout</a></li>
+			<!-- <li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/pegawai">Pegawai</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/profil">Profil</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/calon_peserta">Calon Peserta</a></li>
@@ -33,23 +85,11 @@
 			<li><a href="<?php echo base_url().index_page();?>/web/peserta">Peserta</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/peserta_diklat">Peserta Diklat</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/laporan_diklat">Laporan Diklat</a></li>
-			<li><a href="<?php echo base_url().index_page();?>/Welcome/user_logout">Logout</a></li>
+			<li><a href="<?php echo base_url().index_page();?>/Welcome/user_logout">Logout</a></li> -->
 
 		</ul>
 	  </div>
 </nav>
-<!-- <?php
-$username=$this->session->userdata('user_name');
-$user_id=$this->session->userdata('id_user');
-
-if(!$user_id){
-  redirect(base_url().index_page().'/Welcome');
-}else{
- echo '<h2 style="font-size:30pt">'.$user_id.'</h1>';
- 
-	
-} 
-?> -->
 
 
  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">

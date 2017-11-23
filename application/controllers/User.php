@@ -15,11 +15,19 @@ class User extends CI_Controller {
 		$this->load->view('user/v_user');
 	}
 
+			
 	public function ajax_list()
 	{
-		$list = $this->user->get_datatables();
+		$status=$this->session->userdata('user_status');
+		$user_id=$this->session->userdata('id_user');
+		if($status=="3"){
+			$list = $this->user->get_datatables_id_user();			
+			$no = 0;
+		}else{
+			$list = $this->user->get_datatables();	
+			$no = $_POST['start'];
+		}
 		$data = array();
-		$no = $_POST['start'];
 		foreach ($list as $user) {
 			$no++;
 			$row = array();
@@ -30,19 +38,20 @@ class User extends CI_Controller {
 
 			//add html for action
 			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
-				  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
+		  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
 		
 			$data[] = $row;
 		}
 
-		$output = array(
-						"draw" => $_POST['draw'],
-						"recordsTotal" => $this->user->count_all(),
-						"recordsFiltered" => $this->user->count_filtered(),
-						"data" => $data,
-				);
-		//output to json format
-		echo json_encode($output);
+			$output = array(
+			"draw" => $_POST['draw'],
+			"recordsTotal" => $this->user->count_all(),
+			"recordsFiltered" => $this->user->count_filtered(),
+			"data" => $data,
+			);
+			//output to json format
+			echo json_encode($output);
+		
 	}
 
 	public function ajax_edit($id)
@@ -55,7 +64,7 @@ class User extends CI_Controller {
 	{
 		$data = array(
 				'username' => $this->input->post('username'),
-				'password' => $this->input->post('password'),
+				'password' => md5($this->input->post('password')),
 				'status' => $this->input->post('status'),
 				'email' => $this->input->post('email'),
 				'no_mobile' => $this->input->post('no_mobile'),
