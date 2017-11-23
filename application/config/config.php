@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //$config['base_url'] = '';
 //
-$config['base_url'] = 'http://localhost:83/project_sprindik';
+$config['base_url'] = 'http://localhost/project_sprindik';
 //=======
 //$config['base_url'] = 'http://localhost:83/project_sprindik';
 //>>>>>>> 6592613a9633ae87d49ea7854d3060aa285af7a1
