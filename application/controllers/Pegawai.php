@@ -27,8 +27,8 @@ class Pegawai extends CI_Controller {
 			$row[] = $user->nama_pegawai;
 
 			//add html for action
-			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_user('."'".$user->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
-				  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_user('."'".$user->id."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
+			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_pegawai('."'".$user->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
+				  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_pegawai('."'".$user->id."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
 		
 			$data[] = $row;
 		}
@@ -63,7 +63,7 @@ class Pegawai extends CI_Controller {
 	{
 		$data = array(
 				'nip' => $this->input->post('nip'),
-				'nama_pegawai' => $this->input->post('nama_pegawai'),
+				'nama_pegawai' => $this->input->post('nama_pegawai')
 			);
 		$this->user->update(array('id' => $this->input->post('id')), $data);
 		echo json_encode(array("status" => TRUE));

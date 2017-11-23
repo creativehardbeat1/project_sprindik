@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2017 at 07:29 PM
+-- Generation Time: Nov 23, 2017 at 01:55 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `dbsprindik`
 --
-CREATE DATABASE IF NOT EXISTS `dbsprindik` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `dbsprindik`;
 
 -- --------------------------------------------------------
 
@@ -256,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `ref_diklat` (
   `status` varchar(100) DEFAULT NULL,
   `catatan` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `ref_diklat`
@@ -264,7 +262,8 @@ CREATE TABLE IF NOT EXISTS `ref_diklat` (
 
 INSERT INTO `ref_diklat` (`id`, `id_diklat`, `keterangan`, `tgl_mulai`, `tgl_selesai`, `status`, `catatan`) VALUES
 (1, '001', 'Diklat ilmu bumi', '2017-11-01', '2017-11-30', 'Sedang Berjalan', 'Persyaratan:'),
-(2, '002', 'Diklat ilmu Tanah', '2017-11-23', '2017-11-29', 'Pendaftaran Dibuka', 'Persyaratan:\r\n- Minimal Ijazah SMA/D1\r\n- Umur 35 tahun\r\n- Belum Pernah mengikuti diklat yang sama sebelumnya\r\n- Surat Keterangan sehat dari dokter pemerintah');
+(2, '002', 'Diklat ilmu Tanah', '2017-11-23', '2017-11-29', 'Pendaftaran Dibuka', 'Persyaratan:\r\n- Minimal Ijazah SMA/D1\r\n- Umur 35 tahun\r\n- Belum Pernah mengikuti diklat yang sama sebelumnya\r\n- Surat Keterangan sehat dari dokter pemerintah'),
+(6, NULL, 'Diklat Geodesi', '2017-11-21', '2017-11-24', 'Pendaftaran Dibuka', NULL);
 
 -- --------------------------------------------------------
 
@@ -304,14 +303,14 @@ CREATE TABLE IF NOT EXISTS `ref_pegawai` (
   `nip` varchar(18) NOT NULL DEFAULT '',
   `nama_pegawai` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `ref_pegawai`
 --
 
 INSERT INTO `ref_pegawai` (`id`, `id_user`, `nip`, `nama_pegawai`) VALUES
-(1, 1, '', 'Tes');
+(5, 0, '73737373873', 'tes1223');
 
 -- --------------------------------------------------------
 
