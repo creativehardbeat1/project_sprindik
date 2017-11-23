@@ -7,6 +7,7 @@ class Permohonan extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('diklat_model','diklat');
+		$this->load->model('calon_model','calon');
 	}
 
 	public function index()
@@ -50,17 +51,20 @@ class Permohonan extends CI_Controller {
 		echo json_encode($data);
 	}
 
-	// public function ajax_add()
-	// {
-	// 	$data = array(
-	// 			'keterangan' => $this->input->post('keterangan'),
-	// 			'tgl_mulai' => $this->input->post('tgl_mulai'),
-	// 			'tgl_selesai' => $this->input->post('tgl_selesai'),
-	// 			'status' => $this->input->post('status'),
-	// 		);
-	// 	$insert = $this->diklat->save($data);
-	// 	echo json_encode(array("status" => TRUE));
-	// }
+	public function ajax_add()
+	{
+		$user_id=$this->session->userdata('id_user');
+		$data = array(
+				'id_user' => $user_id,
+				'id_diklat' => $this->input->post('id_diklat'),
+				// 'keterangan' => $this->input->post('keterangan'),
+				// 'tgl_mulai' => $this->input->post('tgl_mulai'),
+				// 'tgl_selesai' => $this->input->post('tgl_selesai'),
+				'status' => '0'
+			);
+		$insert = $this->calon->save($data);
+		echo json_encode(array("status" => TRUE));
+	}
 
 	public function ajax_update()
 	{

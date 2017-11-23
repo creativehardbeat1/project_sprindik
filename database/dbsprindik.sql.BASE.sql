@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2017 at 05:41 AM
+-- Generation Time: Nov 23, 2017 at 01:55 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -19,21 +19,24 @@ SET time_zone = "+00:00";
 --
 -- Database: `dbsprindik`
 --
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`dbsprindik` /*!40100 DEFAULT CHARACTER SET utf8 */;
-
-USE `dbsprindik`;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oltp_calon_peserta`
 --
-DROP TABLE IF EXISTS `oltp_calon_peserta`;
+
 CREATE TABLE IF NOT EXISTS `oltp_calon_peserta` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_user` varchar(11) NOT NULL,
   `id_diklat` varchar(50) DEFAULT NULL,
-  `kode_status` varchar(100) DEFAULT NULL,
+  `nama` varchar(100) DEFAULT NULL,
+  `umur` int(3) DEFAULT NULL,
+  `alamat` varchar(255) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `url_dok_ktp` varchar(255) DEFAULT NULL,
+  `url_dok_ijazah` varchar(255) DEFAULT NULL,
+  `time_creation` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `id_daftar_diklat` (`id_diklat`,`id_user`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
@@ -42,16 +45,16 @@ CREATE TABLE IF NOT EXISTS `oltp_calon_peserta` (
 -- Dumping data for table `oltp_calon_peserta`
 --
 
-INSERT INTO `oltp_calon_peserta` (`id`, `id_user`, `id_diklat`, `kode_status`) VALUES
-(1, '18', NULL, NULL),
-(2, '19', NULL, NULL);
+INSERT INTO `oltp_calon_peserta` (`id`, `id_user`, `id_diklat`, `nama`, `umur`, `alamat`, `email`, `url_dok_ktp`, `url_dok_ijazah`, `time_creation`) VALUES
+(1, '18', NULL, NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, NULL),
+(2, '19', NULL, NULL, NULL, NULL, 'tes2@gmail.com', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oltp_permohonan`
 --
-DROP TABLE IF EXISTS `oltp_permohonan`;
+
 CREATE TABLE IF NOT EXISTS `oltp_permohonan` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_daftar_diklat` varchar(50) DEFAULT NULL,
@@ -74,7 +77,7 @@ INSERT INTO `oltp_permohonan` (`id`, `id_daftar_diklat`, `flag_vera_dok_kasi`, `
 --
 -- Table structure for table `oltp_peserta`
 --
-DROP TABLE IF EXISTS `oltp_peserta`;
+
 CREATE TABLE IF NOT EXISTS `oltp_peserta` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_user` varchar(11) NOT NULL,
@@ -102,7 +105,7 @@ INSERT INTO `oltp_peserta` (`id`, `id_user`, `id_diklat`, `nama`, `umur`, `alama
 --
 -- Table structure for table `oltp_peserta_diklat`
 --
-DROP TABLE IF EXISTS `oltp_peserta_diklat`;
+
 CREATE TABLE IF NOT EXISTS `oltp_peserta_diklat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `flag_approval` varchar(50) DEFAULT NULL,
@@ -127,7 +130,6 @@ INSERT INTO `oltp_peserta_diklat` (`id`, `flag_approval`, `time_creation`, `id_d
 --
 -- Table structure for table `oltp_profil`
 --
-DROP TABLE IF EXISTS `oltp_profil`;
 
 CREATE TABLE IF NOT EXISTS `oltp_profil` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -140,44 +142,39 @@ CREATE TABLE IF NOT EXISTS `oltp_profil` (
   `url_dok_ijazah` varchar(255) DEFAULT NULL,
   `time_creation` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `oltp_profil`
 --
 
 INSERT INTO `oltp_profil` (`id`, `id_user`, `nama`, `umur`, `alamat`, `email`, `url_dok_ktp`, `url_dok_ijazah`, `time_creation`) VALUES
-(10, '25', NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, '2017-11-22 14:35:47'),
-(11, '26', NULL, NULL, NULL, 'tes2@gmail.com', NULL, NULL, '2017-11-23 00:59:46'),
-(12, '27', NULL, NULL, NULL, 'tes3@gmail.com', NULL, NULL, '2017-11-23 01:00:42'),
-(13, '28', NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, '2017-11-23 01:26:01'),
-(14, '29', NULL, NULL, NULL, 'tes2@gmail.com', NULL, NULL, '2017-11-23 02:12:27'),
-(15, '30', NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, '2017-11-23 03:05:01');
+(10, '25', NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, '2017-11-22 14:35:47');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oltp_user`
 --
-DROP TABLE IF EXISTS `oltp_user`;
+
 CREATE TABLE IF NOT EXISTS `oltp_user` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
-  `status` varchar(10) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `no_mobile` varchar(100) DEFAULT NULL,
   `time_creation` datetime DEFAULT CURRENT_TIMESTAMP,
   `flag_status` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `oltp_user`
 --
 
 INSERT INTO `oltp_user` (`id_user`, `username`, `password`, `status`, `email`, `no_mobile`, `time_creation`, `flag_status`) VALUES
-(30, 'tes1', 'c4ca4238a0b923820dcc509a6f75849b', '3', 'tes2@gmail.com', '123344', '2017-11-23 10:05:01', '1');
+(25, 'tes1', 'c4ca4238a0b923820dcc509a6f75849b', '3', 'tes1@gmail.com', '1', '2017-11-22 21:35:47', '1');
 
 --
 -- Triggers `oltp_user`
@@ -196,7 +193,7 @@ DELIMITER ;
 --
 -- Table structure for table `persons`
 --
-DROP TABLE IF EXISTS `persons`;
+
 CREATE TABLE IF NOT EXISTS `persons` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `firstName` varchar(100) DEFAULT NULL,
@@ -234,6 +231,14 @@ CREATE TABLE IF NOT EXISTS `ref_akses` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
+--
+-- Dumping data for table `ref_akses`
+--
+
+INSERT INTO `ref_akses` (`id`, `id_user`, `username`, `nip`, `flag_akses`, `flag_status`) VALUES
+(1, '18', 'tes1', 'c4ca4238a0b923820dcc509a6f75849b', NULL, NULL),
+(2, '19', 'tes2', 'c4ca4238a0b923820dcc509a6f75849b', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -268,9 +273,10 @@ INSERT INTO `ref_diklat` (`id`, `id_diklat`, `keterangan`, `tgl_mulai`, `tgl_sel
 
 CREATE TABLE IF NOT EXISTS `ref_flag` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `id_flag` varchar(50) DEFAULT NULL,
-  `status` varchar(100) DEFAULT NULL,
+  `id_diklat` varchar(50) DEFAULT NULL,
   `keterangan` varchar(255) NOT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `catatan` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
@@ -278,9 +284,12 @@ CREATE TABLE IF NOT EXISTS `ref_flag` (
 -- Dumping data for table `ref_flag`
 --
 
-INSERT INTO `ref_flag` (`id`, `id_flag`, `status`, `keterangan`) VALUES
-(1, '1', 'Aktif', 'Aktif'),
-(2, '2', 'Tidak Aktif', 'Tidak Aktif');
+INSERT INTO `ref_flag` (`id`, `id_diklat`, `keterangan`, `status`, `catatan`) VALUES
+(1, NULL, 'Diklat ilmu bumi', 'Sedang Berjalan', NULL),
+(2, NULL, 'Diklat ilmu Tanah', 'Pendaftaran Dibuka', 'Persyaratan:\r\n- Minimal Ijazah SMA/D1\r\n- Umur 35 tahun\r\n- Belum Pernah mengikuti diklat yang sama sebelumnya\r\n- Surat Keterangan sehat dari dokter pemerintah'),
+(3, NULL, 'Diklat YYY', 'Pendaftaran Dibuka', NULL),
+(4, NULL, 'Diklat ilmu Tanah 1', 'Pendaftaran Ditutup', NULL),
+(5, NULL, 'Diklat ABC', 'Sedang Berjalan', 'nice');
 
 -- --------------------------------------------------------
 
@@ -294,14 +303,14 @@ CREATE TABLE IF NOT EXISTS `ref_pegawai` (
   `nip` varchar(18) NOT NULL DEFAULT '',
   `nama_pegawai` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `ref_pegawai`
 --
 
 INSERT INTO `ref_pegawai` (`id`, `id_user`, `nip`, `nama_pegawai`) VALUES
-(6, 0, '262626262662', 'Pegawai1');
+(5, 0, '73737373873', 'tes1223');
 
 -- --------------------------------------------------------
 
@@ -311,23 +320,23 @@ INSERT INTO `ref_pegawai` (`id`, `id_user`, `nip`, `nama_pegawai`) VALUES
 
 CREATE TABLE IF NOT EXISTS `ref_status` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `kode_status` varchar(50) DEFAULT NULL,
-  `status` varchar(50) DEFAULT NULL,
+  `id_status` varchar(50) DEFAULT NULL,
   `keterangan` varchar(255) NOT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `catatan` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `ref_status`
 --
 
-INSERT INTO `ref_status` (`id`, `kode_status`, `status`, `keterangan`) VALUES
-(1, '1', 'Pengguna', 'Semua orang yang telah mendaftar'),
-(2, '2', 'Calon Peserta', 'Semua orang yang telah mendaftar namun belum mendaftar diklat'),
-(3, '3', 'Persetujuan dokumen', 'Persetujuan dokumen terhadap Calon peserta yang sudah melengkapi kelengkapan dokumen '),
-(4, '4', 'Persetujuan peserta', 'Persetujuan peserta terhadap Calon peserta yang sudah melengkapi ketentuan peserta'),
-(5, '5', 'Peserta', 'Peserta'),
-(6, '6', 'Peserta diklat', 'Peserta diklat');
+INSERT INTO `ref_status` (`id`, `id_status`, `keterangan`, `status`, `catatan`) VALUES
+(1, NULL, 'Diklat ilmu bumi', 'Sedang Berjalan', NULL),
+(2, NULL, 'Diklat ilmu Tanah', 'Pendaftaran Dibuka', 'Persyaratan:\r\n- Minimal Ijazah SMA/D1\r\n- Umur 35 tahun\r\n- Belum Pernah mengikuti diklat yang sama sebelumnya\r\n- Surat Keterangan sehat dari dokter pemerintah'),
+(3, NULL, 'Diklat YYY', 'Pendaftaran Dibuka', NULL),
+(4, NULL, 'Diklat ilmu Tanah 1', 'Pendaftaran Ditutup', NULL),
+(5, NULL, 'Diklat ABC', 'Sedang Berjalan', 'nice');
 
 -- --------------------------------------------------------
 
@@ -350,3 +359,6 @@ DROP TABLE IF EXISTS `view_laporan_diklat`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_laporan_diklat` AS select `a`.`id_peserta` AS `id`,`b`.`nama` AS `nama`,`c`.`keterangan` AS `keterangan`,`c`.`tgl_mulai` AS `tgl_mulai`,`c`.`tgl_selesai` AS `tgl_selesai` from ((`oltp_peserta_diklat` `a` left join `oltp_peserta` `b` on((`a`.`id_peserta` = `b`.`id`))) left join `ref_diklat` `c` on((`a`.`id_diklat` = `c`.`id_diklat`)));
 
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

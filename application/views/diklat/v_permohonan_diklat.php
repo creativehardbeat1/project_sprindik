@@ -4,8 +4,8 @@
 
         <br />
 <!--         <button class="btn btn-success" onclick="add_diklat()"><i class="glyphicon glyphicon-plus"></i> Tambah Diklat</button> -->
-        <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
-        <br />
+<!--         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+        <br /> -->
         <br />
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
@@ -20,7 +20,7 @@
             <tbody>
             </tbody>
 
-            <tfoot>
+<!--             <tfoot>
             <tr>
                 <th>Nama Diklat</th>
                 <th>Tanggal Mulai</th>
@@ -28,7 +28,7 @@
                 <th>Status</th>
                 <th>Action</th>
             </tr>
-            </tfoot>
+            </tfoot> -->
         </table>
     </div>
 
@@ -139,7 +139,7 @@ function save()
     if(save_method == 'add') {
         url = "<?php echo site_url('permohonan/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('permohonan/ajax_update')?>";
+        url = "<?php echo site_url('permohonan/ajax_add')?>";
     }
 
     // ajax adding data to database
@@ -157,16 +157,17 @@ function save()
                 reload_table();
             }
 
-            $('#btnSave').text('save'); //change button text
+            $('#btnSave').text('Simpan'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable 
 
 
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-            alert('Error adding / update data');
-            $('#btnSave').text('save'); //change button text
-            $('#btnSave').attr('disabled',false); //set button enable 
+            // alert('Error adding / update data');
+            alert('Gagal daftar diklat / Diklat sudah pernah diajukan');
+            $('#btnSave').text('Simpan'); //change button text
+            $('#btnSave').attr('disabled',true); //set button enable 
 
         }
     });
@@ -210,6 +211,13 @@ function save()
                 <form action="#" id="form" class="form-horizontal">
                     <input type="hidden" value="" name="id_diklat"/> 
                     <div class="form-body">
+<!--                         <div class="form-group" disable>
+                            <label class="control-label col-md-3">ID Diklat</label>
+                            <div class="col-md-9"> -->
+                                <input name="id_diklat" placeholder="ID Diklat" class="form-control" type="hidden" disabled>
+<!--                                 <span class="help-block"></span>
+                            </div>
+                        </div> -->
                         <div class="form-group" disable>
                             <label class="control-label col-md-3">Nama Diklat</label>
                             <div class="col-md-9">

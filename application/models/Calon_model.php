@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_model extends CI_Model {
+class Calon_model extends CI_Model {
 
-	var $table = 'oltp_user';
-	var $column_order = array('username','email','no_mobile','status',null); //set column field database for datatable orderable
-	var $column_search = array('username','email','no_mobile','status'); //set column field database for datatable searchable just firstname , lastname , address are searchable
-	var $order = array('id_user' => 'desc'); // default order 
+	var $table = 'calon_peserta';
+	var $column_order = array('id_user','id_diklat','status',null); //set column //field database for datatable orderable
+	var $column_search = array('id_diklat','status'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
+	var $order = array('id_diklat' => 'desc'); // default order 
 
 	public function __construct()
 	{
@@ -16,8 +16,9 @@ class User_model extends CI_Model {
 
 	private function _get_datatables_query()
 	{
-		
+		$user_id=$this->session->userdata('id_user');
 		$this->db->from($this->table);
+		$this->db->where('id_user',$user_id);
 
 		$i = 0;
 	
@@ -55,24 +56,13 @@ class User_model extends CI_Model {
 
 	function get_datatables()
 	{
-		
 		$this->_get_datatables_query();
 		if($_POST['length'] != -1)
 		$this->db->limit($_POST['length'], $_POST['start']);
 		$query = $this->db->get();
 		return $query->result();
-			
 	}
-	function get_datatables_id_user()
-	{
-		$user_id=$this->session->userdata('id_user');
-		$this->db->from($this->table);
-		$this->db->where('id_user',$user_id);
-		$query = $this->db->get();
-		return $query->result();
-			
-	}
-	
+
 	function count_filtered()
 	{
 		$this->_get_datatables_query();
@@ -94,8 +84,7 @@ class User_model extends CI_Model {
 
 		return $query->row();
 	}
-	
-	
+
 	public function save($data)
 	{
 		$this->db->insert($this->table, $data);
@@ -110,7 +99,7 @@ class User_model extends CI_Model {
 
 	public function delete_by_id($id)
 	{
-		$this->db->where('id_user', $id);
+		$this->db->where('id', $id);
 		$this->db->delete($this->table);
 	}
 

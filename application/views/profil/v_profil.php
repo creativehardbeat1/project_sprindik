@@ -4,28 +4,29 @@
 
         <!-- <h3>Profil Data</h3> -->
         <br />
-        <button class="btn btn-success" onclick="add_profil()"><i class="glyphicon glyphicon-plus"></i> Tambah Profil</button>
+<!--         <button class="btn btn-success" onclick="add_profil()"><i class="glyphicon glyphicon-plus"></i> Tambah Profil</button>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
-        <br />
+        <br /> -->
         <br />
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>Id User</th>
+                    <!-- <th>Id User</th> -->
                     <th>Nama</th>
                     <th>Umur</th>
                     <th>Alamat</th>
                     <th>Email</th>
                     <th>URL KTP</th>
                     <th>URL Ijazah</th>
-                    <th>time creation</th>
+                    <!-- <th>time creation</th> -->
+                    <th>Nomor HP</th>
                     <th style="width:125px;">Action</th>
                 </tr>
             </thead>
             <tbody>
             </tbody>
 
-            <tfoot>
+<!--             <tfoot>
             <tr>
                 <th>Id User</th>
                 <th>Nama</th>
@@ -37,7 +38,7 @@
                 <th>time creation</th>
                 <th>Action</th>
             </tr>
-            </tfoot>
+            </tfoot> -->
         </table>
     </div>
 
@@ -126,6 +127,7 @@ function edit_profil(id)
             $('[name="url_dok_ktp"]').val(data.url_dok_ktp);
             $('[name="url_dok_ijazah"]').val(data.url_dok_ijazah);
             $('[name="time_creation"]').datepicker('update',data.time_creation);
+            $('[name="no_mobile"]').val(data.no_mobile);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Ubah Profil'); // Set title to Bootstrap modal title
 
@@ -222,13 +224,13 @@ function delete_profil(id)
                 <form action="#" id="form" class="form-horizontal">
                     <input type="hidden" value="" name="id"/> 
                     <div class="form-body">
-                        <div class="form-group">
+<!--                         <div class="form-group">
                             <label class="control-label col-md-3">ID User</label>
                             <div class="col-md-9">
                                 <input name="id_user" placeholder="ID User" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label class="control-label col-md-3">Nama</label>
                             <div class="col-md-9">
@@ -271,13 +273,20 @@ function delete_profil(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        <div class="form-group">
+<!--                         <div class="form-group">
                             <label class="control-label col-md-3">Time Creation</label>
+                            <div class="col-md-9"> -->
+                                <input name="time_creation" placeholder="yyyy-mm-dd" class="form-control datepicker" type="hidden">
+<!--                                 <span class="help-block"></span>
+                            </div>
+                        </div> -->
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Nomor HP</label>
                             <div class="col-md-9">
-                                <input name="time_creation" placeholder="yyyy-mm-dd" class="form-control datepicker" type="text">
+                                <input name="no_mobile" placeholder="Nomor HP" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
-                        </div>
+                        </div>                        
                     </div>
                 </form>
             </div>
