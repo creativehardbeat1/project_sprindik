@@ -239,4 +239,3 @@ $(document).ready(function() {
 <!-- End Bootstrap modal -->
     
 </section>
-        

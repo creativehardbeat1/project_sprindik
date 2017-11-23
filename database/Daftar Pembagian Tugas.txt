@@ -4,7 +4,7 @@ Mockup dan Testing -> Mas Wawan
 status user
 1. Administrator 1
 Pegawai ->  Rifan ok
-Pengguna -> Rifan ok
+Pengguna -> Rifan ok1
 Diklat ->  Mas Barthi ok
 Status
 
@@ -12,7 +12,7 @@ Status
 PersetujuanDokumen  -> Mas Barthi
 Persetujuan Peserta -> Mas Barthi
 Pegawai ->  Rifan ok
-Laporan Diklat -> Rifan
+Laporan Diklat -> Rifan ok
 Peserta Diklat  ->  Pak Purwantoro
 Peserta  ->  Pak Purwantoro
 Diklat ->  Mas Barthi ok

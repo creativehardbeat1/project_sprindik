@@ -12,7 +12,7 @@ class User extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('user/user_view');
+		$this->load->view('user/v_user');
 	}
 
 	public function ajax_list()
@@ -27,7 +27,7 @@ class User extends CI_Controller {
 			$row[] = $user->email;
 			$row[] = $user->no_mobile;
 			$row[] = $user->status;
-			
+
 			//add html for action
 			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
 				  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
@@ -75,7 +75,7 @@ class User extends CI_Controller {
 				'no_mobile' => $this->input->post('no_mobile'),
 				'flag_status' => $this->input->post('flag_status'),
 			);
-		$this->user->update(array('user_id' => $this->input->post('id')), $data);
+		$this->user->update(array('id_user' => $this->input->post('id')), $data);
 		echo json_encode(array("status" => TRUE));
 	}
 

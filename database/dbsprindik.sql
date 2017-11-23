@@ -1,85 +1,200 @@
-/*
-SQLyog Enterprise - MySQL GUI v8.05 
-MySQL - 5.7.18-log : Database - dbsprindik
-*********************************************************************
-*/
+-- phpMyAdmin SQL Dump
+-- version 4.1.12
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Nov 23, 2017 at 01:55 AM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
-/*!40101 SET SQL_MODE=''*/;
+--
+-- Database: `dbsprindik`
+--
 
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+-- --------------------------------------------------------
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`dbsprindik` /*!40100 DEFAULT CHARACTER SET utf8 */;
+--
+-- Table structure for table `oltp_calon_peserta`
+--
 
-USE `dbsprindik`;
+CREATE TABLE IF NOT EXISTS `oltp_calon_peserta` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_user` varchar(11) NOT NULL,
+  `id_diklat` varchar(50) DEFAULT NULL,
+  `nama` varchar(100) DEFAULT NULL,
+  `umur` int(3) DEFAULT NULL,
+  `alamat` varchar(255) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `url_dok_ktp` varchar(255) DEFAULT NULL,
+  `url_dok_ijazah` varchar(255) DEFAULT NULL,
+  `time_creation` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `id_daftar_diklat` (`id_diklat`,`id_user`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
-/*Table structure for table `calon_peserta` */
+--
+-- Dumping data for table `oltp_calon_peserta`
+--
 
-DROP TABLE IF EXISTS `calon_peserta`;
+INSERT INTO `oltp_calon_peserta` (`id`, `id_user`, `id_diklat`, `nama`, `umur`, `alamat`, `email`, `url_dok_ktp`, `url_dok_ijazah`, `time_creation`) VALUES
+(1, '18', NULL, NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, NULL),
+(2, '19', NULL, NULL, NULL, NULL, 'tes2@gmail.com', NULL, NULL, NULL);
 
-CREATE TABLE `calon_peserta` (
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oltp_permohonan`
+--
+
+CREATE TABLE IF NOT EXISTS `oltp_permohonan` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_daftar_diklat` varchar(50) DEFAULT NULL,
+  `flag_vera_dok_kasi` varchar(50) DEFAULT NULL,
+  `flag_vera_dok_bag` varchar(50) DEFAULT NULL,
+  `time_creation` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `oltp_permohonan`
+--
+
+INSERT INTO `oltp_permohonan` (`id`, `id_daftar_diklat`, `flag_vera_dok_kasi`, `flag_vera_dok_bag`, `time_creation`) VALUES
+(1, NULL, NULL, NULL, '2017-11-22 13:18:06'),
+(2, NULL, NULL, NULL, '2017-11-22 13:31:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oltp_peserta`
+--
+
+CREATE TABLE IF NOT EXISTS `oltp_peserta` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_user` varchar(11) NOT NULL,
+  `id_diklat` varchar(50) DEFAULT NULL,
+  `nama` varchar(100) DEFAULT NULL,
+  `umur` int(3) DEFAULT NULL,
+  `alamat` varchar(255) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `url_dok_ktp` varchar(255) DEFAULT NULL,
+  `url_dok_ijazah` varchar(255) DEFAULT NULL,
+  `time_creation` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `id_daftar_diklat` (`id_diklat`,`id_user`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `oltp_peserta`
+--
+
+INSERT INTO `oltp_peserta` (`id`, `id_user`, `id_diklat`, `nama`, `umur`, `alamat`, `email`, `url_dok_ktp`, `url_dok_ijazah`, `time_creation`) VALUES
+(3, '25', '001', 'Pak Purwontoro', 32, 'Jalan Kebumen', NULL, NULL, NULL, '2017-11-22 22:57:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oltp_peserta_diklat`
+--
+
+CREATE TABLE IF NOT EXISTS `oltp_peserta_diklat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_user` int(11) NOT NULL,
-  `id_diklat` int(11) NOT NULL,
-  `status` int(3) DEFAULT NULL,
+  `flag_approval` varchar(50) DEFAULT NULL,
+  `time_creation` datetime DEFAULT CURRENT_TIMESTAMP,
+  `id_daftar_diklat` varchar(50) DEFAULT NULL,
+  `id_peserta` varchar(50) DEFAULT NULL,
+  `id_diklat` varchar(50) DEFAULT NULL,
+  `status_peserta` varchar(50) DEFAULT NULL,
+  `status_kegiatan` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
-/*Data for the table `calon_peserta` */
+--
+-- Dumping data for table `oltp_peserta_diklat`
+--
 
-/*Table structure for table `kelamin` */
+INSERT INTO `oltp_peserta_diklat` (`id`, `flag_approval`, `time_creation`, `id_daftar_diklat`, `id_peserta`, `id_diklat`, `status_peserta`, `status_kegiatan`) VALUES
+(19, NULL, '2017-11-22 13:31:29', NULL, '3', '001', NULL, NULL);
 
-DROP TABLE IF EXISTS `kelamin`;
+-- --------------------------------------------------------
 
-CREATE TABLE `kelamin` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+-- Table structure for table `oltp_profil`
+--
 
-/*Data for the table `kelamin` */
-
-insert  into `kelamin`(`id`,`nama`) values (1,'Laki laki'),(2,'Perempuan');
-
-/*Table structure for table `kota` */
-
-DROP TABLE IF EXISTS `kota`;
-
-CREATE TABLE `kota` (
+CREATE TABLE IF NOT EXISTS `oltp_profil` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(255) DEFAULT NULL,
+  `id_user` varchar(11) NOT NULL,
+  `nama` varchar(100) DEFAULT NULL,
+  `umur` int(3) DEFAULT NULL,
+  `alamat` varchar(255) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `url_dok_ktp` varchar(255) DEFAULT NULL,
+  `url_dok_ijazah` varchar(255) DEFAULT NULL,
+  `time_creation` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
-/*Data for the table `kota` */
+--
+-- Dumping data for table `oltp_profil`
+--
 
-insert  into `kota`(`id`,`nama`) values (1,'Malang'),(3,'Blitar'),(4,'Tulungagung'),(17,'Jakarta'),(21,'Surabaya'),(22,'Paris');
+INSERT INTO `oltp_profil` (`id`, `id_user`, `nama`, `umur`, `alamat`, `email`, `url_dok_ktp`, `url_dok_ijazah`, `time_creation`) VALUES
+(10, '25', NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, '2017-11-22 14:35:47');
 
-/*Table structure for table `pegawai` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `pegawai`;
+--
+-- Table structure for table `oltp_user`
+--
 
-CREATE TABLE `pegawai` (
-  `id` varchar(255) NOT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `telp` varchar(255) DEFAULT NULL,
-  `id_kota` int(11) DEFAULT NULL,
-  `id_kelamin` int(1) DEFAULT NULL,
-  `id_posisi` int(11) DEFAULT NULL,
-  `status` int(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `oltp_user` (
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `no_mobile` varchar(100) DEFAULT NULL,
+  `time_creation` datetime DEFAULT CURRENT_TIMESTAMP,
+  `flag_status` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
-/*Data for the table `pegawai` */
+--
+-- Dumping data for table `oltp_user`
+--
 
-insert  into `pegawai`(`id`,`nama`,`telp`,`id_kota`,`id_kelamin`,`id_posisi`,`status`) values ('10','Antony Febriansyah Hartono','082199568540',1,1,1,1),('11','Hafizh Asrofil Al Banna','087859615271',1,1,1,1),('12','Faiq Fajrullah','085736333728',1,1,2,1),('3','Mustofa Halim','081330493322',1,1,3,1),('4','Dody Ahmad Kusuma Jaya','083854520015',1,1,2,1),('5','Mokhammad Choirul Ikhsan','085749535400',3,1,2,1),('7','Achmad Chadil Auwfar','08984119934',2,1,1,1),('8','Rizal Ferdian','087777284179',1,1,3,1),('9','Redika Angga Pratama','083834657395',1,1,3,1),('1','Tolkha Hasan','081233072122',1,1,4,1),('2','Wawan Dwi Prasetyo','085745966707',4,1,4,1);
+INSERT INTO `oltp_user` (`id_user`, `username`, `password`, `status`, `email`, `no_mobile`, `time_creation`, `flag_status`) VALUES
+(25, 'tes1', 'c4ca4238a0b923820dcc509a6f75849b', '3', 'tes1@gmail.com', '1', '2017-11-22 21:35:47', '1');
 
-/*Table structure for table `persons` */
+--
+-- Triggers `oltp_user`
+--
+DROP TRIGGER IF EXISTS `oltp_user_after_ins_trig`;
+DELIMITER //
+CREATE TRIGGER `oltp_user_after_ins_trig` AFTER INSERT ON `oltp_user`
+ FOR EACH ROW begin
+  insert into oltp_profil (id_user, email) values (new.id_user, new.email);
+end
+//
+DELIMITER ;
 
-DROP TABLE IF EXISTS `persons`;
+-- --------------------------------------------------------
 
-CREATE TABLE `persons` (
+--
+-- Table structure for table `persons`
+--
+
+CREATE TABLE IF NOT EXISTS `persons` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `firstName` varchar(100) DEFAULT NULL,
   `lastName` varchar(100) DEFAULT NULL,
@@ -87,84 +202,163 @@ CREATE TABLE `persons` (
   `address` varchar(200) DEFAULT NULL,
   `dob` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
-/*Data for the table `persons` */
+--
+-- Dumping data for table `persons`
+--
 
-insert  into `persons`(`id`,`firstName`,`lastName`,`gender`,`address`,`dob`) values (2,'Garrett','Winters','male','Tokyo','1988-09-02'),(3,'John','Doe','male','Kansas','1972-11-02'),(4,'Tatyana','Fitzpatrick','male','London','1989-01-01'),(6,'1226','2222','male','www','2017-11-01'),(7,'335','2333','female','333','2017-11-09');
+INSERT INTO `persons` (`id`, `firstName`, `lastName`, `gender`, `address`, `dob`) VALUES
+(2, 'Garrett', 'Winters', 'male', 'Tokyo', '1988-09-02'),
+(3, 'John', 'Doe', 'male', 'Kansas', '1972-11-02'),
+(4, 'Tatyana', 'Fitzpatrick', 'male', 'London', '1989-01-01'),
+(6, '1226', '2222', 'male', 'www', '2017-11-01'),
+(7, '335', '2333', 'male', '333', '2017-11-09');
 
-/*Table structure for table `posisi` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `posisi`;
+--
+-- Table structure for table `ref_akses`
+--
 
-CREATE TABLE `posisi` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(255) DEFAULT NULL,
+CREATE TABLE IF NOT EXISTS `ref_akses` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_user` varchar(11) NOT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `nip` varchar(100) DEFAULT NULL,
+  `flag_akses` varchar(100) DEFAULT NULL,
+  `flag_status` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
-/*Data for the table `posisi` */
+--
+-- Dumping data for table `ref_akses`
+--
 
-insert  into `posisi`(`id`,`nama`) values (1,'IT'),(2,'HRD'),(3,'Keuangan'),(4,'Produk'),(5,'Web Developer'),(6,'Tes');
+INSERT INTO `ref_akses` (`id`, `id_user`, `username`, `nip`, `flag_akses`, `flag_status`) VALUES
+(1, '18', 'tes1', 'c4ca4238a0b923820dcc509a6f75849b', NULL, NULL),
+(2, '19', 'tes2', 'c4ca4238a0b923820dcc509a6f75849b', NULL, NULL);
 
-/*Table structure for table `profil` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `profil`;
+--
+-- Table structure for table `ref_diklat`
+--
 
-CREATE TABLE `profil` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_user` int(11) NOT NULL,
-  `nama` varchar(100) DEFAULT NULL,
-  `umur` int(3) DEFAULT NULL,
-  `alamat` varchar(255) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `url_dok_ktp` varchar(255) DEFAULT NULL,
-  `url_dok_ijazah` varchar(255) DEFAULT NULL,
-  `time_creation` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-/*Data for the table `profil` */
-
-insert  into `profil`(`id`,`id_user`,`nama`,`umur`,`alamat`,`email`,`url_dok_ktp`,`url_dok_ijazah`,`time_creation`) values (2,1010,'Barthi Dasan',30,'Perumahan Grand Wisata Cluster Festive Garden Blok AG 11 no 15','barthi77@gmail.com','/aaa/aa.jpg','/aaa/aa.jpg','2017-11-01');
-
-/*Table structure for table `ref_diklat` */
-
-DROP TABLE IF EXISTS `ref_diklat`;
-
-CREATE TABLE `ref_diklat` (
-  `id_diklat` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `ref_diklat` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_diklat` varchar(50) DEFAULT NULL,
   `keterangan` varchar(255) NOT NULL,
   `tgl_mulai` date DEFAULT NULL,
   `tgl_selesai` date DEFAULT NULL,
   `status` varchar(100) DEFAULT NULL,
   `catatan` text,
-  PRIMARY KEY (`id_diklat`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
-/*Data for the table `ref_diklat` */
+--
+-- Dumping data for table `ref_diklat`
+--
 
-insert  into `ref_diklat`(`id_diklat`,`keterangan`,`tgl_mulai`,`tgl_selesai`,`status`,`catatan`) values (3,'Diklat ilmu bumi','2017-11-01','2017-11-30','Sedang Berjalan',NULL),(4,'Diklat ilmu Tanah','2017-11-23','2017-11-29','Pendaftaran Dibuka','Persyaratan:\r\n- Minimal Ijazah SMA/D1\r\n- Umur 35 tahun\r\n- Belum Pernah mengikuti diklat yang sama sebelumnya\r\n- Surat Keterangan sehat dari dokter pemerintah'),(5,'Diklat YYY','2017-11-22','2017-11-24','Pendaftaran Dibuka',NULL),(6,'Diklat ilmu Tanah 1','2017-11-22','2017-11-23','Pendaftaran Ditutup',NULL),(7,'Diklat ABC','2017-11-22','2017-11-23','Sedang Berjalan','nice');
+INSERT INTO `ref_diklat` (`id`, `id_diklat`, `keterangan`, `tgl_mulai`, `tgl_selesai`, `status`, `catatan`) VALUES
+(1, '001', 'Diklat ilmu bumi', '2017-11-01', '2017-11-30', 'Sedang Berjalan', 'Persyaratan:'),
+(2, '002', 'Diklat ilmu Tanah', '2017-11-23', '2017-11-29', 'Pendaftaran Dibuka', 'Persyaratan:\r\n- Minimal Ijazah SMA/D1\r\n- Umur 35 tahun\r\n- Belum Pernah mengikuti diklat yang sama sebelumnya\r\n- Surat Keterangan sehat dari dokter pemerintah'),
+(6, NULL, 'Diklat Geodesi', '2017-11-21', '2017-11-24', 'Pendaftaran Dibuka', NULL);
 
-/*Table structure for table `user` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `user`;
+--
+-- Table structure for table `ref_flag`
+--
 
-CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `password` varchar(50) DEFAULT NULL,
-  `no_mobile` varchar(50) DEFAULT NULL,
-  `status` varchar(50) DEFAULT NULL,
-  `dob` date DEFAULT NULL,
-  `gender` enum('male','female') DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `ref_flag` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_diklat` varchar(50) DEFAULT NULL,
+  `keterangan` varchar(255) NOT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `catatan` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
-/*Data for the table `user` */
+--
+-- Dumping data for table `ref_flag`
+--
 
-insert  into `user`(`user_id`,`username`,`email`,`password`,`no_mobile`,`status`,`dob`,`gender`) values (15,'tes1','tes1@gmail.com','c4ca4238a0b923820dcc509a6f75849b','12233',NULL,'2017-11-01',''),(17,'tedi1','tedi1@gmail.com','1','wuwuwuwuw',NULL,'2017-11-01','male'),(18,'tesq','a','0cc175b9c0f1b6a831c399e269772661','22',NULL,NULL,NULL),(19,'barthi','b@b.com','c4ca4238a0b923820dcc509a6f75849b','1',NULL,NULL,NULL),(20,'barthi1','aa','c4ca4238a0b923820dcc509a6f75849b','3434',NULL,NULL,NULL);
+INSERT INTO `ref_flag` (`id`, `id_diklat`, `keterangan`, `status`, `catatan`) VALUES
+(1, NULL, 'Diklat ilmu bumi', 'Sedang Berjalan', NULL),
+(2, NULL, 'Diklat ilmu Tanah', 'Pendaftaran Dibuka', 'Persyaratan:\r\n- Minimal Ijazah SMA/D1\r\n- Umur 35 tahun\r\n- Belum Pernah mengikuti diklat yang sama sebelumnya\r\n- Surat Keterangan sehat dari dokter pemerintah'),
+(3, NULL, 'Diklat YYY', 'Pendaftaran Dibuka', NULL),
+(4, NULL, 'Diklat ilmu Tanah 1', 'Pendaftaran Ditutup', NULL),
+(5, NULL, 'Diklat ABC', 'Sedang Berjalan', 'nice');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ref_pegawai`
+--
+
+CREATE TABLE IF NOT EXISTS `ref_pegawai` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `nip` varchar(18) NOT NULL DEFAULT '',
+  `nama_pegawai` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `ref_pegawai`
+--
+
+INSERT INTO `ref_pegawai` (`id`, `id_user`, `nip`, `nama_pegawai`) VALUES
+(5, 0, '73737373873', 'tes1223');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ref_status`
+--
+
+CREATE TABLE IF NOT EXISTS `ref_status` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_status` varchar(50) DEFAULT NULL,
+  `keterangan` varchar(255) NOT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `catatan` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `ref_status`
+--
+
+INSERT INTO `ref_status` (`id`, `id_status`, `keterangan`, `status`, `catatan`) VALUES
+(1, NULL, 'Diklat ilmu bumi', 'Sedang Berjalan', NULL),
+(2, NULL, 'Diklat ilmu Tanah', 'Pendaftaran Dibuka', 'Persyaratan:\r\n- Minimal Ijazah SMA/D1\r\n- Umur 35 tahun\r\n- Belum Pernah mengikuti diklat yang sama sebelumnya\r\n- Surat Keterangan sehat dari dokter pemerintah'),
+(3, NULL, 'Diklat YYY', 'Pendaftaran Dibuka', NULL),
+(4, NULL, 'Diklat ilmu Tanah 1', 'Pendaftaran Ditutup', NULL),
+(5, NULL, 'Diklat ABC', 'Sedang Berjalan', 'nice');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `view_laporan_diklat`
+--
+CREATE TABLE IF NOT EXISTS `view_laporan_diklat` (
+`id` varchar(50)
+,`nama` varchar(100)
+,`keterangan` varchar(255)
+,`tgl_mulai` date
+,`tgl_selesai` date
+);
+-- --------------------------------------------------------
+
+--
+-- Structure for view `view_laporan_diklat`
+--
+DROP TABLE IF EXISTS `view_laporan_diklat`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_laporan_diklat` AS select `a`.`id_peserta` AS `id`,`b`.`nama` AS `nama`,`c`.`keterangan` AS `keterangan`,`c`.`tgl_mulai` AS `tgl_mulai`,`c`.`tgl_selesai` AS `tgl_selesai` from ((`oltp_peserta_diklat` `a` left join `oltp_peserta` `b` on((`a`.`id_peserta` = `b`.`id`))) left join `ref_diklat` `c` on((`a`.`id_diklat` = `c`.`id_diklat`)));
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

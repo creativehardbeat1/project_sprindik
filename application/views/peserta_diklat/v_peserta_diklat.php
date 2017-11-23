@@ -2,17 +2,20 @@
 	 <div class="container">
         <h1 style="font-size:20pt"><?php echo $judul ?></h1>
         <br />
-        <button class="btn btn-success" onclick="add_user()"><i class="glyphicon glyphicon-plus"></i> Tambah Pengguna</button>
+       <!--  <button class="btn btn-success" onclick="add_peserta()"><i class="glyphicon glyphicon-plus"></i> Tambah Peserta Diklat</button>-->
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
         <br />
         <br />
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Nomor Handphone</th>
-					<th>Status</th>
+				
+                    <th>id_peserta</th>
+					<th>id_daftar_diklat</th>
+                    <th>flag_approval</th>
+					<th>time_creation</th>
+                    <th>status_peserta</th>
+					<th>status_kegiatan</th>
                     <th style="width:125px;">Action</th>
                 </tr>
             </thead>
@@ -44,7 +47,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('user/ajax_list')?>",
+            "url": "<?php echo site_url('peserta_diklat/ajax_list')?>",
             "type": "POST"
         },
 
@@ -72,17 +75,17 @@ $(document).ready(function() {
 
 
 
-function add_user()
+function add_peserta()
 {
     save_method = 'add';
     $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Pengguna'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Tambah Peserta Diklat'); // Set Title to Bootstrap modal title
 }
 
-function edit_user(id)
+function edit_peserta(id)
 {
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
@@ -91,26 +94,25 @@ function edit_user(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('user/ajax_edit/')?>/" + id,
+        url : "<?php echo site_url('peserta_diklat/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
 
-            $('[name="id"]').val(data.id_user);
-            $('[name="username"]').val(data.username);
-			$('[name="password"]').val(data.password);
-			$('[name="status"]').val(data.status);
-            $('[name="email"]').val(data.email);
-            $('[name="no_mobile"]').val(data.no_mobile);
-			$('[name="flag_status"]').val(data.flag_status);
+            $('[name="id_peserta"]').val(data.id_peserta);
+            $('[name="id_daftar_diklat"]').val(data.id_daftar_diklat);
+			$('[name="flag_approval"]').val(data.flag_approval);
+			$('[name="time_creation"]').val(data.time_creation);
+            $('[name="status_peserta"]').val(data.status_peserta);
+            $('[name="status_kegiatan"]').val(data.status_kegiatan);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Pengguna'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Edit Peserta'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-            alert('Gagal Menampilkan Data');
+            alert('Error get data from ajax');
         }
     });
 }
@@ -127,9 +129,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('user/ajax_add')?>";
+        url = "<?php echo site_url('peserta_diklat/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('user/ajax_update')?>";
+        url = "<?php echo site_url('peserta_diklat/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -162,13 +164,13 @@ function save()
     });
 }
 
-function delete_user(id)
+function delete_peserta(id)
 {
     if(confirm('Are you sure delete this data?'))
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('user/ajax_delete')?>/"+id,
+            url : "<?php echo site_url('peserta_diklat/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -179,7 +181,7 @@ function delete_user(id)
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-                alert('Gagal menghapus data');
+                alert('Error deleting data');
             }
         });
 
@@ -194,60 +196,51 @@ function delete_user(id)
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Form Pengguna</h3>
+                <h3 class="modal-title">Form Peserta Diklat</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
                     <input type="hidden" value="" name="id"/> 
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label col-md-3">Username</label>
+                            <label class="control-label col-md-3">ID Peserta</label>
                             <div class="col-md-9">
-                                <input name="username" placeholder="Username Minimal 4 karakter dan maksimal 15 karakter " class="form-control" type="text">
+                                <input name="id_peserta" placeholder="ID Peserta" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Password</label>
+                            <label class="control-label col-md-3">ID Pendaftaran</label>
                             <div class="col-md-9">
-                                <input name="password" placeholder="Password" class="form-control" type="password">
+                                <input name="id_daftar_diklat" placeholder="ID Pendaftaran" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Status</label>
+                            <label class="control-label col-md-3">Persetujuan</label>
                             <div class="col-md-9">
-                                <select name="status" class="form-control">
-                                    <option value="">--Pilih Status--</option>
-                                    <option value="1">Administrator</option>
-									 <option value="2">Pegawai</option>
-                                    <option value="3">Umum</option>
-                                </select>
+                                <input name="flag_approval" placeholder="Persetujuan" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">E-mail</label>
+                            <label class="control-label col-md-3">Time Creation</label>
                             <div class="col-md-9">
-                                <textarea name="email" placeholder="E-mail" class="form-control"></textarea>
+                                <input name="time_creation" placeholder="Disetujui" class="form-control" type="text"></input>
                                 <span class="help-block"></span>
                             </div>
                         </div>
 						<div class="form-group">
-                            <label class="control-label col-md-3">Nomor Handphone</label>
+                            <label class="control-label col-md-3">Status Peserta</label>
                             <div class="col-md-9">
-                                <textarea name="no_mobile" placeholder="Nomor Handphone" class="form-control"></textarea>
+                                <input name="status_peserta" placeholder="Status Peserta" class="form-control" type="text"></input>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Flag Status</label>
+                            <label class="control-label col-md-3">Status Kegiatan</label>
                             <div class="col-md-9">
-                                <select name="flag_status" class="form-control">
-                                    <option value="">--Pilih Flag Status--</option>
-                                    <option value="1">Aktif</option>
-                                    <option value="2">Non Aktif</option>
-                                </select>
+                                <input name="status_kegiatan" placeholder="Status Kegiatan" class="form-control" type="text"></input>
                                 <span class="help-block"></span>
                             </div>
                         </div>

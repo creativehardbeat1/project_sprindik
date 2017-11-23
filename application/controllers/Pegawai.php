@@ -1,18 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Pegawai extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('User_model','user');
+		$this->load->model('Pegawai_model','user');
 	}
 
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('user/user_view');
+		$this->load->view('pegawai/v_pegawai');
 	}
 
 	public function ajax_list()
@@ -23,14 +23,12 @@ class User extends CI_Controller {
 		foreach ($list as $user) {
 			$no++;
 			$row = array();
-			$row[] = $user->username;
-			$row[] = $user->status;
-			$row[] = $user->email;
-			$row[] = $user->no_mobile;
+			$row[] = $user->nip;
+			$row[] = $user->nama_pegawai;
 
 			//add html for action
-			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
-				  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
+			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_pegawai('."'".$user->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
+				  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_pegawai('."'".$user->id."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
 		
 			$data[] = $row;
 		}
@@ -54,12 +52,8 @@ class User extends CI_Controller {
 	public function ajax_add()
 	{
 		$data = array(
-				'username' => $this->input->post('username'),
-				'password' => $this->input->post('password'),
-				'status' => $this->input->post('status'),
-				'email' => $this->input->post('email'),
-				'no_mobile' => $this->input->post('no_mobile'),
-				'flag_status' => $this->input->post('flag_status'),
+				'nip' => $this->input->post('nip'),
+				'nama_pegawai' => $this->input->post('nama_pegawai'),
 			);
 		$insert = $this->user->save($data);
 		echo json_encode(array("status" => TRUE));
@@ -68,14 +62,10 @@ class User extends CI_Controller {
 	public function ajax_update()
 	{
 		$data = array(
-				'username' => $this->input->post('username'),
-				'password' => $this->input->post('password'),
-				'status' => $this->input->post('status'),
-				'email' => $this->input->post('email'),
-				'no_mobile' => $this->input->post('no_mobile'),
-				'flag_status' => $this->input->post('flag_status'),
+				'nip' => $this->input->post('nip'),
+				'nama_pegawai' => $this->input->post('nama_pegawai')
 			);
-		$this->user->update(array('user_id' => $this->input->post('id')), $data);
+		$this->user->update(array('id' => $this->input->post('id')), $data);
 		echo json_encode(array("status" => TRUE));
 	}
 

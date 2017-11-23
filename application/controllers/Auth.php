@@ -24,8 +24,10 @@ public function register_user(){
 		$user=array(
       'username'=>$this->input->post('user_name'),
 	  'password'=>md5($this->input->post('user_password')),
+	  'status'=>$this->input->post('status'),
       'email'=>$this->input->post('user_email'),
-      'no_mobile'=>$this->input->post('user_mobile')
+      'no_mobile'=>$this->input->post('user_mobile'),
+	  'flag_status'=>$this->input->post('flag')
         );
 		
 		
