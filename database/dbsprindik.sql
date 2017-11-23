@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2017 at 01:55 AM
+-- Generation Time: Nov 23, 2017 at 05:41 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -30,13 +30,7 @@ CREATE TABLE IF NOT EXISTS `oltp_calon_peserta` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_user` varchar(11) NOT NULL,
   `id_diklat` varchar(50) DEFAULT NULL,
-  `nama` varchar(100) DEFAULT NULL,
-  `umur` int(3) DEFAULT NULL,
-  `alamat` varchar(255) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `url_dok_ktp` varchar(255) DEFAULT NULL,
-  `url_dok_ijazah` varchar(255) DEFAULT NULL,
-  `time_creation` datetime DEFAULT CURRENT_TIMESTAMP,
+  `kode_status` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_daftar_diklat` (`id_diklat`,`id_user`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
@@ -45,9 +39,9 @@ CREATE TABLE IF NOT EXISTS `oltp_calon_peserta` (
 -- Dumping data for table `oltp_calon_peserta`
 --
 
-INSERT INTO `oltp_calon_peserta` (`id`, `id_user`, `id_diklat`, `nama`, `umur`, `alamat`, `email`, `url_dok_ktp`, `url_dok_ijazah`, `time_creation`) VALUES
-(1, '18', NULL, NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, NULL),
-(2, '19', NULL, NULL, NULL, NULL, 'tes2@gmail.com', NULL, NULL, NULL);
+INSERT INTO `oltp_calon_peserta` (`id`, `id_user`, `id_diklat`, `kode_status`) VALUES
+(1, '18', NULL, NULL),
+(2, '19', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -142,14 +136,19 @@ CREATE TABLE IF NOT EXISTS `oltp_profil` (
   `url_dok_ijazah` varchar(255) DEFAULT NULL,
   `time_creation` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `oltp_profil`
 --
 
 INSERT INTO `oltp_profil` (`id`, `id_user`, `nama`, `umur`, `alamat`, `email`, `url_dok_ktp`, `url_dok_ijazah`, `time_creation`) VALUES
-(10, '25', NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, '2017-11-22 14:35:47');
+(10, '25', NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, '2017-11-22 14:35:47'),
+(11, '26', NULL, NULL, NULL, 'tes2@gmail.com', NULL, NULL, '2017-11-23 00:59:46'),
+(12, '27', NULL, NULL, NULL, 'tes3@gmail.com', NULL, NULL, '2017-11-23 01:00:42'),
+(13, '28', NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, '2017-11-23 01:26:01'),
+(14, '29', NULL, NULL, NULL, 'tes2@gmail.com', NULL, NULL, '2017-11-23 02:12:27'),
+(15, '30', NULL, NULL, NULL, 'tes1@gmail.com', NULL, NULL, '2017-11-23 03:05:01');
 
 -- --------------------------------------------------------
 
@@ -161,20 +160,20 @@ CREATE TABLE IF NOT EXISTS `oltp_user` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
-  `status` varchar(100) DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `no_mobile` varchar(100) DEFAULT NULL,
   `time_creation` datetime DEFAULT CURRENT_TIMESTAMP,
   `flag_status` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `oltp_user`
 --
 
 INSERT INTO `oltp_user` (`id_user`, `username`, `password`, `status`, `email`, `no_mobile`, `time_creation`, `flag_status`) VALUES
-(25, 'tes1', 'c4ca4238a0b923820dcc509a6f75849b', '3', 'tes1@gmail.com', '1', '2017-11-22 21:35:47', '1');
+(30, 'tes1', 'c4ca4238a0b923820dcc509a6f75849b', '3', 'tes2@gmail.com', '123344', '2017-11-23 10:05:01', '1');
 
 --
 -- Triggers `oltp_user`
@@ -231,14 +230,6 @@ CREATE TABLE IF NOT EXISTS `ref_akses` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
---
--- Dumping data for table `ref_akses`
---
-
-INSERT INTO `ref_akses` (`id`, `id_user`, `username`, `nip`, `flag_akses`, `flag_status`) VALUES
-(1, '18', 'tes1', 'c4ca4238a0b923820dcc509a6f75849b', NULL, NULL),
-(2, '19', 'tes2', 'c4ca4238a0b923820dcc509a6f75849b', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -273,10 +264,9 @@ INSERT INTO `ref_diklat` (`id`, `id_diklat`, `keterangan`, `tgl_mulai`, `tgl_sel
 
 CREATE TABLE IF NOT EXISTS `ref_flag` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `id_diklat` varchar(50) DEFAULT NULL,
-  `keterangan` varchar(255) NOT NULL,
+  `id_flag` varchar(50) DEFAULT NULL,
   `status` varchar(100) DEFAULT NULL,
-  `catatan` text,
+  `keterangan` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
@@ -284,12 +274,9 @@ CREATE TABLE IF NOT EXISTS `ref_flag` (
 -- Dumping data for table `ref_flag`
 --
 
-INSERT INTO `ref_flag` (`id`, `id_diklat`, `keterangan`, `status`, `catatan`) VALUES
-(1, NULL, 'Diklat ilmu bumi', 'Sedang Berjalan', NULL),
-(2, NULL, 'Diklat ilmu Tanah', 'Pendaftaran Dibuka', 'Persyaratan:\r\n- Minimal Ijazah SMA/D1\r\n- Umur 35 tahun\r\n- Belum Pernah mengikuti diklat yang sama sebelumnya\r\n- Surat Keterangan sehat dari dokter pemerintah'),
-(3, NULL, 'Diklat YYY', 'Pendaftaran Dibuka', NULL),
-(4, NULL, 'Diklat ilmu Tanah 1', 'Pendaftaran Ditutup', NULL),
-(5, NULL, 'Diklat ABC', 'Sedang Berjalan', 'nice');
+INSERT INTO `ref_flag` (`id`, `id_flag`, `status`, `keterangan`) VALUES
+(1, '1', 'Aktif', 'Aktif'),
+(2, '2', 'Tidak Aktif', 'Tidak Aktif');
 
 -- --------------------------------------------------------
 
@@ -303,14 +290,14 @@ CREATE TABLE IF NOT EXISTS `ref_pegawai` (
   `nip` varchar(18) NOT NULL DEFAULT '',
   `nama_pegawai` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `ref_pegawai`
 --
 
 INSERT INTO `ref_pegawai` (`id`, `id_user`, `nip`, `nama_pegawai`) VALUES
-(5, 0, '73737373873', 'tes1223');
+(6, 0, '262626262662', 'Pegawai1');
 
 -- --------------------------------------------------------
 
@@ -320,23 +307,23 @@ INSERT INTO `ref_pegawai` (`id`, `id_user`, `nip`, `nama_pegawai`) VALUES
 
 CREATE TABLE IF NOT EXISTS `ref_status` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `id_status` varchar(50) DEFAULT NULL,
+  `kode_status` varchar(50) DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL,
   `keterangan` varchar(255) NOT NULL,
-  `status` varchar(100) DEFAULT NULL,
-  `catatan` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `ref_status`
 --
 
-INSERT INTO `ref_status` (`id`, `id_status`, `keterangan`, `status`, `catatan`) VALUES
-(1, NULL, 'Diklat ilmu bumi', 'Sedang Berjalan', NULL),
-(2, NULL, 'Diklat ilmu Tanah', 'Pendaftaran Dibuka', 'Persyaratan:\r\n- Minimal Ijazah SMA/D1\r\n- Umur 35 tahun\r\n- Belum Pernah mengikuti diklat yang sama sebelumnya\r\n- Surat Keterangan sehat dari dokter pemerintah'),
-(3, NULL, 'Diklat YYY', 'Pendaftaran Dibuka', NULL),
-(4, NULL, 'Diklat ilmu Tanah 1', 'Pendaftaran Ditutup', NULL),
-(5, NULL, 'Diklat ABC', 'Sedang Berjalan', 'nice');
+INSERT INTO `ref_status` (`id`, `kode_status`, `status`, `keterangan`) VALUES
+(1, '1', 'Pengguna', 'Semua orang yang telah mendaftar'),
+(2, '2', 'Calon Peserta', 'Semua orang yang telah mendaftar namun belum mendaftar diklat'),
+(3, '3', 'Persetujuan dokumen', 'Persetujuan dokumen terhadap Calon peserta yang sudah melengkapi kelengkapan dokumen '),
+(4, '4', 'Persetujuan peserta', 'Persetujuan peserta terhadap Calon peserta yang sudah melengkapi ketentuan peserta'),
+(5, '5', 'Peserta', 'Peserta'),
+(6, '6', 'Peserta diklat', 'Peserta diklat');
 
 -- --------------------------------------------------------
 

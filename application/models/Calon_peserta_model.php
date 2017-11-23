@@ -61,6 +61,15 @@ class Calon_peserta_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+	function get_datatables_id_user()
+	{
+		$user_id=$this->session->userdata('id_user');
+		$this->db->from($this->table);
+		$this->db->where('id_user',$user_id);
+		$query = $this->db->get();
+		return $query->result();
+			
+	}
 
 	function count_filtered()
 	{

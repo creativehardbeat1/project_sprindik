@@ -55,13 +55,24 @@ class User_model extends CI_Model {
 
 	function get_datatables()
 	{
+		
 		$this->_get_datatables_query();
 		if($_POST['length'] != -1)
 		$this->db->limit($_POST['length'], $_POST['start']);
 		$query = $this->db->get();
 		return $query->result();
+			
 	}
-
+	function get_datatables_id_user()
+	{
+		$user_id=$this->session->userdata('id_user');
+		$this->db->from($this->table);
+		$this->db->where('id_user',$user_id);
+		$query = $this->db->get();
+		return $query->result();
+			
+	}
+	
 	function count_filtered()
 	{
 		$this->_get_datatables_query();
@@ -83,7 +94,8 @@ class User_model extends CI_Model {
 
 		return $query->row();
 	}
-
+	
+	
 	public function save($data)
 	{
 		$this->db->insert($this->table, $data);
