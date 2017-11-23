@@ -40,6 +40,94 @@
             </tr>
             </tfoot> -->
         </table>
+
+<div class="container">
+<div class="row">
+<div class="col-md-10 ">
+<form class="form-horizontal">
+<fieldset>
+<!-- Form Name -->
+<legend>Profil</legend>
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Name (Full name)">Nama</label>  
+      <div class="col-md-4">
+     <div class="input-group">
+           <div class="input-group-addon">
+            <i class="fa fa-user"></i>
+           </div>
+           <input id="nama" name="Name (Full name)" type="text" placeholder="Name (Full name)" class="form-control input-md">
+          </div>   
+      </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="Date Of Birth">Umur</label>  
+        <div class="col-md-4">
+            <div class="input-group">
+                <div class="input-group-addon">
+                <i class="fa fa-birthday-cake"></i>
+                </div>
+                <input id="Date Of Birth" name="Date Of Birth" type="text" placeholder="Date Of Birth" class="form-control input-md">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label col-xs-12" for="Permanent Address">Alamat</label>  
+        <div class="col-md-4">
+            <input id="Permanent Address" name="Permanent Address" type="text" placeholder="District" class="form-control input-md ">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="Email Address">Email</label>  
+        <div class="col-md-4">
+            <div class="input-group">
+                <div class="input-group-addon">
+                <i class="fa fa-envelope-o"></i>
+                </div>
+            <input id="Email Address" name="Email Address" type="text" placeholder="Email Address" class="form-control input-md">
+            </div>
+        </div>
+    </div>            
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="Upload photo">Upload KTP</label>
+        <div class="col-md-4">
+            <input id="Upload photo" name="Upload photo" class="input-file" type="file">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="Upload photo">Upload Ijazah</label>
+        <div class="col-md-4">
+            <input id="Upload photo" name="Upload photo" class="input-file" type="file">
+        </div>
+    </div>    
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="Phone number ">Nomor HP</label>  
+        <div class="col-md-4">
+            <div class="input-group">
+                <div class="input-group-addon">
+                <i class="fa fa-phone"></i>
+                </div>
+                <input id="Phone number " name="Phone number " type="text" placeholder="Primary Phone number " class="form-control input-md">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" ></label>  
+        <div class="col-md-4">
+        <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Submit</a>
+        <a href="#" class="btn btn-danger" value=""><span class="glyphicon glyphicon-remove-sign"></span> Clear</a>
+        </div>
+    </div>
+
+</fieldset>
+</form>
+</div>
+<div class="col-md-2 hidden-xs">
+    <img src="http://websamplenow.com/30/userprofile/images/avatar.jpg" class="img-responsive img-thumbnail ">
+</div>
+</div>
+</div>
+
     </div>
 
 <script src="<?php echo assets_url();?>/datatables/jquery/jquery-2.1.4.min.js"></script>
@@ -93,15 +181,15 @@ $(document).ready(function() {
 
 
 
-function add_profil()
-{
-    save_method = 'add';
-    $('#form')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-    $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Profil'); // Set Title to Bootstrap modal title
-}
+// function add_profil()
+// {
+//     save_method = 'add';
+//     $('#form')[0].reset(); // reset form on modals
+//     $('.form-group').removeClass('has-error'); // clear error class
+//     $('.help-block').empty(); // clear error string
+//     $('#modal_form').modal('show'); // show bootstrap modal
+//     $('.modal-title').text('Tambah Profil'); // Set Title to Bootstrap modal title
+// }
 
 function edit_profil(id)
 {
@@ -139,10 +227,10 @@ function edit_profil(id)
     });
 }
 
-function reload_table()
-{
-    table.ajax.reload(null,false); //reload datatable ajax 
-}
+// function reload_table()
+// {
+//     table.ajax.reload(null,false); //reload datatable ajax 
+// }
 
 function save()
 {
@@ -186,29 +274,29 @@ function save()
     });
 }
 
-function delete_profil(id)
-{
-    if(confirm('Anda yakin menghapus data ini?'))
-    {
-        // ajax delete data to database
-        $.ajax({
-            url : "<?php echo site_url('profil/ajax_delete')?>/"+id,
-            type: "POST",
-            dataType: "JSON",
-            success: function(data)
-            {
-                //if success reload ajax table
-                $('#modal_form').modal('hide');
-                reload_table();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-                alert('Error deleting data');
-            }
-        });
+// function delete_profil(id)
+// {
+//     if(confirm('Anda yakin menghapus data ini?'))
+//     {
+//         // ajax delete data to database
+//         $.ajax({
+//             url : "<?php echo site_url('profil/ajax_delete')?>/"+id,
+//             type: "POST",
+//             dataType: "JSON",
+//             success: function(data)
+//             {
+//                 //if success reload ajax table
+//                 $('#modal_form').modal('hide');
+//                 reload_table();
+//             },
+//             error: function (jqXHR, textStatus, errorThrown)
+//             {
+//                 alert('Error deleting data');
+//             }
+//         });
 
-    }
-}
+//     }
+// }
 
 </script>
 

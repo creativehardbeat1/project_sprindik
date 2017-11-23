@@ -46,7 +46,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('calon_peserta/ajax_list')?>",
+            "url": "<?php echo site_url('calon/ajax_list')?>",
             "type": "POST"
         },
 
@@ -93,7 +93,7 @@ $(document).ready(function() {
 
 //     //Ajax Load data from ajax
 //     $.ajax({
-//         url : "<?php echo site_url('calon_peserta/ajax_edit/')?>/" + id,
+//         url : "<?php echo site_url('calon/ajax_edit/')?>/" + id,
 //         type: "GET",
 //         dataType: "JSON",
 //         success: function(data)
@@ -126,9 +126,9 @@ $(document).ready(function() {
 //     var url;
 
 //     if(save_method == 'add') {
-//         url = "<?php echo site_url('calon_peserta/ajax_add')?>";
+//         url = "<?php echo site_url('calon/ajax_add')?>";
 //     } else {
-//         url = "<?php echo site_url('calon_peserta/ajax_update')?>";
+//         url = "<?php echo site_url('calon/ajax_update')?>";
 //     }
 
 //     // ajax adding data to database
@@ -167,7 +167,7 @@ $(document).ready(function() {
 //     {
 //         // ajax delete data to database
 //         $.ajax({
-//             url : "<?php echo site_url('calon_peserta/ajax_delete')?>/"+id,
+//             url : "<?php echo site_url('calon/ajax_delete')?>/"+id,
 //             type: "POST",
 //             dataType: "JSON",
 //             success: function(data)

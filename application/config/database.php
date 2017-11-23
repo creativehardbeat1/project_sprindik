@@ -77,7 +77,7 @@ $db['default'] = array(
 	'dsn'	=> 'mysql:host=localhost;dbname=dbsprindik',
 	'hostname' => '',
 	'username' => 'root',
-	'password' => '',
+	'password' => 'root',
 	'database' => '',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
