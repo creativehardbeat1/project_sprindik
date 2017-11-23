@@ -19,16 +19,13 @@ SET time_zone = "+00:00";
 --
 -- Database: `dbsprindik`
 --
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`dbsprindik` /*!40100 DEFAULT CHARACTER SET utf8 */;
-
-USE `dbsprindik`;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oltp_calon_peserta`
 --
-DROP TABLE IF EXISTS `oltp_calon_peserta`;
+
 CREATE TABLE IF NOT EXISTS `oltp_calon_peserta` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_user` varchar(11) NOT NULL,
@@ -51,7 +48,7 @@ INSERT INTO `oltp_calon_peserta` (`id`, `id_user`, `id_diklat`, `kode_status`) V
 --
 -- Table structure for table `oltp_permohonan`
 --
-DROP TABLE IF EXISTS `oltp_permohonan`;
+
 CREATE TABLE IF NOT EXISTS `oltp_permohonan` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_daftar_diklat` varchar(50) DEFAULT NULL,
@@ -74,7 +71,7 @@ INSERT INTO `oltp_permohonan` (`id`, `id_daftar_diklat`, `flag_vera_dok_kasi`, `
 --
 -- Table structure for table `oltp_peserta`
 --
-DROP TABLE IF EXISTS `oltp_peserta`;
+
 CREATE TABLE IF NOT EXISTS `oltp_peserta` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_user` varchar(11) NOT NULL,
@@ -102,7 +99,7 @@ INSERT INTO `oltp_peserta` (`id`, `id_user`, `id_diklat`, `nama`, `umur`, `alama
 --
 -- Table structure for table `oltp_peserta_diklat`
 --
-DROP TABLE IF EXISTS `oltp_peserta_diklat`;
+
 CREATE TABLE IF NOT EXISTS `oltp_peserta_diklat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `flag_approval` varchar(50) DEFAULT NULL,
@@ -127,7 +124,6 @@ INSERT INTO `oltp_peserta_diklat` (`id`, `flag_approval`, `time_creation`, `id_d
 --
 -- Table structure for table `oltp_profil`
 --
-DROP TABLE IF EXISTS `oltp_profil`;
 
 CREATE TABLE IF NOT EXISTS `oltp_profil` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -159,7 +155,7 @@ INSERT INTO `oltp_profil` (`id`, `id_user`, `nama`, `umur`, `alamat`, `email`, `
 --
 -- Table structure for table `oltp_user`
 --
-DROP TABLE IF EXISTS `oltp_user`;
+
 CREATE TABLE IF NOT EXISTS `oltp_user` (
   `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) DEFAULT NULL,
@@ -196,7 +192,7 @@ DELIMITER ;
 --
 -- Table structure for table `persons`
 --
-DROP TABLE IF EXISTS `persons`;
+
 CREATE TABLE IF NOT EXISTS `persons` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `firstName` varchar(100) DEFAULT NULL,
@@ -350,3 +346,6 @@ DROP TABLE IF EXISTS `view_laporan_diklat`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_laporan_diklat` AS select `a`.`id_peserta` AS `id`,`b`.`nama` AS `nama`,`c`.`keterangan` AS `keterangan`,`c`.`tgl_mulai` AS `tgl_mulai`,`c`.`tgl_selesai` AS `tgl_selesai` from ((`oltp_peserta_diklat` `a` left join `oltp_peserta` `b` on((`a`.`id_peserta` = `b`.`id`))) left join `ref_diklat` `c` on((`a`.`id_diklat` = `c`.`id_diklat`)));
 
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

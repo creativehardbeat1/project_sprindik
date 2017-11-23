@@ -11,14 +11,14 @@ class Web extends CI_Controller {
 	public function index(){		
 		$data['judul'] = "Home";
 		$this->load->view('template/v_header',$data);
-		$this->load->view('v_index',$data);
+		$this->load->view('home/v_home',$data);
 		$this->load->view('template/v_footer',$data);
 	}
  
 	public function about(){		
 		$data['judul'] = "About";
 		$this->load->view('template/v_header',$data);
-		$this->load->view('v_about',$data);
+		$this->load->view('about/v_about',$data);
 		$this->load->view('template/v_footer',$data);	}
 	public function pengguna(){		
 		$data['judul'] = "Daftar Pengguna";
@@ -52,7 +52,7 @@ class Web extends CI_Controller {
 	}
 	
 	public function permohonan_diklat(){		
-		$data['judul'] = "Daftar Permohonan Diklat";
+		$data['judul'] = "Pendaftaran Permohonan Diklat";
 		$this->load->view('template/v_header',$data);
 		$this->load->view('diklat/v_permohonan_diklat',$data);
 		$this->load->view('template/v_footer',$data);

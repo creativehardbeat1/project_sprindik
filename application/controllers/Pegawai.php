@@ -17,9 +17,16 @@ class Pegawai extends CI_Controller {
 
 	public function ajax_list()
 	{
-		$list = $this->user->get_datatables();
+		$status=$this->session->userdata('user_status');
+		$user_id=$this->session->userdata('id_user');
+		if($status=="3"){
+			$list = $this->user->get_datatables_id_user();			
+			$no = 0;
+		}else{
+			$list = $this->user->get_datatables();	
+			$no = $_POST['start'];
+		}
 		$data = array();
-		$no = $_POST['start'];
 		foreach ($list as $user) {
 			$no++;
 			$row = array();
@@ -27,8 +34,8 @@ class Pegawai extends CI_Controller {
 			$row[] = $user->nama_pegawai;
 
 			//add html for action
-			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_user('."'".$user->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
-				  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_user('."'".$user->id."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
+			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_pegawai('."'".$user->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
+				  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_pegawai('."'".$user->id."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
 		
 			$data[] = $row;
 		}
@@ -63,7 +70,7 @@ class Pegawai extends CI_Controller {
 	{
 		$data = array(
 				'nip' => $this->input->post('nip'),
-				'nama_pegawai' => $this->input->post('nama_pegawai'),
+				'nama_pegawai' => $this->input->post('nama_pegawai')
 			);
 		$this->user->update(array('id' => $this->input->post('id')), $data);
 		echo json_encode(array("status" => TRUE));

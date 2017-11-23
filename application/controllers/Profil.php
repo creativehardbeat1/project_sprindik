@@ -17,24 +17,32 @@ class Profil extends CI_Controller {
 
 	public function ajax_list()
 	{
-		$list = $this->profil->get_datatables();
+		$status=$this->session->userdata('user_status');
+		$user_id=$this->session->userdata('id_user');
+		if($status=="3"){
+			$list = $this->user->get_datatables_id_user();			
+			$no = 0;
+		}else{
+			$list = $this->user->get_datatables();	
+			$no = $_POST['start'];
+		}
 		$data = array();
-		$no = $_POST['start'];
 		foreach ($list as $profil) {
 			$no++;
 			$row = array();
-			$row[] = $profil->id_user;
+			// $row[] = $profil->id_user;
 			$row[] = $profil->nama;
 			$row[] = $profil->umur;
 			$row[] = $profil->alamat;
 			$row[] = $profil->email;
 			$row[] = $profil->url_dok_ktp;
 			$row[] = $profil->url_dok_ijazah;
-			$row[] = $profil->time_creation;
+			// $row[] = $profil->time_creation;
+			$row[] = $profil->no_mobile;
 
 			//add html for action
 			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_profil('."'".$profil->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
-				  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_profil('."'".$profil->id."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
+				  ';
 		
 			$data[] = $row;
 		}
@@ -58,14 +66,15 @@ class Profil extends CI_Controller {
 	public function ajax_add()
 	{
 		$data = array(
-				'id_user' => $this->input->post('id_user'),
+				// 'id_user' => $this->input->post('id_user'),
 				'nama' => $this->input->post('nama'),
 				'umur' => $this->input->post('umur'),
 				'alamat' => $this->input->post('alamat'),
 				'email' => $this->input->post('email'),
 				'url_dok_ktp' => $this->input->post('url_dok_ktp'),
 				'url_dok_ijazah' => $this->input->post('url_dok_ijazah'),
-				'time_creation' => $this->input->post('time_creation'),
+				// 'time_creation' => $this->input->post('time_creation'),
+				'no_mobile' => $this->input->post('no_mobile'),
 			);
 		$insert = $this->profil->save($data);
 		echo json_encode(array("status" => TRUE));
@@ -74,14 +83,15 @@ class Profil extends CI_Controller {
 	public function ajax_update()
 	{
 		$data = array(
-				'id_user' => $this->input->post('id_user'),
+				// 'id_user' => $this->input->post('id_user'),
 				'nama' => $this->input->post('nama'),
 				'umur' => $this->input->post('umur'),
 				'alamat' => $this->input->post('alamat'),
 				'email' => $this->input->post('email'),
 				'url_dok_ktp' => $this->input->post('url_dok_ktp'),
 				'url_dok_ijazah' => $this->input->post('url_dok_ijazah'),
-				'time_creation' => $this->input->post('time_creation'),
+				// 'time_creation' => $this->input->post('time_creation'),
+				'no_mobile' => $this->input->post('no_mobile'),
 			);
 		$this->profil->update(array('id' => $this->input->post('id')), $data);
 		echo json_encode(array("status" => TRUE));

@@ -70,7 +70,7 @@ $(document).ready(function() {
 
 
 
-function add_user()
+function add_pegawai()
 {
     save_method = 'add';
     $('#form')[0].reset(); // reset form on modals
@@ -80,7 +80,7 @@ function add_user()
     $('.modal-title').text('Tambah Pegawai'); // Set Title to Bootstrap modal title
 }
 
-function edit_user(id)
+function edit_pegawai(id)
 {
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
@@ -94,14 +94,9 @@ function edit_user(id)
         dataType: "JSON",
         success: function(data)
         {
-
-            $('[name="id"]').val(data.id_user);
-            $('[name="username"]').val(data.username);
-			$('[name="password"]').val(data.password);
-			$('[name="status"]').val(data.status);
-            $('[name="email"]').val(data.email);
-            $('[name="no_mobile"]').val(data.no_mobile);
-			$('[name="flag_status"]').val(data.flag_status);
+			$('[name="id"]').val(data.id);
+            $('[name="nip"]').val(data.nip);
+			$('[name="nama_pegawai"]').val(data.nama_pegawai);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Pegawai'); // Set title to Bootstrap modal title
 
@@ -160,7 +155,7 @@ function save()
     });
 }
 
-function delete_user(id)
+function delete_pegawai(id)
 {
     if(confirm('Are you sure delete this data?'))
     {
@@ -196,59 +191,25 @@ function delete_user(id)
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="<?php echo $user_id;?>" name="id"/> 
+                    <input type="hidden" value="" name="id"/> 
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label col-md-3">Username</label>
+                            <label class="control-label col-md-3">NIP Pegawai</label>
                             <div class="col-md-9">
-                                <input name="username" placeholder="Username Minimal 4 karakter dan maksimal 15 karakter " class="form-control" type="text">
+                                <input name="nip" placeholder="NIP Pegawai " class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
+
+                        
                         <div class="form-group">
-                            <label class="control-label col-md-3">Password</label>
+                            <label class="control-label col-md-3">Nama Pegawai</label>
                             <div class="col-md-9">
-                                <input name="password" placeholder="Password" class="form-control" type="password">
+                                <textarea name="nama_pegawai" placeholder="Nama Pegawai" class="form-control"></textarea>
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Status</label>
-                            <div class="col-md-9">
-                                <select name="status" class="form-control">
-                                    <option value="">--Pilih Status--</option>
-                                    <option value="Guest">Guest</option>
-                                    <option value="Administrator">Administrator</option>
-									 <option value="Operator">Operator</option>
-                                </select>
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">E-mail</label>
-                            <div class="col-md-9">
-                                <textarea name="email" placeholder="E-mail" class="form-control"></textarea>
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-						<div class="form-group">
-                            <label class="control-label col-md-3">Nomor Handphone</label>
-                            <div class="col-md-9">
-                                <textarea name="no_mobile" placeholder="Nomor Handphone" class="form-control"></textarea>
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Flag Status</label>
-                            <div class="col-md-9">
-                                <select name="flag_status" class="form-control">
-                                    <option value="">--Pilih Flag Status--</option>
-                                    <option value="1">Aktif</option>
-                                    <option value="2">Non Aktif</option>
-                                </select>
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
+						
                     </div>
                 </form>
             </div>

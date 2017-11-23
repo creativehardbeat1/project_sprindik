@@ -60,6 +60,7 @@ class Diklat extends CI_Controller {
 				'tgl_selesai' => $this->input->post('tgl_selesai'),
 				'status' => $this->input->post('status'),
 				'catatan' => $this->input->post('catatan'),
+				'flag_status' => $this->input->post('flag_status'),
 			);
 		$insert = $this->diklat->save($data);
 		echo json_encode(array("status" => TRUE));
@@ -73,6 +74,7 @@ class Diklat extends CI_Controller {
 				'tgl_selesai' => $this->input->post('tgl_selesai'),
 				'status' => $this->input->post('status'),
 				'catatan' => $this->input->post('catatan'),
+				'flag_status' => $this->input->post('flag_status'),
 			);
 		$this->diklat->update(array('id_diklat' => $this->input->post('id_diklat')), $data);
 		echo json_encode(array("status" => TRUE));

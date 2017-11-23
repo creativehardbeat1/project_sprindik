@@ -43,6 +43,7 @@ class Auth_model extends CI_model{
 		$this->db->from('oltp_user');
 		$this->db->where('username', $user);
 		$this->db->where('password', $pass);
+		$this->db->where('flag_status', '1');
 
 		$data = $this->db->get();
 
