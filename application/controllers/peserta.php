@@ -20,10 +20,10 @@ class peserta extends CI_Controller {
 		$status=$this->session->userdata('user_status');
 		$user_id=$this->session->userdata('id_user');
 		if($status=="3"){
-			$list = $this->user->get_datatables_id_user();			
+			$list = $this->peserta->get_datatables_id_user();			
 			$no = 0;
 		}else{
-			$list = $this->user->get_datatables();	
+			$list = $this->peserta->get_datatables();	
 			$no = $_POST['start'];
 		}
 		$data = array();

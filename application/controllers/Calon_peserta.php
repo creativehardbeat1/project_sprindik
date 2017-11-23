@@ -12,7 +12,7 @@ class calon_peserta extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('calon_peserta/calon_peserta_view');
+		$this->load->view('calon_peserta/v_calon_peserta');
 	}
 
 	public function ajax_list()
@@ -20,10 +20,10 @@ class calon_peserta extends CI_Controller {
 		$status=$this->session->userdata('user_status');
 		$user_id=$this->session->userdata('id_user');
 		if($status=="3"){
-			$list = $this->user->get_datatables_id_user();			
+			$list = $this->calon_peserta->get_datatables_id_user();			
 			$no = 0;
 		}else{
-			$list = $this->user->get_datatables();	
+			$list = $this->calon_peserta->get_datatables();	
 			$no = $_POST['start'];
 		}
 		$data = array();

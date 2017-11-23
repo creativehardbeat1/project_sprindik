@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Calon_peserta_model extends CI_Model {
 
 	var $table = 'oltp_calon_peserta';
-	var $column_order = array('id_user','id_diklat','status',null); //set column //field database for datatable orderable
+	var $column_order = array('id_diklat','status',null); //set column //field database for datatable orderable
 	var $column_search = array('id_diklat','status'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
 	var $order = array('id' => 'desc'); // default order 
 
