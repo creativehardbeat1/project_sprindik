@@ -97,7 +97,7 @@
 			                    </div>
 		                    </div>
 		                
-		                	<div class="social-login">
+		                	<!-- <div class="social-login">
 	                        	<h3>...or login with:</h3>
 	                        	<div class="social-login-buttons">
 		                        	<a class="btn btn-link-1 btn-link-1-facebook" href="#">
@@ -110,7 +110,7 @@
 		                        		<i class="fa fa-google-plus"></i> Google Plus
 		                        	</a>
 	                        	</div>
-	                        </div>
+	                        </div> -->
 	                        
                         </div>
                         
@@ -147,11 +147,11 @@
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-email">Email</label>
-				                        	<input type="text" name="user_email" placeholder="Email..." class="form-email form-control" id="form-email">
+				                        	<input type="text" name="user_email" placeholder="Email..."  class="form-first-name form-control" id="form-first-name">
 				                        </div>
 										<div class="form-group">
 				                        	<label class="sr-only" for="form-email">Password</label>
-				                        	<input type="password" name="user_password" placeholder="Password..." class="form-email form-control" id="form-email">
+				                        	<input type="password" name="user_password" placeholder="Password..."  class="form-first-name form-control" id="form-first-name">
 				                        </div>
 				                        
 				                        <button type="submit" class="btn">Sign me up!</button>

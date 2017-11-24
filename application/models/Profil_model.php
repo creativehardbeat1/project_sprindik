@@ -1,122 +1,75 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Profil_model extends CI_Model {
-
-	var $table = 'oltp_profil';
-	var $column_order = array('nama','umur','alamat','email','url_dok_ktp','url_dok_ijazah','time_creation','no_mobile',null); //set column //field database for datatable orderable
-	var $column_search = array('nama','umur','alamat'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
-	var $order = array('id' => 'desc'); // default order 
-
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->database();
-	}
-
-	private function _get_datatables_query()
-	{
-		// $user_id=$this->session->userdata('id_user');
-		$this->db->from($this->table);
-		// $this->db->where('id_user',$user_id);
-
-		$i = 0;
 	
-		foreach ($this->column_search as $item) // loop column 
-		{
-			if($_POST['search']['value']) // if datatable send POST for search
-			{
-				
-				if($i===0) // first loop
-				{
-					$this->db->group_start(); // open bracket. query Where with OR clause better with bracket. because maybe can combine with other WHERE with AND.
-					$this->db->like($item, $_POST['search']['value']);
-				}
-				else
-				{
-					$this->db->or_like($item, $_POST['search']['value']);
-				}
-
-				if(count($this->column_search) - 1 == $i) //last loop
-					$this->db->group_end(); //close bracket
-			}
-			$i++;
-		}
-		
-		if(isset($_POST['order'])) // here order processing
-		{
-			$this->db->order_by($this->column_order[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
-		} 
-		else if(isset($this->order))
-		{
-			$order = $this->order;
-			$this->db->order_by(key($order), $order[key($order)]);
-		}
-	}
-
-	function get_datatables()
-	{
-		$this->_get_datatables_query();
-		if($_POST['length'] != -1)
-		$this->db->limit($_POST['length'], $_POST['start']);
-		$query = $this->db->get();
-		return $query->result();
-	}
-	function get_datatables_id_user()
-	{
+    var $tabel = 'oltp_profil'; //buat variabel tabel
+ 
+    function __construct() {
+        parent::__construct();
+		$this->load->database();
+    }
+	
+	public function get_profil(){
 		$user_id=$this->session->userdata('id_user');
-		$this->db->from($this->table);
-		$this->db->where('id_user',$user_id);
-		$query = $this->db->get();
-		return $query->result();
-			
-	}
-
-	function count_filtered()
-	{
-		$this->_get_datatables_query();
-		$query = $this->db->get();
-		return $query->num_rows();
-	}
-
-	public function count_all()
-	{
-		$this->db->from($this->table);
-		return $this->db->count_all_results();
-	}
-
-	public function get_by_id($id)
-	{
-		$this->db->from($this->table);
-		$this->db->where('id',$id);
-		$query = $this->db->get();
-
+		$query= $this->db->where('id_user',$user_id)->get('oltp_profil');
 		return $query->row();
+		
+	
 	}
+     
+    //fungsi untuk menampilkan semua data dari tabel database
+    function get_allimage() {
+		$user_id=$this->session->userdata('id_user');
+        $this->db->from($this->tabel);
+		$this->db->where('id_user',$user_id);
+        $query = $this->db->get();
+ 
+        //cek apakah ada data
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+    }
+ 
+    //fungsi insert ke database
+    function get_insert($data){
+       $this->db->insert($this->tabel, $data);
+       return TRUE;
+    }
+	public function edit_profil($data1){
+		
+		
+		
+		$dktp=$data1 ["dktp"];
+		$dnama=$data1 ["dnama"];
+		$dumur=$data1 ["dumur"];
+		$dalamat=$data1 ["dalamat"];
+		$demail=$data1 ["demail"];
+		$dno_mobile=$data1 ["dno_mobile"];
+		//var_dump($dnama);
+		//echo $dktp;
+		//var_dump($data1);
+		$user_id=$this->session->userdata('id_user');
+		
+		
+		
+		
+		$data = array(
+               'nama' => $dnama,
+               'umur' => $dumur,
+			   'alamat' => $dalamat,
+               'email' => $demail,
+			   'url_dok_ktp' => $dktp,
+               'no_mobile' => $dno_mobile		  
+            );
+$this->db->where('id_user', $user_id);
+$this->db->update('oltp_profil', $data); 
 
-	public function save($data)
-	{
-		$this->db->insert($this->table, $data);
-		return $this->db->insert_id();
-	}
+// Produces:
+// UPDATE mytable 
+// SET title = '{$title}', name = '{$name}', date = '{$date}'
+// WHERE id = $id
 
-	public function update($where, $data)
-	{
-		$this->db->update($this->table, $data, $where);
-		return $this->db->affected_rows();
-	}
 
-	public function delete_by_id($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete($this->table);
+		
 	}
- 	// public function getProfil(){
-		// $user_id=$this->session->userdata('id_user');
-		// $this->db->select("nama");
-		// $this->db->from($this->table);
-		// $this->db->where('id_user',$user_id);
-		// $query = $this->db->get();
-		// return $query->result();
-	 // }
 }
+?>
