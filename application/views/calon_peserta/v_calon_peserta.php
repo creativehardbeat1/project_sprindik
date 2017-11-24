@@ -15,7 +15,7 @@
                     <th>Tgl Selesai</th>
                     <th>Status Diklat</th>
                     <th>Status Permohonan</th>
-                 <th style="width:125px;">Action</th>
+                 
                 </tr>
             </thead>
             <tbody>
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('calon/ajax_list')?>",
+            "url": "<?php echo site_url('Calon_peserta/ajax_list')?>",
             "type": "POST"
         },
 
