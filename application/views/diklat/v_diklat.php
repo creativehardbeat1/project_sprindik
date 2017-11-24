@@ -249,7 +249,7 @@ function delete_diklat(id_diklat)
                             <label class="control-label col-md-3">Catatan</label>
                             <div class="col-md-9">
                                 <!-- <input name="catatan" placeholder="catatan tambahan...." class="form-control" type="text"> -->
-                                <textarea rows="4" cols="50" name="catatan" placeholder="catatan tambahan...."></textarea>
+                                <textarea name="catatan" placeholder="catatan tambahan...." class="form-control"></textarea>
                                 <span class="help-block"></span>
                             </div>
                         </div>                        
