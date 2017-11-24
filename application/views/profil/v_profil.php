@@ -40,40 +40,42 @@
             </tr>
             </tfoot> -->
         </table>
-
+<?php //var_dump($this->profil);?>
+<?php //echo $profil->nama; ?>
+<?php ?>
 <div class="container">
 <div class="row">
 <div class="col-md-10 ">
 <form class="form-horizontal">
 <fieldset>
 <!-- Form Name -->
-<legend>Profil</legend>
+<legend>Profil</legend> 
     <div class="form-group">
-      <label class="col-md-4 control-label" for="Name (Full name)">Nama</label>  
+      <label class="col-md-4 control-label" for="Nama Lengkap">Nama Lengkap</label>  
       <div class="col-md-4">
      <div class="input-group">
            <div class="input-group-addon">
             <i class="fa fa-user"></i>
            </div>
-           <input id="nama" name="Name (Full name)" type="text" placeholder="Name (Full name)" class="form-control input-md">
+           <input id="nama" name="Nama Lengkap" type="text" placeholder="Nama Lengkap" class="form-control input-md">
           </div>   
       </div>
     </div>
     <div class="form-group">
-        <label class="col-md-4 control-label" for="Date Of Birth">Umur</label>  
+        <label class="col-md-4 control-label" for="Umur">Umur</label>  
         <div class="col-md-4">
             <div class="input-group">
                 <div class="input-group-addon">
                 <i class="fa fa-birthday-cake"></i>
                 </div>
-                <input id="Date Of Birth" name="Date Of Birth" type="text" placeholder="Date Of Birth" class="form-control input-md">
+                <input id="umur" name="Umur" type="text" placeholder="Umur" class="form-control input-md">
             </div>
         </div>
     </div>
     <div class="form-group">
-        <label class="col-md-4 control-label col-xs-12" for="Permanent Address">Alamat</label>  
+        <label class="col-md-4 control-label col-xs-12" for="Alamat Rumah">Alamat Rumah</label>  
         <div class="col-md-4">
-            <input id="Permanent Address" name="Permanent Address" type="text" placeholder="District" class="form-control input-md ">
+            <input id="alamat" name="Alamat Rumah" type="text" placeholder="Alamat Rumah" class="form-control input-md ">
         </div>
     </div>
     <div class="form-group">
@@ -83,30 +85,30 @@
                 <div class="input-group-addon">
                 <i class="fa fa-envelope-o"></i>
                 </div>
-            <input id="Email Address" name="Email Address" type="text" placeholder="Email Address" class="form-control input-md">
+            <input id="email" name="Email Address" type="text" placeholder="Email Address" class="form-control input-md">
             </div>
         </div>
     </div>            
     <div class="form-group">
-        <label class="col-md-4 control-label" for="Upload photo">Upload KTP</label>
+        <label class="col-md-4 control-label" for="Upload KTP">Upload KTP</label>
         <div class="col-md-4">
-            <input id="Upload photo" name="Upload photo" class="input-file" type="file">
+            <input id="ktp" name="Upload KTP" class="input-file" type="file">
         </div>
     </div>
     <div class="form-group">
-        <label class="col-md-4 control-label" for="Upload photo">Upload Ijazah</label>
+        <label class="col-md-4 control-label" for="Upload Ijazah">Upload Ijazah</label>
         <div class="col-md-4">
-            <input id="Upload photo" name="Upload photo" class="input-file" type="file">
+            <input id="ijazah" name="Upload Ijazah" class="input-file" type="file">
         </div>
     </div>    
     <div class="form-group">
-        <label class="col-md-4 control-label" for="Phone number ">Nomor HP</label>  
+        <label class="col-md-4 control-label" for="Nomor HP ">Nomor HP</label>  
         <div class="col-md-4">
             <div class="input-group">
                 <div class="input-group-addon">
                 <i class="fa fa-phone"></i>
                 </div>
-                <input id="Phone number " name="Phone number " type="text" placeholder="Primary Phone number " class="form-control input-md">
+                <input id="no_mobile" name="Nomor HP " type="text" placeholder="Nomor HP " class="form-control input-md">
             </div>
         </div>
     </div>
@@ -114,8 +116,8 @@
     <div class="form-group">
         <label class="col-md-4 control-label" ></label>  
         <div class="col-md-4">
-        <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Submit</a>
-        <a href="#" class="btn btn-danger" value=""><span class="glyphicon glyphicon-remove-sign"></span> Clear</a>
+        <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Update</a>
+<!--         <a href="#" class="btn btn-danger" value=""><span class="glyphicon glyphicon-remove-sign"></span> Cancel</a> -->
         </div>
     </div>
 

@@ -12,18 +12,34 @@ class Profil extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('profil/profil_view');
+		$query = $this->profil->getProfil();
+		$data['PROFIL'] = null;
+  		if($query){
+   			$data['PROFIL'] =  $query;
+  		}
+		$this->load->view('profil/profil_view', $data);
 	}
+
+	// public function profil()
+	// {
+	// 	$query = $this->profil->getProfil();
+	// 	var_dump($data['PROFIL']);
+	// 	//$data['PROFIL'] = null;
+ //  		if($query){
+ //   			$data['PROFIL'] =  $query;
+ //  		}
+	// 	$this->load->view('profil/profil_view', $data);
+	// }
 
 	public function ajax_list()
 	{
 		$status=$this->session->userdata('user_status');
 		$user_id=$this->session->userdata('id_user');
 		if($status=="3"){
-			$list = $this->user->get_datatables_id_user();			
+			$list = $this->profil->get_datatables_id_user();			
 			$no = 0;
 		}else{
-			$list = $this->user->get_datatables();	
+			$list = $this->profil->get_datatables();	
 			$no = $_POST['start'];
 		}
 		$data = array();
