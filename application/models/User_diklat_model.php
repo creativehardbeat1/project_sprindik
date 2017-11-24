@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User_diklat_model extends CI_Model {
 
 	var $table = 'v_user_diklat';
-	var $column_order = array('id_user','nama','umur','alamat','email','url_dok_ktp','url_dok_ijazah','no_mobile','id_diklat','keterangan','tgl_mulai','tgl_selesai','status_diklat','catatan','status_permohonan',null); //set column //field database for datatable orderable
+	var $column_order = array('id_user','nama','umur','alamat','email','url_dok_ktp','url_dok_ijazah','no_mobile','id_diklat','keterangan','tgl_mulai','tgl_selesai','status_diklat','catatan','status_permohonan'); //set column //field database for datatable orderable
 	var $column_search = array('keterangan','status_permohonan'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
 	var $order = array('tgl_mulai' => 'desc'); // default order 
 
@@ -62,11 +62,20 @@ class User_diklat_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+	function get_datatables_id_user()
+	{
+		$user_id=$this->session->userdata('id_user');
+		$this->db->from($this->table);
+		$this->db->where('id_user',$user_id);
+		$query = $this->db->get();
+		return $query->result();
+			
+	}
 
 	//--Persetujuan dokumen--
 	private function _get_datatables_persetujuan_a_query()
 	{
-		$status = '0';
+		$status = '2';
 		$this->db->from($this->table);
 		$this->db->where('status_permohonan',$status);
 
@@ -117,7 +126,7 @@ class User_diklat_model extends CI_Model {
 	//--Persetujuan peserta--
 	private function _get_datatables_persetujuan_b_query()
 	{
-		$status = '1';
+		$status = '3';
 		$this->db->from($this->table);
 		$this->db->where('status_permohonan',$status);
 

@@ -7,6 +7,7 @@ class calon_peserta extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('calon_peserta_model','calon_peserta');
+		$this->load->model('user_diklat_model','udiklat');
 	}
 
 	public function index()
@@ -20,37 +21,31 @@ class calon_peserta extends CI_Controller {
 		$status=$this->session->userdata('user_status');
 		$user_id=$this->session->userdata('id_user');
 		if($status=="3"){
-			$list = $this->calon_peserta->get_datatables_id_user();			
+			$list = $this->udiklat->get_datatables_id_user();			
 			$no = 0;
 		}else{
-			$list = $this->calon_peserta->get_datatables();	
+			$list = $this->udiklat->get_datatables();	
 			$no = $_POST['start'];
 		}
 		$data = array();
-		foreach ($list as $calon_peserta) {
+		foreach ($list as $udiklat) {
 			$no++;
 			$row = array();
-			//$row[] = $calon_peserta->id_user;
-			$row[] = $calon_peserta->id_diklat;
-			$row[] = $calon_peserta->nama;
-			$row[] = $calon_peserta->umur;
-			$row[] = $calon_peserta->alamat;
-			$row[] = $calon_peserta->email;
-			$row[] = $calon_peserta->url_dok_ktp;
-			$row[] = $calon_peserta->url_dok_ijazah;
-			$row[] = $calon_peserta->time_creation;
+			$row[] = $udiklat->keterangan;
+			$row[] = $udiklat->tgl_mulai;
+			$row[] = $udiklat->tgl_selesai;
+			$row[] = $udiklat->status_diklat;
+			$row[] = $udiklat->status_permohonan;
 
-			//add html for action
-			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_calon_peserta('."'".$calon_peserta->id."'".')"> <i class="glyphicon glyphicon-pencil"></i> Ubah</a>';
-				  // <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_calon_peserta('."'".$calon_peserta->id."'".')"> <!-- <i class="glyphicon glyphicon-trash"> --></i> Hapus</a>';
+			
 		
 			$data[] = $row;
 		}
 
 		$output = array(
 						"draw" => $_POST['draw'],
-						"recordsTotal" => $this->calon_peserta->count_all(),
-						"recordsFiltered" => $this->calon_peserta->count_filtered(),
+						"recordsTotal" => $this->udiklat->count_all(),
+						"recordsFiltered" => $this->udiklat->count_filtered(),
 						"data" => $data,
 				);
 		//output to json format

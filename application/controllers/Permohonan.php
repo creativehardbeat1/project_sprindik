@@ -7,7 +7,7 @@ class Permohonan extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('diklat_model','diklat');
-		$this->load->model('calon_model','calon');
+		$this->load->model('Calon_peserta_model','calon');
 	}
 
 	public function index()
@@ -60,7 +60,7 @@ class Permohonan extends CI_Controller {
 				// 'keterangan' => $this->input->post('keterangan'),
 				// 'tgl_mulai' => $this->input->post('tgl_mulai'),
 				// 'tgl_selesai' => $this->input->post('tgl_selesai'),
-				'status' => '0'
+				'kode_status' => '2',
 			);
 		$insert = $this->calon->save($data);
 		echo json_encode(array("status" => TRUE));

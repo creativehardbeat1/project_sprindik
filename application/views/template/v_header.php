@@ -49,8 +49,8 @@ if(!$user_id){
 		<li><a href="<?php echo base_url().index_page();?>/web/diklat">Diklat</a></li>
 		<li><a href="<?php echo base_url().index_page();?>/web/pegawai">Pegawai</a></li>
 		<li><a href="<?php echo base_url().index_page();?>/web/peserta">Peserta</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/setuju_dokumen">Persetujuan Dokumen</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/setuju_peserta">Persetujuan Peserta</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/web/persetujuan_dokumen">Persetujuan Dokumen</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/web/persetujuan_peserta">Persetujuan Peserta</a></li>
 		<li><a href="<?php echo base_url().index_page();?>/web/peserta_diklat">Peserta Diklat</a></li>
 		<li><a href="<?php echo base_url().index_page();?>/web/laporan_diklat">Laporan Diklat</a></li>
 
