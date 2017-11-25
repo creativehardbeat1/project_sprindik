@@ -23,6 +23,7 @@ class Diklat extends CI_Controller {
 		foreach ($list as $diklat) {
 			$no++;
 			$row = array();
+			$row[] = $diklat->id_diklat;
 			$row[] = $diklat->keterangan;
 			$row[] = $diklat->tgl_mulai;
 			$row[] = $diklat->tgl_selesai;

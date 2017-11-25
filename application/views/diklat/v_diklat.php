@@ -10,6 +10,7 @@
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
+                    <th>Kode Diklat</th>
                     <th>Nama Diklat</th>
                     <th>Tanggal Mulai</th>
                     <th>Tanggal Selesai</th>
