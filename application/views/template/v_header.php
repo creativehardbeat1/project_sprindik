@@ -174,7 +174,7 @@ if(!$user_id){
 </nav>
 <style type="text/css">
   body{
-    background: url('http://localhost/project_sprindik/assets/header-50TH-LIPI.png') no-repeat center center fixed ;
+    background: url('<?php echo assets_url();?>/header-50TH-LIPI.png') no-repeat center center fixed ;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -187,7 +187,7 @@ if(!$user_id){
 }
 
 #bg{
-    background:url('http://localhost/project_sprindik/assets/header-50TH-LIPI.png') no-repeat center center;
+    background:url('<?php echo assets_url();?>/header-50TH-LIPI.png') no-repeat center center;
     height: 500px;
     opacity: 0.5
 }

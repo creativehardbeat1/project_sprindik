@@ -51,6 +51,7 @@ class Welcome extends CI_Controller {
 			$this->session->set_userdata('user_mobile',$data->no_mobile);
 			$this->session->set_userdata('user_status',$data->status);
 			$this->load->view('template/v_header');
+			//$this->load->view('home/v_home');
 		  }else{
 			$this->session->set_flashdata('error_msg', 'Error occured,Try again.');
 			$this->load->view('login_register');

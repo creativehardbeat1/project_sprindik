@@ -1,21 +1,5 @@
 <section>
-<<<<<<< HEAD
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Data Peserta Diklat &raquo; XX</title>
-<!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
-<script src="http://code.highcharts.com/highcharts.js"></script>
-||||||| merged common ancestors
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Data Peserta Diklat &raquo; XX</title>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://code.highcharts.com/highcharts.js"></script>
-=======
+
 <!-- load library jquery dan highcharts -->
  <!-- <script src="<?php echo assets_url();?>/grafik/js/jquery-1.11.3.min.js" type="text/javascript"></script>
   <script src="<?php echo assets_url();?>/grafik/highcharts/highcharts.js" type="text/javascript"></script>
@@ -24,13 +8,15 @@
   <script src="<?php echo assets_url();?>/grafik/chart/Chart.min.js" type="text/javascript"></script>-->
   
 <!-- end load library -->
+<div style="float: left; height: 450px; width: 100%;">
+</div>
  <div id="chartContainer" style="float: left; height: 400px; width: 100%;">
 <script src="<?php echo assets_url();?>/grafik/js/jquery-1.7.1.min.js" type="text/javascript"></script>
 <script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxcore.js" type="text/javascript"></script>
 <script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxdraw.js" type="text/javascript"></script>
 <script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxchart.core.js" type="text/javascript"></script>
 <script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxdata.js" type="text/javascript"></script>        
->>>>>>> d9224f3f8d1bd2f2adcf34709c20e0bf460a32b4
+
 <script type="text/javascript">
 $(document).ready(function () {
 // memanggil data array dengan JSON

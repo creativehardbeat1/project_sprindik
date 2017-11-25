@@ -10,7 +10,9 @@ class Home extends CI_Controller {
 	}
 	public function index()
 	{
+		$this->load->view('home/v_home');
 		$this->survey_framework();
+		
 	}
  
 	public function survey_framework()
