@@ -42,14 +42,12 @@ if (isset($query)){
         <!-- Top content -->
         <div class="top-content">
         	
-
             
    
                     
                     <div class="row">
                         <div class="col-sm-5">
                         	<?php
-
 					  $success_msg= $this->session->flashdata('success_msg');
 					  $error_msg= $this->session->flashdata('error_msg');
 
@@ -81,13 +79,8 @@ if (isset($query)){
                         	<div class="form-box">
                         		<div class="form-top">
 	                        		<div class="form-top-left">
-
-	                        			<h3>Update Profil</h3>
-	                            		<p>Isi data lengkap anda:</p>
-
-	                        			
+	                        			<h3>Profil</h3>
 	                            		
-
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<i class="fa fa-pencil"></i>
@@ -160,11 +153,7 @@ if (isset($query)){
         <script src="<?php echo assets_url();?>/login_regis/js/jquery-1.11.1.min.js"></script>
         <script src="<?php echo assets_url();?>/login_regis/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?php echo assets_url();?>/login_regis/js/jquery.backstretch.min.js"></script>
-<<<<<<< HEAD
-       <!-- <script src="<?php echo assets_url();?>/login_regis/js/scripts.js"></script> -->
-=======
        <!-- <script src="<?php echo assets_url();?>/login_regis/js/scripts.js"></script>-->
->>>>>>> 305757571778228ab6949223496f40ba2198e577
         
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
