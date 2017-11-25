@@ -12,7 +12,7 @@ class Web extends CI_Controller {
 
      }
  
-	public function index(){		
+	public function home(){		
 		$data['judul'] = "Home";
 		$this->load->view('template/v_header',$data);
 		$this->load->view('home/v_home',$data);
