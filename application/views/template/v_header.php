@@ -39,7 +39,7 @@ if(!$user_id){
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="<?php echo base_url().index_page();?>/web">Home</a></li>
 		<?php
-		if($status=="1"){ //level admin
+			if($status=="1"){ //level admin
 		?>
 		<li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
 		<li><a href="<?php echo base_url().index_page();?>/web/pegawai">Pegawai</a></li>
@@ -57,7 +57,7 @@ if(!$user_id){
 		<li><a href="<?php echo base_url().index_page();?>/web/laporan_diklat">Laporan Diklat</a></li>
 
 		<?php	
-		}elseif($status=="3"){ //level umum sesuai id_usernya
+			}elseif($status=="3"){ //level umum sesuai id_usernya
 		?>
 			<li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/profil">Profil Peserta</a></li>
@@ -66,13 +66,14 @@ if(!$user_id){
 			<li><a href="<?php echo base_url().index_page();?>/web/peserta_diklat">Peserta Diklat</a></li>
 
 		<?php	
-		}else{
+			}else{
 		?>
 
 		<?php
 		};
 		?> 
 	<li><a href="<?php echo base_url().index_page();?>/Welcome/user_logout">Logout</a></li> 
+
 
 		</ul>
 	  </div>

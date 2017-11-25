@@ -29,7 +29,8 @@ class Persetujuan_dokumen extends CI_Controller {
 			$row[] = $udiklat->umur;
 			// $row[] = $udiklat->alamat;
 			// $row[] = $udiklat->email;
-			$row[] = $udiklat->url_dok_ktp;
+			// $row[] = $udiklat->url_dok_ktp;
+			$row[] = '<a href="http://localhost/project_sprindik/assets/uploads/'.$udiklat->url_dok_ktp.'"><i class="glyphicon glyphicon-pencil"></i>KTP</a>';
 			// $row[] = $udiklat->url_dok_ijazah;
 			$row[] = $udiklat->no_mobile;
 			$row[] = $udiklat->keterangan;

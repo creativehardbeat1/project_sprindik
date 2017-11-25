@@ -6,7 +6,8 @@ class Peserta_Diklat extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Peserta_Diklat_model','peserta');
+		$this->load->model('peserta_diklat_model','peserta_diklat');
+		$this->load->model('user_diklat_model','udiklat');
 	}
 
 	public function index()
@@ -20,34 +21,34 @@ class Peserta_Diklat extends CI_Controller {
 		$status=$this->session->userdata('user_status');
 		$user_id=$this->session->userdata('id_user');
 		if($status=="3"){
-			$list = $this->peserta->get_datatables_id_user();			
+			$list = $this->udiklat->get_datatables_peserta_diklat_by_id();			
 			$no = 0;
 		}else{
-			$list = $this->peserta->get_datatables();	
+			$list = $this->udiklat->get_datatables_peserta_diklat();	
 			$no = $_POST['start'];
 		}
 		$data = array();
-		foreach ($list as $peserta) {
+		foreach ($list as $udiklat) {
 			$no++;
 			$row = array();
-			$row[] = $peserta->id_peserta;
-			$row[] = $peserta->id_daftar_diklat;
-			$row[] = $peserta->flag_approval;
-			$row[] = $peserta->time_creation;
-			$row[] = $peserta->status_peserta;
-			$row[] = $peserta->status_kegiatan;
+			$row[] = $udiklat->nama;
+			$row[] = $udiklat->keterangan;
+			$row[] = $udiklat->tgl_mulai;
+			$row[] = $udiklat->tgl_selesai;
+			$row[] = $udiklat->status_diklat;
+			$row[] = $udiklat->status_peserta;
+			$row[] = $udiklat->status_kegiatan;
 
 			//add html for action
-			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_peserta('."'".$peserta->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Update</a>';
-				 //<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_peserta('."'".$peserta->id."'".')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+			$row[] = '<a class="btn btn-success" href="javascript:void(0)" title="Update" onclick="edit_peserta_diklat('."'".$udiklat->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Update</a>';
 		
 			$data[] = $row;
 		}
 
 		$output = array(
 						"draw" => $_POST['draw'],
-						"recordsTotal" => $this->peserta->count_all(),
-						"recordsFiltered" => $this->peserta->count_filtered(),
+						"recordsTotal" => $this->udiklat->count_all(),
+						"recordsFiltered" => $this->udiklat->count_filtered(),
 						"data" => $data,
 				);
 		//output to json format
@@ -56,41 +57,42 @@ class Peserta_Diklat extends CI_Controller {
 
 	public function ajax_edit($id)
 	{
-		$data = $this->peserta->get_by_id($id);
+		$data = $this->udiklat->get_by_id($id);
 		echo json_encode($data);
 	}
 
 	public function ajax_add()
 	{
 		$data = array(
-				'id_peserta' => $this->input->post('id_peserta'),
-				'id_daftar_diklat' => $this->input->post('id_daftar_diklat'),
-				'flag_approval' => $this->input->post('flag_approval'),
+				//'id_user' => $this->input->post('id_user'),
+				'id_diklat' => $this->input->post('id_diklat'),
+				'nama' => $this->input->post('nama'),
+				'umur' => $this->input->post('umur'),
+				'alamat' => $this->input->post('alamat'),
+				'email' => $this->input->post('email'),
+				'url_dok_ktp' => $this->input->post('url_dok_ktp'),
+				'url_dok_ijazah' => $this->input->post('url_dok_ijazah'),
 				'time_creation' => $this->input->post('time_creation'),
-				'status_peserta' => $this->input->post('status_peserta'),
-				'status_kegiatan' => $this->input->post('status_kegiatan'),
 			);
-		$insert = $this->peserta->save($data);
+		$insert = $this->peserta_diklat->save($data);
 		echo json_encode(array("status" => TRUE));
 	}
 
 	public function ajax_update()
 	{
 		$data = array(
-				'id_peserta' => $this->input->post('id_peserta'),
-				'id_daftar_diklat' => $this->input->post('id_daftar_diklat'),
-				'flag_approval' => $this->input->post('flag_approval'),
-				'time_creation' => $this->input->post('time_creation'),
+				'id_user' => $this->input->post('id_user'),
+				'id_diklat' => $this->input->post('id_diklat'),
 				'status_peserta' => $this->input->post('status_peserta'),
 				'status_kegiatan' => $this->input->post('status_kegiatan'),
 			);
-		$this->peserta->update(array('id' => $this->input->post('id')), $data);
+		$this->peserta_diklat->update(array('id_user' => $this->input->post('id_user'),'id_diklat' => $this->input->post('id_diklat')), $data);
 		echo json_encode(array("status" => TRUE));
 	}
 
 	public function ajax_delete($id)
 	{
-		$this->peserta->delete_by_id($id);
+		$this->peserta_diklat->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
 	}
 

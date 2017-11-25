@@ -133,7 +133,7 @@ function reload_table()
 function save()
 {
     $('#btnSave').text('saving...'); //change button text
-    $('#btnSave').attr('disabled',true); //set button disable 
+    // $('#btnSave').attr('disabled',true); //set button disable 
     var url;
 
     if(save_method == 'add') {
@@ -158,7 +158,7 @@ function save()
             }
 
             $('#btnSave').text('Simpan'); //change button text
-            $('#btnSave').attr('disabled',false); //set button enable 
+            // $('#btnSave').attr('disabled',false); //set button enable 
 
 
         },
@@ -167,7 +167,7 @@ function save()
             // alert('Error adding / update data');
             alert('Gagal daftar diklat / Diklat sudah pernah diajukan');
             $('#btnSave').text('Simpan'); //change button text
-            $('#btnSave').attr('disabled',true); //set button enable 
+            // $('#btnSave').attr('disabled',true); //set button enable 
 
         }
     });

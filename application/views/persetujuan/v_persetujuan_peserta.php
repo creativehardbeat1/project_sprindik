@@ -172,7 +172,7 @@ function save()
                 reload_table();
             }
 
-            $('#btnSave').text('save'); //change button text
+            $('#btnSave').text('Setuju'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable 
 
 
@@ -180,7 +180,7 @@ function save()
         error: function (jqXHR, textStatus, errorThrown)
         {
             alert('Error adding / update data');
-            $('#btnSave').text('save'); //change button text
+            $('#btnSave').text('Setuju'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable 
 
         }
@@ -212,13 +212,13 @@ function tolak()
                 $('#modal_form').modal('hide');
                 reload_table();
             }
-            $('#btnTolak').text('save'); //change button text
+            $('#btnTolak').text('Tolak'); //change button text
             $('#btnTolak').attr('disabled',false); //set button enable 
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
             alert('Error adding / update data');
-            $('#btnTolak').text('save'); //change button text
+            $('#btnTolak').text('Tolak'); //change button text
             $('#btnTolak').attr('disabled',false); //set button enable 
 
         }

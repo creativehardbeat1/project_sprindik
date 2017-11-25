@@ -1,3 +1,18 @@
+<?php
+
+$user_id=$this->session->userdata('id_user');
+
+if(!$user_id){
+    redirect(base_url().index_page().'/Welcome');
+}else{
+    $username=$this->session->userdata('user_name');
+    //echo '<h2 style="font-size:20pt">Username :'.$username.'</h1>';
+    $status=$this->session->userdata('user_status');
+    // echo '<h2 style="font-size:20pt">Level User :'.$status.'</h1>';
+    $user_id=$this->session->userdata('id_user');
+    //echo '<h2 style="font-size:20pt">User Id :'.$user_id.'</h1>';
+} 
+?>
 <section>
      <div class="container">
         <h1 style="font-size:20pt">Data Calon Peserta</h1>
@@ -10,6 +25,7 @@
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
+                    <th>Nama Calon Peserta</th>                        
                     <th>Nama Diklat</th>
                     <th>Tgl Mulai</th>
                     <th>Tgl Selesai</th>
