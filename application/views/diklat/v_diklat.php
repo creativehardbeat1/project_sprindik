@@ -20,15 +20,7 @@
             <tbody>
             </tbody>
 
-<!--             <tfoot>
-            <tr>
-                <th>Nama Diklat</th>
-                <th>Tanggal Mulai</th>
-                <th>Tanggal Selesai</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-            </tfoot> -->
+
         </table>
     </div>
 
@@ -90,11 +82,11 @@ function add_diklat()
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Pengguna'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Tambah Diklat'); // Set Title to Bootstrap modal title
 }
 
 
-function edit_diklat(id_diklat)
+function edit_diklat(id)
 {
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
@@ -103,13 +95,13 @@ function edit_diklat(id_diklat)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('diklat/ajax_edit/')?>/" + id_diklat,
+        url : "<?php echo site_url('diklat/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
 
-            $('[name="id_diklat"]').val(data.id_diklat);
+            $('[name="id"]').val(data.id);
             $('[name="keterangan"]').val(data.keterangan);
             $('[name="tgl_mulai"]').datepicker('update',data.tgl_mulai);
             $('[name="tgl_selesai"]').datepicker('update',data.tgl_selesai);                        
@@ -174,13 +166,13 @@ function save()
     });
 }
 
-function delete_diklat(id_diklat)
+function delete_diklat(id)
 {
     if(confirm('Anda yakin menghapus data ini?'))
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('diklat/ajax_delete')?>/"+id_diklat,
+            url : "<?php echo site_url('diklat/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -206,11 +198,11 @@ function delete_diklat(id_diklat)
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Diklat Form</h3>
+                <h3 class="modal-title">Form Diklat</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="" name="id_diklat"/> 
+                    <input type="hidden" value="" name="id"/> 
                     <div class="form-body">
                         <div class="form-group">
                             <label class="control-label col-md-3">Nama Diklat</label>
