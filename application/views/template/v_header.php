@@ -6,11 +6,11 @@ if(!$user_id){
 	redirect(base_url().index_page().'/Welcome');
 }else{
 	$username=$this->session->userdata('user_name');
-	echo '<h2 style="font-size:20pt">Username :'.$username.'</h1>';
+	//echo '<h2 style="font-size:20pt">Username :'.$username.'</h1>';
 	$status=$this->session->userdata('user_status');
-	echo '<h2 style="font-size:20pt">Level User :'.$status.'</h1>';
+	//echo '<h2 style="font-size:20pt">Level User :'.$status.'</h1>';
 	$user_id=$this->session->userdata('id_user');
-	echo '<h2 style="font-size:20pt">User Id :'.$user_id.'</h1>';
+	//echo '<h2 style="font-size:20pt">User Id :'.$user_id.'</h1>';
 
 } 
 ?>
