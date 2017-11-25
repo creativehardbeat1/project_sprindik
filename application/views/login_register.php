@@ -41,7 +41,7 @@
                 	
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1>Form Login &amp; Form Register User Aplikasi Sistem Perekaman Diklat</h1>
+                            <h1>Form Login &amp; Form Register User </h1>
                             <div class="description">
                             	<p>
 	                            	
@@ -84,13 +84,14 @@
 	                            </div>
 	                            <div class="form-bottom">
 				                    <form role="form" action="<?php echo base_url().index_page();?>/Welcome/login_user" method="post" class="login-form">
-				                    	<div class="form-group">
-				                    		<label class="sr-only" for="form-username">Username</label>
-				                        	<input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
+				                    	<div class="form-group">											
+											<label class="sr-only" for="form-first-name">Username</label>
+				                        	<input type="text" name="form-username" placeholder="Username Minimal 4 karakter dan maksimal 15 karakter" class="form-first-name form-control" id="form-first-name">
+											
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-password">Password</label>
-				                        	<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+				                        	<input type="password" name="form-password" placeholder="Password..." class="form-first-name form-control" id="form-first-name">
 				                        </div>
 				                        <button type="submit" class="btn">Sign in!</button>
 				                    </form>
