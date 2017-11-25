@@ -72,8 +72,8 @@ if(!$user_id){
 
 		<?php
 		};
-		?>
-		<li><a href="<?php echo base_url().index_page();?>/web/about">About</a></li>
+		?> 
+	<!--	<li><a href="<?php echo base_url().index_page();?>/web/about">About</a></li>
 		<li><a href="<?php echo base_url().index_page();?>/Welcome/user_logout">Logout</a></li>
 			<!-- <li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/pegawai">Pegawai</a></li>
@@ -85,16 +85,16 @@ if(!$user_id){
 			<li><a href="<?php echo base_url().index_page();?>/web/persetujuan_peserta">Persetujuan Peserta</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/peserta">Peserta</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/peserta_diklat">Peserta Diklat</a></li>
-			<li><a href="<?php echo base_url().index_page();?>/web/laporan_diklat">Laporan Diklat</a></li>
-			<li><a href="<?php echo base_url().index_page();?>/Welcome/user_logout">Logout</a></li> -->
+			<li><a href="<?php echo base_url().index_page();?>/web/laporan_diklat">Laporan Diklat</a></li>-->
+			<li><a href="<?php echo base_url().index_page();?>/Welcome/user_logout">Logout</a></li> 
 
 		</ul>
 	  </div>
 </nav>
 
 
- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
-     <!--Bootstrap Core CSS -->
-     <!--<link href="css/bootstrap.min.css" rel="stylesheet"> -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+<!--  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
+ -->     <!--Bootstrap Core CSS -->
+     <!-- <link href="css/bootstrap.min.css" rel="stylesheet">  -->
+<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous"> -->
     </head>

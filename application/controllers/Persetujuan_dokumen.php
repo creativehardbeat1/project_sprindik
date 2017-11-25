@@ -30,7 +30,7 @@ class Persetujuan_dokumen extends CI_Controller {
 			// $row[] = $udiklat->alamat;
 			// $row[] = $udiklat->email;
 			$row[] = $udiklat->url_dok_ktp;
-			$row[] = $udiklat->url_dok_ijazah;
+			// $row[] = $udiklat->url_dok_ijazah;
 			$row[] = $udiklat->no_mobile;
 			$row[] = $udiklat->keterangan;
 			// $row[] = $udiklat->tgl_mulai;

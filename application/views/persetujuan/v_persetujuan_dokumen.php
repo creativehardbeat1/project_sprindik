@@ -15,7 +15,7 @@
                     <!-- <th>Alamat</th> -->
                     <!-- <th>Email</th> -->
                     <th>KTP</th>
-                    <th>Ijazah</th>
+                    <!-- <th>Ijazah</th> -->
                     <th>Nomor HP</th>
                     <th>Nama Diklat</th>
 <!--                     <th>Tgl Mulai</th>
@@ -114,7 +114,7 @@ function edit_persetujuan_dokumen(id)
             $('[name="alamat"]').val(data.alamat);
             $('[name="email"]').val(data.email);
             $('[name="url_dok_ktp"]').val(data.url_dok_ktp);
-            $('[name="url_dok_ijazah"]').val(data.url_dok_ijazah);
+            // $('[name="url_dok_ijazah"]').val(data.url_dok_ijazah);
             $('[name="no_mobile"]').val(data.no_mobile);
             $('[name="keterangan"]').val(data.keterangan);
             $('[name="tgl_mulai"]').datepicker('update',data.tgl_mulai);
