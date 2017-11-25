@@ -30,8 +30,8 @@ class Diklat extends CI_Controller {
 			// $row[] = $diklat->catatan;
 
 			//add html for action
-			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_diklat('."'".$diklat->id."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
-				  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_diklat('."'".$diklat->id."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
+			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_diklat('."'".$diklat->id_diklat."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
+				  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_diklat('."'".$diklat->id_diklat."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
 		
 			$data[] = $row;
 		}
@@ -55,6 +55,7 @@ class Diklat extends CI_Controller {
 	public function ajax_add()
 	{
 		$data = array(
+				'id_diklat' => $this->input->post('id_diklat'),
 				'keterangan' => $this->input->post('keterangan'),
 				'tgl_mulai' => $this->input->post('tgl_mulai'),
 				'tgl_selesai' => $this->input->post('tgl_selesai'),
@@ -69,6 +70,7 @@ class Diklat extends CI_Controller {
 	public function ajax_update()
 	{
 		$data = array(
+				'id_diklat' => $this->input->post('id_diklat'),
 				'keterangan' => $this->input->post('keterangan'),
 				'tgl_mulai' => $this->input->post('tgl_mulai'),
 				'tgl_selesai' => $this->input->post('tgl_selesai'),
@@ -76,7 +78,7 @@ class Diklat extends CI_Controller {
 				'catatan' => $this->input->post('catatan'),
 				'flag_status' => $this->input->post('flag_status'),
 			);
-		$this->diklat->update(array('id' => $this->input->post('id')), $data);
+		$this->diklat->update(array('id_diklat' => $this->input->post('id_diklat')), $data);
 		echo json_encode(array("status" => TRUE));
 	}
 

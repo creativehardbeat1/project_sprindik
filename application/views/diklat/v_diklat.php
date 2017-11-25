@@ -101,7 +101,7 @@ function edit_diklat(id)
         success: function(data)
         {
 
-            $('[name="id"]').val(data.id);
+            $('[name="id_diklat"]').val(data.id_diklat);
             $('[name="keterangan"]').val(data.keterangan);
             $('[name="tgl_mulai"]').datepicker('update',data.tgl_mulai);
             $('[name="tgl_selesai"]').datepicker('update',data.tgl_selesai);                        
@@ -172,7 +172,7 @@ function delete_diklat(id)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('diklat/ajax_delete')?>/"+id,
+            url : "<?php echo site_url('diklat/ajax_delete')?>/" + id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -204,6 +204,14 @@ function delete_diklat(id)
                 <form action="#" id="form" class="form-horizontal">
                     <input type="hidden" value="" name="id"/> 
                     <div class="form-body">
+                        <input name="id"  class="form-control" type="hidden">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Kode Diklat</label>
+                            <div class="col-md-9">
+                                <input name="id_diklat" placeholder="Kode Diklat" class="form-control" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>                        
                         <div class="form-group">
                             <label class="control-label col-md-3">Nama Diklat</label>
                             <div class="col-md-9">
