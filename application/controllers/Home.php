@@ -13,5 +13,18 @@ class Home extends CI_Controller {
 		$data['graph'] = $this->Home_model->graph();
 		$this->load->view('home/v_home', $data);
 	}
+	
+	
+	function survey_framework() {    
+	 foreach($this->Home_model->hasil_survey()->result_array() as $row)
+		{ 
+	  $data[] = array(
+	   'hasil' => $row['status'],
+	   'total' => $row['jumlah']
+			  );    
+	  } 
+	  echo json_encode($data);  
+   }
+
  
 }
