@@ -68,6 +68,7 @@ class Pegawai extends CI_Controller {
 
 	public function ajax_update()
 	{
+		//var_dump($this->input->post('nama_pegawai'));
 		$data = array(
 				'nip' => $this->input->post('nip'),
 				'nama_pegawai' => $this->input->post('nama_pegawai')

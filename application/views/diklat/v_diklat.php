@@ -245,17 +245,7 @@ function delete_diklat(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>                        
-                        <div class="form-group">    
-                            <label class="control-label col-md-3">Flag Status</label>
-                            <div class="col-md-9">
-                                <select name="flag_status" class="form-control">
-                                    <option value="">--Pilih Flag Status--</option>
-                                    <option value="1">Aktif</option>
-                                    <option value="2">Non Aktif</option>
-                                </select>
-                                <span class="help-block"></span>
-                            </div>
-                         </div>
+                       
                     </div>
                 </form>
             </div>

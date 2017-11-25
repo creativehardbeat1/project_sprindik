@@ -39,6 +39,15 @@
 
 <script type="text/javascript">
 
+jQuery.getJSON('Persetujuan_peserta/ajax_update', function(data)
+{
+	
+	var array=jQuery.parseJSON(data);
+	alert(array.id_user);
+	
+}
+);
+
 var save_method; //for save method string
 var table;
 
@@ -153,7 +162,7 @@ function save()
         url : url,
         type: "POST",
         data: $('#form').serialize(),
-        dataType: "JSON",
+        //dataType: "JSON",
         success: function(data)
         {
 
@@ -195,7 +204,7 @@ function tolak()
         url : url,
         type: "POST",
         data: $('#form').serialize(),
-        dataType: "JSON",
+        //dataType: "JSON",
         success: function(data)
         {
             if(data.status) //if success close modal and reload ajax table
@@ -257,11 +266,17 @@ function tolak()
                     <div class="form-body">
                                 <input name="id" type="hidden">
                                 <input name="id_user" type="hidden">
+								<?php
+								//var_dump($this->userdata);
+								 //$data = json_decode($json, true);
+								//print_r($data);
+								?>
+				<input name="nama1" type="hidden" value="">
                                 <input name="id_diklat" type="hidden">
                         <div class="form-group">
                             <label class="control-label col-md-3">Nama</label>
                             <div class="col-md-9">
-                                <input name="nama" placeholder="Nama Lengkap" class="form-control" type="text" disabled>
+                                <input name="nama" placeholder="Nama Lengkap" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div> 
@@ -282,7 +297,7 @@ function tolak()
                         <div class="form-group">
                             <label class="control-label col-md-3">Email</label>
                             <div class="col-md-9">
-                                <input name="email" placeholder="Email" class="form-control" type="text" disabled>
+                                <input name="email" placeholder="Email" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div> 
@@ -317,7 +332,7 @@ function tolak()
                         <div class="form-group">                                
                             <label class="control-label col-md-3">Catatan</label>
                             <div class="col-md-9">
-                                <!-- <input name="catatan" placeholder="catatan tambahan...." class="form-control" type="text"> -->
+                               
                                 <textarea name="catatan" placeholder="catatan tambahan...." class="form-control" disabled></textarea>
                                 <span class="help-block"></span>
                             </div>
