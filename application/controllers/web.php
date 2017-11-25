@@ -118,7 +118,7 @@ class Web extends CI_Controller {
 		$this->form_validation->set_rules('nomorhp','Nomor HP','required');
 		if ($this->form_validation->run() == FALSE)
 		{
-			 $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
+			 $this->session->set_flashdata('error_msg', 'Mohon lengkapi isian.');
 		  redirect('web/index_upload');
 		}
 		else

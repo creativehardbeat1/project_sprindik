@@ -13,7 +13,6 @@ if (isset($query)){
 		$c_email='';
 		$c_nomorhp='';
 		$c_urlktp='';
-		
 }
 ?>
 		<!-- CSS -->
@@ -43,44 +42,12 @@ if (isset($query)){
         <!-- Top content -->
         <div class="top-content">
         	
-            <div class="inner-bg">
-                <div class="container">
-                	
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1>Profil</h1>
-                            <div class="description">
-                            	<p>
-	                            	
-                            	</p>
-                            </div>
-                        </div>
-                    </div>
+            
+   
                     
                     <div class="row">
                         <div class="col-sm-5">
-                        	
-                        	<div class="form-box">
-	                        	<div class="form-top">
-	                        		
-	                        		<div class="form-top-right">
-	                        			<i class="fa fa-key"></i>
-	                        		</div>
-	                            </div>
-	                            
-		                    </div>
-		                
-		                	
-	                        
-                        </div>
-                        
-                        <div class="col-sm-1 middle-border"></div>
-                        <div class="col-sm-1"></div>
-                        	
-                        <div class="col-sm-5">
-						<div class="form-top-left">
-	                        			
-					<?php
+                        	<?php
 					  $success_msg= $this->session->flashdata('success_msg');
 					  $error_msg= $this->session->flashdata('error_msg');
 
@@ -99,13 +66,21 @@ if (isset($query)){
 							<?php
 						  }
 						  ?>
-	                        		</div>
+                        
+                        </div>
+                        
+        
+                        <div class="col-sm-5">
+						<div class="form-top-left">
+	                        			
+					
+	                     </div>
                         	
                         	<div class="form-box">
                         		<div class="form-top">
 	                        		<div class="form-top-left">
-	                        			<h3>Sign up now</h3>
-	                            		<p>Fill in the form below to get instant access:</p>
+	                        			<h3>Profil</h3>
+	                            		
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<i class="fa fa-pencil"></i>
@@ -152,9 +127,7 @@ if (isset($query)){
 				                    </form>
 			                    </div>
                         	</div>
-                        	
-                        </div>
-                    </div>
+                    
                     
                 </div>
             </div>
@@ -180,7 +153,7 @@ if (isset($query)){
         <script src="<?php echo assets_url();?>/login_regis/js/jquery-1.11.1.min.js"></script>
         <script src="<?php echo assets_url();?>/login_regis/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?php echo assets_url();?>/login_regis/js/jquery.backstretch.min.js"></script>
-        /* <script src="<?php echo assets_url();?>/login_regis/js/scripts.js"></script> */
+       <!-- <script src="<?php echo assets_url();?>/login_regis/js/scripts.js"></script>-->
         
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
