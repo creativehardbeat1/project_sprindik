@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User_diklat_model extends CI_Model {
 
 	var $table = 'v_user_diklat';
-	var $column_order = array('id','id_user','nama','umur','alamat','email','url_dok_ktp','url_dok_ijazah','no_mobile','id_diklat','keterangan','tgl_mulai','tgl_selesai','status_diklat','catatan','status_permohonan',null); //set column //field database for datatable orderable
+	var $column_order = array('id','id_user','nama','umur','alamat','email','url_dok_ktp','no_mobile','id_diklat','keterangan','tgl_mulai','tgl_selesai','status_diklat','catatan','status_permohonan',null); //set column //field database for datatable orderable
 	var $column_search = array('keterangan','status_permohonan'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
 	var $order = array('tgl_mulai' => 'desc'); // default order 
 
