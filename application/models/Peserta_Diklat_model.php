@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Peserta_Diklat_model extends CI_Model {
+class Peserta_diklat_model extends CI_Model {
 
 	var $table = 'oltp_peserta_diklat';
-	var $column_order = array('id_peserta','id_daftar_diklat','flag_aproval','time_creation','status_peserta','status_kegiatan',null); //set column field database for datatable orderable
-	var $column_search = array('id_peserta','id_daftar_diklat','flag_aproval','time_creation','status_peserta','status_kegiatan'); //set column field database for datatable searchable just firstname , lastname , address are searchable
-	var $order = array('id' => 'asc'); // default order 
+	var $column_order = array('id','flag_approval','time_creation','id_daftar_diklat','id_user','id_peserta','id_diklat','status_peserta','status_kegiatan',null); //set column //field database for datatable orderable
+	var $column_search = array('status_peserta','status_kegiatan'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
+	var $order = array('id' => 'desc'); // default order 
 
 	public function __construct()
 	{

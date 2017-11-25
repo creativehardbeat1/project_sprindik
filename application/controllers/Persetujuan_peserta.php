@@ -79,6 +79,7 @@ class Persetujuan_peserta extends CI_Controller {
 				'kode_status' => '4',
 			);
 		$this->calon_peserta->update(array('id_user' => $this->input->post('id_user'),'id_diklat' => $this->input->post('id_diklat')), $data);
+		// $this->peserta_diklat->insert('oltp_peserta_diklat', $data);
 		echo json_encode(array("status" => TRUE));
 	}
 

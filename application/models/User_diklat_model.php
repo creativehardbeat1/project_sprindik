@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User_diklat_model extends CI_Model {
 
 	var $table = 'v_user_diklat';
-	var $column_order = array('id','id_user','nama','umur','alamat','email','url_dok_ktp','no_mobile','id_diklat','keterangan','tgl_mulai','tgl_selesai','status_diklat','catatan','status_permohonan',null); //set column //field database for datatable orderable
-	var $column_search = array('keterangan','status_permohonan'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
+	var $column_order = array('id','id_user','nama','umur','alamat','email','url_dok_ktp','no_mobile','id_diklat','keterangan','tgl_mulai','tgl_selesai','status_diklat','catatan','status_permohonan','status_peserta','status_kegiatan',null); //set column //field database for datatable orderable
+	var $column_search = array('keterangan','status_permohonan','status_peserta','status_kegiatan'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
 	var $order = array('tgl_mulai' => 'desc'); // default order 
 
 	public function __construct()
@@ -174,6 +174,108 @@ class User_diklat_model extends CI_Model {
 		return $query->result();
 	}
 	//--end persetujuan peserta--
+
+	//--Persetujuan peserta--
+	private function _get_datatables_peserta_diklat_query()
+	{
+		$status = 'Persetujuan peserta';
+		$this->db->from($this->table);
+		$this->db->where('status_permohonan',$status);
+
+		$i = 0;
+	
+		foreach ($this->column_search as $item) // loop column 
+		{
+			if($_POST['search']['value']) // if datatable send POST for search
+			{
+				
+				if($i===0) // first loop
+				{
+					$this->db->group_start(); // open bracket. query Where with OR clause better with bracket. because maybe can combine with other WHERE with AND.
+					$this->db->like($item, $_POST['search']['value']);
+				}
+				else
+				{
+					$this->db->or_like($item, $_POST['search']['value']);
+				}
+
+				if(count($this->column_search) - 1 == $i) //last loop
+					$this->db->group_end(); //close bracket
+			}
+			$i++;
+		}
+		
+		if(isset($_POST['order'])) // here order processing
+		{
+			$this->db->order_by($this->column_order[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
+		} 
+		else if(isset($this->order))
+		{
+			$order = $this->order;
+			$this->db->order_by(key($order), $order[key($order)]);
+		}
+	}
+
+	function get_datatables_peserta_diklat()
+	{
+		$this->_get_datatables_peserta_diklat_query();
+		if($_POST['length'] != -1)
+		$this->db->limit($_POST['length'], $_POST['start']);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	private function _get_datatables_peserta_diklat_query_by_id()
+	{
+		$user_id=$this->session->userdata('id_user');
+		$status = 'Persetujuan peserta';
+		$this->db->from($this->table);
+		$this->db->where('status_permohonan',$status);
+		$this->db->where('id_user',$user_id);
+
+		$i = 0;
+	
+		foreach ($this->column_search as $item) // loop column 
+		{
+			if($_POST['search']['value']) // if datatable send POST for search
+			{
+				
+				if($i===0) // first loop
+				{
+					$this->db->group_start(); // open bracket. query Where with OR clause better with bracket. because maybe can combine with other WHERE with AND.
+					$this->db->like($item, $_POST['search']['value']);
+				}
+				else
+				{
+					$this->db->or_like($item, $_POST['search']['value']);
+				}
+
+				if(count($this->column_search) - 1 == $i) //last loop
+					$this->db->group_end(); //close bracket
+			}
+			$i++;
+		}
+		
+		if(isset($_POST['order'])) // here order processing
+		{
+			$this->db->order_by($this->column_order[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
+		} 
+		else if(isset($this->order))
+		{
+			$order = $this->order;
+			$this->db->order_by(key($order), $order[key($order)]);
+		}
+	}
+
+	function get_datatables_peserta_diklat_by_id()
+	{
+		$this->_get_datatables_peserta_diklat_query_by_id();
+		if($_POST['length'] != -1)
+		$this->db->limit($_POST['length'], $_POST['start']);
+		$query = $this->db->get();
+		return $query->result();
+	}
+	//--end peserta diklat--
 
 	function count_filtered()
 	{
