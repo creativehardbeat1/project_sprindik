@@ -81,13 +81,13 @@ if (isset($query)){
                         	<div class="form-box">
                         		<div class="form-top">
 	                        		<div class="form-top-left">
-<<<<<<< HEAD
+
 	                        			<h3>Update Profil</h3>
 	                            		<p>Isi data lengkap anda:</p>
-=======
-	                        			<h3>Profil</h3>
+
+	                        			
 	                            		
->>>>>>> 305757571778228ab6949223496f40ba2198e577
+
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<i class="fa fa-pencil"></i>
