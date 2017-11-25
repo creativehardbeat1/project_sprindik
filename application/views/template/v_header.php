@@ -65,7 +65,6 @@ if(!$user_id){
 			<li><a href="<?php echo base_url().index_page();?>/web/calon_peserta">Calon Peserta</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/permohonan_diklat">Permohonan Diklat</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/peserta_diklat">Peserta Diklat</a></li>
-
 		<?php	
 			}else{
 		?>

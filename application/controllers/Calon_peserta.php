@@ -31,6 +31,7 @@ class calon_peserta extends CI_Controller {
 		foreach ($list as $udiklat) {
 			$no++;
 			$row = array();
+			$row[] = $udiklat->nama;
 			$row[] = $udiklat->keterangan;
 			$row[] = $udiklat->tgl_mulai;
 			$row[] = $udiklat->tgl_selesai;
