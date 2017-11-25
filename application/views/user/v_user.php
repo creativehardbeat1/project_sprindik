@@ -4,14 +4,14 @@
 $user_id=$this->session->userdata('id_user');
 $status=$this->session->userdata('user_status');
 
-//if(!$user_id){
-	//redirect(base_url().index_page().'/Welcome');
-//}else{
-//	$username=$this->session->userdata('user_name');
-//	echo '<h2 style="font-size:20pt">Username :'.$username.'</h1>';
-//	$status=$this->session->userdata('user_status');
+if(!$user_id){
+	redirect(base_url().index_page().'/Welcome');
+}else{
+	$username=$this->session->userdata('user_name');
+	echo '<h2 style="font-size:20pt">Username :'.$username.'</h1>';
+	$status=$this->session->userdata('user_status');
 //	echo '<h2 style="font-size:20pt">Level User :'.$status.'</h1>';
-//	$user_id=$this->session->userdata('id_user');
+	$user_id=$this->session->userdata('id_user');
 //	echo '<h2 style="font-size:20pt">User Id :'.$user_id.'</h1>';
 
 //} 
@@ -233,7 +233,14 @@ function delete_user(id)
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Form Pengguna</h3>
+				<?phpif($status=="1"){ ?> 
+				 <h3 class="modal-title">Form Admin Pengguna</h3>
+				<?php}elseif($status=="2"){?>
+				 <h3 class="modal-title">Form Pegawai Pengguna</h3>
+				<?php}else{?> 
+				 <h3 class="modal-title">Form User Pengguna</h3>
+				<?}
+               
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
@@ -253,7 +260,8 @@ function delete_user(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        <div class="form-group">
+						<?phpif($status=="1"){ ?>
+							<div class="form-group">
                             <label class="control-label col-md-3">Status</label>
                             <div class="col-md-9">
                                 <select name="status" class="form-control">
@@ -265,6 +273,10 @@ function delete_user(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
+						<?php}else{?>
+							
+						<?php}  ?>
+                        
                         <div class="form-group">
                             <label class="control-label col-md-3">E-mail</label>
                             <div class="col-md-9">
@@ -279,7 +291,8 @@ function delete_user(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        <div class="form-group">
+						<?phpif($status=="1"){ ?> 
+						<div class="form-group">
                             <label class="control-label col-md-3">Flag Status</label>
                             <div class="col-md-9">
                                 <select name="flag_status" class="form-control">
@@ -290,6 +303,10 @@ function delete_user(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
+						<?}else{?> 
+						
+						<?php}?>
+                        
                     </div>
                 </form>
             </div>
