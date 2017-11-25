@@ -78,7 +78,7 @@ class User extends CI_Controller {
 	{
 		$data = array(
 				'username' => $this->input->post('username'),
-				'password' => md5($this->input->post('password')),
+				'password' => MD5($this->input->post('password')),
 				'status' => $this->input->post('status'),
 				'email' => $this->input->post('email'),
 				'no_mobile' => $this->input->post('no_mobile'),
