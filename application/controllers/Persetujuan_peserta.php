@@ -78,7 +78,7 @@ class Persetujuan_peserta extends CI_Controller {
 		
 		$email=$this->input->post('email');
 		$nama=$this->input->post('nama');
-		$status='1';
+		$cek='1';
 		
 		$data = array(
 				'id_user' => $this->input->post('id_user'),
@@ -87,8 +87,10 @@ class Persetujuan_peserta extends CI_Controller {
 			);
 			
 		$this->calon_peserta->update(array('id_user' => $this->input->post('id_user'),'id_diklat' => $this->input->post('id_diklat')), $data);
-		$this->sendMail($email,$nama,$status);
+		
 		echo json_encode(array("status" => TRUE));
+		//redirect('Persetujuan_peserta');
+		$this->sendMail($email,$nama,$cek);
 		 
    
 		
@@ -98,7 +100,7 @@ class Persetujuan_peserta extends CI_Controller {
 	{
 		$email=$this->input->post('email');
 		$nama=$this->input->post('nama');
-		$status='2';
+		$cek='2';
 
 		$data = array(
 				'id_user' => $this->input->post('id_user'),
@@ -107,10 +109,10 @@ class Persetujuan_peserta extends CI_Controller {
 			);
 			
 		$this->calon_peserta->update(array('id_user' => $this->input->post('id_user'),'id_diklat' => $this->input->post('id_diklat')), $data);
-		$this->sendMail($email,$nama,$status);
+		$this->sendMail($email,$nama,$cek);
 		echo json_encode(array("status" => TRUE));
 	}
-	function sendMail($email,$nama,$status) {
+	function sendMail($email,$nama,$cek) {
 		
 		
 		
@@ -130,7 +132,7 @@ class Persetujuan_peserta extends CI_Controller {
         $ci->email->initialize($config);
  
         $ci->email->from('creativehardbeat1@gmail.com', 'Rifan');
-		 if ($status=="1") {
+		 if ($cek=="1") {
 			 
 			 $isipesan=$nama.' Anda telah terdaftar sebagai peserta';
 
