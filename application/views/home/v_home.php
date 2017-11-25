@@ -1,11 +1,18 @@
 <section>
-<div id="chartContainer" style="float: left; height: 400px; width: 100%;">
- <script src="<?php echo assets_url();?>/jqwidgets/jquery-1.7.1.min.js" type="text/javascript"></script>
-  <script src="<?php echo assets_url();?>/jqwidgets/jqxcore.js" type="text/javascript"></script>
-   <script src="<?php echo assets_url();?>/jqwidgets/jqxdraw.js" type="text/javascript"></script>
-    <script src="<?php echo assets_url();?>/jqwidgets/jqxchart.core.js" type="text/javascript"></script>
-	 <script src="<?php echo assets_url();?>/jqwidgets/jqxdata.js" type="text/javascript"></script>
-	 
+<!-- load library jquery dan highcharts -->
+ <!-- <script src="<?php echo assets_url();?>/grafik/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <script src="<?php echo assets_url();?>/grafik/highcharts/highcharts.js" type="text/javascript"></script>
+  <script src="<?php echo assets_url();?>/grafik/highcharts/exporting.js" type="text/javascript"></script>
+  <script src="<?php echo assets_url();?>/grafik/highcharts/highcharts-3d.js" type="text/javascript"></script>
+  <script src="<?php echo assets_url();?>/grafik/chart/Chart.min.js" type="text/javascript"></script>-->
+  
+<!-- end load library -->
+ <div id="chartContainer" style="float: left; height: 400px; width: 100%;">
+<script src="<?php echo assets_url();?>/grafik/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxcore.js" type="text/javascript"></script>
+<script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxdraw.js" type="text/javascript"></script>
+<script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxchart.core.js" type="text/javascript"></script>
+<script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxdata.js" type="text/javascript"></script>        
 <script type="text/javascript">
 $(document).ready(function () {
 // memanggil data array dengan JSON
@@ -13,15 +20,15 @@ var source =
      {
          datatype: "json",
          datafields: [
-                { name: 'hasil' },
+               { name: 'hasil' },
                 { name: 'total' }
          ],
-         url: '<?php echo base_url() ?>index.php/home/survey_framework'
+         url: '<?php echo base_url() ?>index.php/Home/survey_framework'
      };
 var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + source.url + '" : ' + error); } });
 // pengaturan jqxChart
     var settings = {
-        title: "Survey Framework terbaik",
+        title: "Grafik Status Calon Peserta",
         description: "",
         enableAnimations: true,
         showLegend: true,
@@ -60,5 +67,6 @@ var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, 
    });
 </script>    
 </div> 
+
 </section>
 		
