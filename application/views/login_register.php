@@ -41,7 +41,7 @@
                 	
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1>Form Login &amp; Form Register User </h1>
+                            <h1><strong>SPRINDIK </strong>Sistem Perekaman &amp; dan Informasi Diklat</h1>
                             <div class="description">
                             	<p>
 	                            	

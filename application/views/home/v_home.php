@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Data Peserta Diklat &raquo; XX</title>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script type="text/javascript">
  
