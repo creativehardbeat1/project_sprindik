@@ -43,7 +43,6 @@ if(!$user_id){
 		?>
 		<li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
 		<li><a href="<?php echo base_url().index_page();?>/web/pegawai">Pegawai</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/email/emailSend">Kirim E-mail</a></li>
 		<?php
 		}elseif($status=="2"){ //level pegawai sesuai id_usernya
 		?>
