@@ -37,7 +37,7 @@ if(!$user_id){
 		  <a class="navbar-brand" href="#">Aplikasi Sistem Perekaman Diklat</a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="<?php echo base_url().index_page();?>/web">Home</a></li>
+			<li class="active"><a href="<?php echo base_url().index_page();?>/web/home">Home</a></li>
 		<?php
 			if($status=="1"){ //level admin
 		?>

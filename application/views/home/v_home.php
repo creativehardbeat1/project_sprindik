@@ -1,16 +1,65 @@
 <section>
-	 <div class="container">
-        <h1 style="font-size:20pt"><?php echo $judul ?></h1>
-        <br />
-       
-        <br />
-        <br />
-        
-    </div>
-
-
-
-
-	
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Data Peserta Diklat &raquo; XX</title>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript">
+ 
+$(function () {
+	$('#container').highcharts({
+		chart: {
+			plotBackgroundColor: null,
+			plotBorderWidth: null,
+			plotShadow: false
+		},
+		title: {
+			text: 'Data Peserta Diklat'
+		},
+		tooltip: {
+			pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+		},
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels: {
+					enabled: true,
+					format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+					style: {
+						color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+					}
+				}
+			}
+		},
+		series: [{
+			type: 'pie',
+			name: 'Persentase Status Peserta',
+			data: [
+					<?php 
+					// data yang diambil dari database
+					var_dump($graph);
+					if(count($graph)>0)
+					{
+					   foreach ($graph as $data) {
+					   echo "['" .$data->status . "'," . $data->jumlah ."],\n";
+					   }
+					}
+					?>
+			]
+		}]
+	});
+});
+ 
+</script>
+</head>
+<body>
+ 
+<div id="container"></div>
+ 
+</body>
+</html>
 </section>
 		
