@@ -87,10 +87,9 @@ class Persetujuan_peserta extends CI_Controller {
 			);
 			
 		$this->calon_peserta->update(array('id_user' => $this->input->post('id_user'),'id_diklat' => $this->input->post('id_diklat')), $data);
+		$this->sendMail($email,$nama,$cek);
 		
 		echo json_encode(array("status" => TRUE));
-		//redirect('Persetujuan_peserta');
-		$this->sendMail($email,$nama,$cek);
 		 
    
 		
@@ -139,7 +138,14 @@ class Persetujuan_peserta extends CI_Controller {
 		 } else {
 			 $isipesan=$nama.' Anda telah ditolak sebagai peserta';
         }
-        $list = array($email);
+	
+		/* $email1='"'.$email.'"'.'<'.$email.'>'.'"';
+		echo $email1; */
+		
+		$email1="creativehardbeat1@gmail.com<creativehardbeat1@gmail.com>";
+  
+        $list = array($email1);
+		
         $ci->email->to($list);
         $ci->email->subject('Informasi Pendaftaran Peserta');
         $ci->email->message($isipesan);
