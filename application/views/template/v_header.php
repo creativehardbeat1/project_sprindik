@@ -72,8 +72,8 @@ if(!$user_id){
 
 		<?php
 		};
-		?>
-		<li><a href="<?php echo base_url().index_page();?>/web/about">About</a></li>
+		?> 
+	<!--	<li><a href="<?php echo base_url().index_page();?>/web/about">About</a></li>
 		<li><a href="<?php echo base_url().index_page();?>/Welcome/user_logout">Logout</a></li>
 			<!-- <li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/pegawai">Pegawai</a></li>
@@ -85,8 +85,8 @@ if(!$user_id){
 			<li><a href="<?php echo base_url().index_page();?>/web/persetujuan_peserta">Persetujuan Peserta</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/peserta">Peserta</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/peserta_diklat">Peserta Diklat</a></li>
-			<li><a href="<?php echo base_url().index_page();?>/web/laporan_diklat">Laporan Diklat</a></li>
-			<li><a href="<?php echo base_url().index_page();?>/Welcome/user_logout">Logout</a></li> -->
+			<li><a href="<?php echo base_url().index_page();?>/web/laporan_diklat">Laporan Diklat</a></li>-->
+			<li><a href="<?php echo base_url().index_page();?>/Welcome/user_logout">Logout</a></li> 
 
 		</ul>
 	  </div>
