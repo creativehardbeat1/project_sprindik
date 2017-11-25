@@ -1,9 +1,48 @@
 <section>
+<?php
+
+$user_id=$this->session->userdata('id_user');
+$status=$this->session->userdata('user_status');
+
+//if(!$user_id){
+	//redirect(base_url().index_page().'/Welcome');
+//}else{
+//	$username=$this->session->userdata('user_name');
+//	echo '<h2 style="font-size:20pt">Username :'.$username.'</h1>';
+//	$status=$this->session->userdata('user_status');
+//	echo '<h2 style="font-size:20pt">Level User :'.$status.'</h1>';
+//	$user_id=$this->session->userdata('id_user');
+//	echo '<h2 style="font-size:20pt">User Id :'.$user_id.'</h1>';
+
+//} 
+?>
 	 <div class="container">
         <h1 style="font-size:20pt"><?php echo $judul ?></h1>
         <br />
-        <button class="btn btn-success" onclick="add_user()"><i class="glyphicon glyphicon-plus"></i> Tambah Pengguna</button>
-        <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+		<?php
+		if($status=="1"){ //level admin
+		?>
+		<button class="btn btn-success" onclick="add_user()"><i class="glyphicon glyphicon-plus"></i> Tambah Pengguna</button>
+		 <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+		<?php
+		}elseif($status=="2"){ //level pegawai sesuai id_usernya
+		?>
+		 <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+
+		<?php	
+		}elseif($status=="3"){ //level umum sesuai id_usernya
+		?>
+			 <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+
+		<?php	
+		}else{
+		?>
+
+		<?php
+		};
+		?> 
+       <!-- <button class="btn btn-success" onclick="add_user()"><i class="glyphicon glyphicon-plus"></i> Tambah Pengguna</button>
+        <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>-->
         <br />
         <br />
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
