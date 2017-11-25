@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Laporan_model extends CI_Model {
 
-	var $table = 'view_laporan_diklat';
+	var $table = 'v_user_diklat';
 	var $column_order = array('nama','keterangan',null); //set column //field database for datatable orderable
 	var $column_search = array('nama','keterangan'); //set column field database for //datatable searchable just firstname , lastname , address are searchable
 	var $order = array('nama' => 'desc'); // default order 

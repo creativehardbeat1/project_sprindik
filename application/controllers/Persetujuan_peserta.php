@@ -6,7 +6,7 @@ class Persetujuan_peserta extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// $this->load->model('calon_model','calon');
+		//$this->load->model('Auth_model','peserta');
 		$this->load->model('user_diklat_model','udiklat');
 		$this->load->model('calon_peserta_model','calon_peserta');
 	}
@@ -14,7 +14,7 @@ class Persetujuan_peserta extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('url');
-		$this->load->view('persetujuan/persetujuan_peserta_view');
+		$this->load->view('persetujuan/v_persetujuan_peserta');
 	}
 
 	public function ajax_list()
@@ -74,32 +74,81 @@ class Persetujuan_peserta extends CI_Controller {
 
 	public function ajax_update()
 	{
+		
+		
+		$email=$this->input->post('email');
+		$nama=$this->input->post('nama');
+		$cek='1';
+		
 		$data = array(
 				'id_user' => $this->input->post('id_user'),
 				'id_diklat' => $this->input->post('id_diklat'),
 				'kode_status' => '4',
 			);
+			
 		$this->calon_peserta->update(array('id_user' => $this->input->post('id_user'),'id_diklat' => $this->input->post('id_diklat')), $data);
-		// $this->peserta_diklat->insert('oltp_peserta_diklat', $data);
+		
 		echo json_encode(array("status" => TRUE));
+		//redirect('Persetujuan_peserta');
+		$this->sendMail($email,$nama,$cek);
+		 
+   
+		
 	}
 
 	public function ajax_update_tolakan()
 	{
+		$email=$this->input->post('email');
+		$nama=$this->input->post('nama');
+		$cek='2';
 
 		$data = array(
 				'id_user' => $this->input->post('id_user'),
 				'id_diklat' => $this->input->post('id_diklat'),
 				'kode_status' => '99',
 			);
+			
 		$this->calon_peserta->update(array('id_user' => $this->input->post('id_user'),'id_diklat' => $this->input->post('id_diklat')), $data);
+		$this->sendMail($email,$nama,$cek);
 		echo json_encode(array("status" => TRUE));
 	}
+	function sendMail($email,$nama,$cek) {
+		
+		
+		
+        $ci = get_instance();
+        $ci->load->library('email');
+        $config['protocol'] = "smtp";
+		
+        $config['smtp_host'] = gethostbyname("ssl://smtp.gmail.com");
+        $config['smtp_port'] = "465";
+        $config['smtp_user'] = "blogiouss@gmail.com";
+        $config['smtp_pass'] = "minang2009";
+        $config['charset'] = "utf-8";
+        $config['mailtype'] = "html";
+        $config['newline'] = "\r\n";
+        
+        
+        $ci->email->initialize($config);
+ 
+        $ci->email->from('creativehardbeat1@gmail.com', 'Rifan');
+		 if ($cek=="1") {
+			 
+			 $isipesan=$nama.' Anda telah terdaftar sebagai peserta';
 
-	// public function ajax_delete($id)
-	// {
-	// 	$this->calon->delete_by_id($id);
-	// 	echo json_encode(array("status" => TRUE));
-	// }
+		 } else {
+			 $isipesan=$nama.' Anda telah ditolak sebagai peserta';
+        }
+        $list = array($email);
+        $ci->email->to($list);
+        $ci->email->subject('Informasi Pendaftaran Peserta');
+        $ci->email->message($isipesan);
+        if ($this->email->send()) {
+            echo 'Email sent.';
+        } else {
+            show_error($this->email->print_debugger());
+        }
+    }
+
 
 }

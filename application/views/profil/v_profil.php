@@ -94,7 +94,7 @@ if (isset($query)){
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-last-name">Umur</label>
-				                        	<input type="text" name="umur" placeholder="Umur" class="form-last-name form-control" id="form-last-name"  value="<?php echo $c_umur;?>">
+				                        	<input type="text" name="umur" placeholder="Umur dalam format angka" class="form-last-name form-control" id="form-last-name"  value="<?php echo $c_umur;?>">
 				                        </div>
 										<div class="form-group">
 				                        	<input type="hidden" name="status" value="3">
@@ -114,10 +114,10 @@ if (isset($query)){
 				                        </div>
 										<div class="form-group">
 				                        	<label class="sr-only" for="form-email">Nomor Handphone</label>
-				                        	<input type="text" name="nomorhp" placeholder="Nomor Handphone" class="form-first-name form-control" id="form-first-name"  value="<?php echo $c_nomorhp;?>">
+				                        	<input type="text" name="nomorhp" placeholder="Nomor Handphone dalam format angka" class="form-first-name form-control" id="form-first-name"  value="<?php echo $c_nomorhp;?>">
 				                        </div>
 										<div class="form-group">
-				                        	<label class="sr-only" for="form-email">Upload KTP</label>
+				                        	<label class="sr-only" for="form-email">Upload Dokumen</label>
 											<input id="form-first-name" name="ktp" class="input-file" type="file"><?=$c_urlktp?>
 											
 				                        </div>

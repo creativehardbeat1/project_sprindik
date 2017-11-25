@@ -49,9 +49,7 @@ if(!$user_id){
 		<li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
 		<li><a href="<?php echo base_url().index_page();?>/web/calon_peserta">Calon Peserta</a></li>
 		<li><a href="<?php echo base_url().index_page();?>/web/peserta">Peserta</a></li>
-
 		<li><a href="<?php echo base_url().index_page();?>/web/diklat">Diklat</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/pegawai">Pegawai</a></li>
 		<li><a href="<?php echo base_url().index_page();?>/web/persetujuan_dokumen">Persetujuan Dokumen</a></li>
 		<li><a href="<?php echo base_url().index_page();?>/web/persetujuan_peserta">Persetujuan Peserta</a></li>
 		<li><a href="<?php echo base_url().index_page();?>/web/peserta_diklat">Peserta Diklat</a></li>
@@ -61,20 +59,22 @@ if(!$user_id){
 			}elseif($status=="3"){ //level umum sesuai id_usernya
 		?>
 			<li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
-			<li><a href="<?php echo base_url().index_page();?>/web/profil">Profil Peserta</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/calon_peserta">Calon Peserta</a></li>
+			<li><a href="<?php echo base_url().index_page();?>/web/profil">Profil Peserta</a></li>
+			
 			<li><a href="<?php echo base_url().index_page();?>/web/permohonan_diklat">Permohonan Diklat</a></li>
 			<li><a href="<?php echo base_url().index_page();?>/web/peserta_diklat">Peserta Diklat</a></li>
+
 		<?php	
 			}else{
 		?>
 
 		<?php
+		};
+		?> 
+	<li><a href="<?php echo base_url().index_page();?>/Welcome/user_logout">Logout</a></li> 
 
-			};
-		?>
-			<li><a href="<?php echo base_url().index_page();?>/web/about">About</a></li>
-			<li><a href="<?php echo base_url().index_page();?>/Welcome/user_logout">Logout</a></li>
+
 		</ul>
 	  </div>
 </nav>

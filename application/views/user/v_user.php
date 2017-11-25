@@ -4,47 +4,38 @@
 $user_id=$this->session->userdata('id_user');
 $status=$this->session->userdata('user_status');
 
-//if(!$user_id){
-	//redirect(base_url().index_page().'/Welcome');
-//}else{
-//	$username=$this->session->userdata('user_name');
-//	echo '<h2 style="font-size:20pt">Username :'.$username.'</h1>';
-//	$status=$this->session->userdata('user_status');
+if(!$user_id){
+	redirect(base_url().index_page().'/Welcome');
+}else{
+	$username=$this->session->userdata('user_name');
+	//echo '<h2 style="font-size:20pt">Username :'.$username.'</h1>';
+	$status=$this->session->userdata('user_status');
 //	echo '<h2 style="font-size:20pt">Level User :'.$status.'</h1>';
-//	$user_id=$this->session->userdata('id_user');
+	$user_id=$this->session->userdata('id_user');
 //	echo '<h2 style="font-size:20pt">User Id :'.$user_id.'</h1>';
 
-//} 
+} 
 ?>
 	 <div class="container">
         <h1 style="font-size:20pt"><?php echo $judul ?></h1>
-        <br />
-		<?php
-		if($status=="1"){ //level admin
-		?>
+        <br/>
+		
+		
+		<?php if ($status=="1"){?>
 		<button class="btn btn-success" onclick="add_user()"><i class="glyphicon glyphicon-plus"></i> Tambah Pengguna</button>
-		 <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
-		<?php
-		}elseif($status=="2"){ //level pegawai sesuai id_usernya
-		?>
-		 <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+		<button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
 
-		<?php	
-		}elseif($status=="3"){ //level umum sesuai id_usernya
-		?>
-			 <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
-
-		<?php	
-		}else{
-		?>
-
-		<?php
-		};
-		?> 
-       <!-- <button class="btn btn-success" onclick="add_user()"><i class="glyphicon glyphicon-plus"></i> Tambah Pengguna</button>
-        <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>-->
-        <br />
-        <br />
+		<?php }elseif ($status=="2"){ ?>
+		<button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+		<?php }elseif ($status=="3"){ ?>
+		<button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+		<?php }else{ ?>
+			
+		<?php } ?> 
+     
+	
+        <br/>
+        <br/>
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
@@ -233,7 +224,9 @@ function delete_user(id)
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Form Pengguna</h3>
+				
+				<h3 class="modal-title">Form User Pengguna</h3>
+               
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
@@ -253,7 +246,8 @@ function delete_user(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        <div class="form-group">
+						<?php if ($status=="1"){?>
+						<div class="form-group">
                             <label class="control-label col-md-3">Status</label>
                             <div class="col-md-9">
                                 <select name="status" class="form-control">
@@ -265,6 +259,17 @@ function delete_user(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
+
+						<?php }elseif ($status=="2"){ ?>
+							
+						<?php }elseif ($status=="3"){ ?>
+							
+						<?php }else{ ?>
+							
+						<?php } ?> 
+						
+
+                        
                         <div class="form-group">
                             <label class="control-label col-md-3">E-mail</label>
                             <div class="col-md-9">
@@ -279,7 +284,8 @@ function delete_user(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        <div class="form-group">
+						<?php if ($status=="1"){?>
+						<div class="form-group">
                             <label class="control-label col-md-3">Flag Status</label>
                             <div class="col-md-9">
                                 <select name="flag_status" class="form-control">
@@ -290,6 +296,16 @@ function delete_user(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
+
+						<?php }elseif ($status=="2"){ ?>
+							
+						<?php }elseif ($status=="3"){ ?>
+							
+						<?php }else{ ?>
+							
+						<?php } ?> 
+						
+                        
                     </div>
                 </form>
             </div>

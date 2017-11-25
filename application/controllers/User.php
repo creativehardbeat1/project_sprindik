@@ -20,28 +20,65 @@ class User extends CI_Controller {
 	{
 		$status=$this->session->userdata('user_status');
 		$user_id=$this->session->userdata('id_user');
-		if($status=="3"){
+		if($status=="1"){
+			$list = $this->user->get_datatables();	
+			$no = $_POST['start'];
+			
+		}elseif($status=="2"){
+			$list = $this->user->get_datatables_id_user();			
+			$no = 0;
+		}elseif($status=="3"){
 			$list = $this->user->get_datatables_id_user();			
 			$no = 0;
 		}else{
-			$list = $this->user->get_datatables();	
-			$no = $_POST['start'];
+			
 		}
 		$data = array();
-		foreach ($list as $user) {
-			$no++;
-			$row = array();
-			$row[] = $user->username;
-			$row[] = $user->email;
-			$row[] = $user->no_mobile;
-			$row[] = $user->status;
-
-			//add html for action
-			$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
-		  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
-		
-			$data[] = $row;
+		if ($status=="1"){
+			foreach ($list as $user) {
+				$no++;
+				$row = array();
+				$row[] = $user->username;
+				$row[] = $user->email;
+				$row[] = $user->no_mobile;
+				$row[] = $user->status;
+				//add html for action
+				$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>
+			  <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-trash"></i> Hapus</a>';
+															
+				$data[] = $row;
+			}
+		}elseif ($status=="2"){
+			foreach ($list as $user) {
+				$no++;
+				$row = array();
+				$row[] = $user->username;
+				$row[] = $user->email;
+				$row[] = $user->no_mobile;
+				$row[] = $user->status;
+				//add html for action
+				$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>';
+															
+				$data[] = $row;
+			}
+			
+		}elseif ($status=="3"){
+			foreach ($list as $user) {
+				$no++;
+				$row = array();
+				$row[] = $user->username;
+				$row[] = $user->email;
+				$row[] = $user->no_mobile;
+				$row[] = $user->status;
+				//add html for action
+				$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Ubah" onclick="edit_user('."'".$user->id_user."'".')"><i class="glyphicon glyphicon-pencil"></i> Ubah</a>';
+															
+				$data[] = $row;
+			}
+		}else{
+			
 		}
+	
 
 			$output = array(
 			"draw" => $_POST['draw'],
