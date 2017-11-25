@@ -131,7 +131,8 @@ class Web extends CI_Controller {
 			$this->load->library('upload');
 			$nmfile = "file_".time(); //nama file saya beri nama langsung dan diikuti fungsi time
 			$config['upload_path'] = './assets/uploads/'; //path folder
-			$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+			//$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+			$config['allowed_types'] = '*';
 			$config['max_size'] = '2048'; //maksimum besar file 2M
 			$config['max_width']  = '1288'; //lebar maksimum 1288 px
 			$config['max_height']  = '768'; //tinggi maksimu 768 px
