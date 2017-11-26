@@ -139,10 +139,10 @@ class Persetujuan_peserta extends CI_Controller {
 			 $isipesan=$nama.' Anda telah ditolak sebagai peserta';
         }
 	
-		/* $email1='"'.$email.'"'.'<'.$email.'>'.'"';
-		echo $email1; */
+		$email1='"'.$email.'"'.'<'.$email.'>'.'"';
+		//echo $email1; */
 		
-		$email1="creativehardbeat1@gmail.com<creativehardbeat1@gmail.com>";
+		//$email1="creativehardbeat1@gmail.com<creativehardbeat1@gmail.com>";
   
         $list = array($email1);
 		
