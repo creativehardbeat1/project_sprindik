@@ -3,9 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Data Peserta Diklat &raquo; XX</title>
+<!-- <title>Data Peserta Diklat &raquo; XX</title>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script> -->
+<link rel="stylesheet" href="assets/jqx.base.css" type="text/css" />
+<script src="<?php echo assets_url();?>/grafik/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxcore.js" type="text/javascript"></script>
+<script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxdraw.js" type="text/javascript"></script>
+<script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxchart.core.js" type="text/javascript"></script>
+<script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxdata.js" type="text/javascript"></script> 
 
 <!-- load library jquery dan highcharts -->
  <!-- <script src="<?php echo assets_url();?>/grafik/js/jquery-1.11.3.min.js" type="text/javascript"></script>
@@ -15,15 +21,9 @@
   <script src="<?php echo assets_url();?>/grafik/chart/Chart.min.js" type="text/javascript"></script>-->
   
 <!-- end load library -->
-<div style="float: left; height: 450px; width: 100%;">
-</div>
- <div id="chartContainer" style="float: left; height: 400px; width: 100%;">
-<script src="<?php echo assets_url();?>/grafik/js/jquery-1.7.1.min.js" type="text/javascript"></script>
-<script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxcore.js" type="text/javascript"></script>
-<script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxdraw.js" type="text/javascript"></script>
-<script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxchart.core.js" type="text/javascript"></script>
-<script src="<?php echo assets_url();?>/grafik/jqwidgets/jqxdata.js" type="text/javascript"></script>        
+<div style="float: left; height: 150px; width: 100%;"></div>
 
+<div id="chartContainer" style="float: left; height: 400px; width: 50%;"> 
 <script type="text/javascript">
 $(document).ready(function () {
 // memanggil data array dengan JSON
@@ -40,7 +40,7 @@ var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, 
 // pengaturan jqxChart
     var settings = {
         title: "Grafik Status Calon Peserta",
-        description: "",
+        // description: "",
         enableAnimations: true,
         showLegend: true,
         showBorderLine: true,
@@ -76,8 +76,81 @@ var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, 
        // Menampilkan Chart
       $('#chartContainer').jqxChart(settings);
    });
-</script>    
-</div> 
+</script>
+</div>
+
+<div id="jqxChart" style="float: left; height: 400px; width: 50%;">     
+<script type="text/javascript">
+$(document).ready(function () {
+// memanggil data array dengan JSON
+		var source =
+	     {
+	         datatype: "json",
+	         datafields: [
+	               { name: 'bulan' },
+	                { name: 'total' }
+	         ],
+	         url: '<?php echo base_url() ?>index.php/Home/survey_daftar_user'
+	     };
+	   var dataAdapter = new $.jqx.dataAdapter(source,
+		{
+			autoBind: true,
+			async: false,
+			downloadComplete: function () { },
+			loadComplete: function () { },
+			loadError: function () { }
+		});
+// pengaturan jqxChart
+		var settings = {
+			title: "Grafik Jumlah Pendaftar Per Bulan",
+			showLegend: true,
+			padding: { left: 5, top: 5, right: 5, bottom: 5 },
+			titlePadding: { left: 90, top: 0, right: 0, bottom: 10 },
+			source: dataAdapter,
+			categoryAxis:
+				{
+					text: 'Category Axis',
+					textRotationAngle: 0,
+					dataField: 'bulan',
+					formatFunction: function (value) {
+						return $.jqx.dataFormat.formatdate(value, 'dd/MM/yyyy');
+					},
+					showTickMarks: true,
+					tickMarksInterval: Math.round(dataAdapter.records.length / 6),
+					tickMarksColor: '#888888',
+					unitInterval: Math.round(dataAdapter.records.length / 6),
+					showGridLines: true,
+					gridLinesInterval: Math.round(dataAdapter.records.length / 3),
+					gridLinesColor: '#888888',
+					axisSize: 'auto'                    
+				},
+			colorScheme: 'scheme05',
+			seriesGroups:
+				[
+					{
+						type: 'line',
+						valueAxis:
+						{
+							displayValueAxis: true,
+							description: 'Jumlah Pendaftar',
+							//descriptionClass: 'css-class-name',
+							axisSize: 'auto',
+							tickMarksColor: '#888888',
+							unitInterval: 20,
+							minValue: 0,
+							maxValue: 100                          
+						},
+						series: [
+								{ dataField: 'total', displayText: 'jumlah' }
+						  ]
+					}
+				]
+		};
+       // Menampilkan Chart
+      $('#jqxChart').jqxChart(settings);
+   });
+</script>     
+</div>
 
 </section>
 		

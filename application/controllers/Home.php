@@ -26,6 +26,18 @@ class Home extends CI_Controller {
 		  } 
 		  echo json_encode($data);  
 	}
+
+	public function survey_daftar_user()
+	{
+				foreach($this->Home_model->jumlah_daftar()->result_array() as $row)
+			{ 
+		  $data[] = array(
+		   'bulan' => $row['bulan'],
+		   'total' => $row['jumlah']
+				  );    
+		  } 
+		  echo json_encode($data);  
+	}
 	
 	
 	

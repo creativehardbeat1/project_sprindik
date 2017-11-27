@@ -15,7 +15,14 @@ class Home_model extends CI_Model {
 					WHERE b.kode_status IN ('2','3','4','98','99')
 					GROUP BY a.status";
       return $this->db->query($sql);
-  }
+  	}
+
+  	function jumlah_daftar() {
+      $sql = "SELECT DATE_FORMAT(time_creation,'%b %Y') AS bulan, COUNT(*) jumlah
+				FROM oltp_user
+				GROUP BY bulan";
+      return $this->db->query($sql);
+  	}
   
   
 		

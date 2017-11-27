@@ -115,7 +115,7 @@ if (isset($query)){
 				                        </div>
 										<div class="form-group">
 				                        	<label class="sr-only" for="form-email">Nomor Handphone</label>
-				                        	<input type="text" name="nomorhp" placeholder="Nomor Handphone dalam format angka" class="form-first-name form-control" id="form-first-name"  value="<?php echo $c_nomorhp;?>">
+				                        	<input type="text" name="nomorhp" placeholder="Nomor Handphone dalam format angka" class="input-medium bfh-phone form-control" data-format="+62 (ddd) ddd-dddd" id="form-first-name"  value="<?php echo $c_nomorhp;?>">
 				                        </div>
 										<div class="form-group">
 				                        	<label class="sr-only" for="form-email">Upload Dokumen</label>
@@ -154,6 +154,7 @@ if (isset($query)){
         <script src="<?php echo assets_url();?>/login_regis/js/jquery-1.11.1.min.js"></script>
         <script src="<?php echo assets_url();?>/login_regis/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?php echo assets_url();?>/login_regis/js/jquery.backstretch.min.js"></script>
+        <script src="<?php echo assets_url();?>/login_regis/js/bootstrap-formhelpers-phone.js"></script>
        <!-- <script src="<?php echo assets_url();?>/login_regis/js/scripts.js"></script>-->
         
         <!--[if lt IE 10]>
