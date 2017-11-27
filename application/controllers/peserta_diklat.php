@@ -6,8 +6,8 @@ class Peserta_Diklat extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('peserta_diklat_model','peserta_diklat');
-		$this->load->model('user_diklat_model','udiklat');
+		$this->load->model('Peserta_diklat_model','peserta_diklat');
+		$this->load->model('User_diklat_model','udiklat');
 	}
 
 	public function index()

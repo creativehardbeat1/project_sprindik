@@ -6,9 +6,8 @@ class Persetujuan_peserta extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		//$this->load->model('Auth_model','peserta');
-		$this->load->model('user_diklat_model','udiklat');
-		$this->load->model('calon_peserta_model','calon_peserta');
+		$this->load->model('User_diklat_model','udiklat');
+		$this->load->model('Calon_peserta_model','calon_peserta');
 	}
 
 	public function index()
@@ -119,10 +118,10 @@ class Persetujuan_peserta extends CI_Controller {
         $ci->load->library('email');
         $config['protocol'] = "smtp";
 		
-        $config['smtp_host'] = gethostbyname("ssl://smtp.gmail.com");
+        $config['smtp_host'] = gethostbyname(" mail.ojo-lali.com");
         $config['smtp_port'] = "465";
-        $config['smtp_user'] = "blogiouss@gmail.com";
-        $config['smtp_pass'] = "minang2009";
+        $config['smtp_user'] = "notifikasi@ojo-lali.com";
+        $config['smtp_pass'] = "mustika2009";
         $config['charset'] = "utf-8";
         $config['mailtype'] = "html";
         $config['newline'] = "\r\n";
