@@ -6,7 +6,7 @@ class Permohonan extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('diklat_model','diklat');
+		$this->load->model('Diklat_model','diklat');
 		$this->load->model('Calon_peserta_model','calon');
 	}
 

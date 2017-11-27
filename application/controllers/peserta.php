@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class peserta extends CI_Controller {
+class Peserta extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('peserta_model','peserta');
+		$this->load->model('Peserta_model','peserta');
 	}
 
 	public function index()

@@ -6,9 +6,8 @@ class Persetujuan_dokumen extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// $this->load->model('calon_model','calon');
-		$this->load->model('user_diklat_model','udiklat');
-		$this->load->model('calon_peserta_model','calon_peserta');
+		$this->load->model('User_diklat_model','udiklat');
+		$this->load->model('Calon_peserta_model','calon_peserta');
 	}
 
 	public function index()

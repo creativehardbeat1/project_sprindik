@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 class Profil_model extends CI_Model {
 	
     var $tabel = 'oltp_profil'; //buat variabel tabel
