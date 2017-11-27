@@ -56,6 +56,7 @@ if(!$user_id){
 <script src="<?php echo assets_url();?>/datatables/datatables/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo assets_url();?>/datatables/datatables/js/dataTables.bootstrap.js"></script>
 <script src="<?php echo assets_url();?>/datatables/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo assets_url();?>/login_regis/js/bootstrap-formhelpers-phone.js"></script>
 
 
 <script type="text/javascript">
@@ -280,7 +281,8 @@ function delete_user(id)
 						<div class="form-group">
                             <label class="control-label col-md-3">Nomor Handphone</label>
                             <div class="col-md-9">
-                                <textarea name="no_mobile" placeholder="Nomor Handphone" class="form-control"></textarea>
+                            <input type="text" class="input-medium bfh-phone form-control" data-format="+62 (ddd) ddd-dddd" name="no_mobile" placeholder="Nomor Handphone..." >
+<!--                                 <textarea name="no_mobile" placeholder="Nomor Handphone" class="form-control"></textarea> -->
                                 <span class="help-block"></span>
                             </div>
                         </div>

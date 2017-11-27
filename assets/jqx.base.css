@@ -1,0 +1,1137 @@
+/*Rounded Corners*/
+/*top-left rounded Corners*/
+.jqx-rc-tl
+{
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+}
+/*top-right rounded Corners*/
+.jqx-rc-tr
+{
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+/*bottom-left rounded Corners*/
+.jqx-rc-bl
+{
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+/*bottom-right rounded Corners*/
+.jqx-rc-br
+{
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+/*top rounded Corners*/
+.jqx-rc-t
+{
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+/*bottom rounded Corners*/
+.jqx-rc-b
+{
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+/*right rounded Corners*/
+.jqx-rc-r
+{
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+/*left rounded Corners*/
+.jqx-rc-l
+{
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+/*all rounded Corners*/
+.jqx-rc-all
+{
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+/*reset rounded corners*/
+.jqx-rc-reset
+{
+    -moz-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+    border-radius: 0px !important;
+}
+
+/*Reset Style*/
+.jqx-reset
+{
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    outline: none;
+    box-sizing: content-box;
+}
+.jqx-clear {
+    align:left; valign:top; left: 0px; top: 0px; -webkit-appearance: none !important; outline: none !important; padding: 0px; margin: 0px;
+}
+.jqx-popup {
+    box-sizing: content-box;
+}
+.jqx-position-reset {
+    position: static !important; 
+}
+.jqx-border-reset {
+    border: none !important;
+}
+.jqx-overflow-hidden {
+    overflow: hidden !important;
+}
+.jqx-position-relative {
+    position: relative !important;
+}
+.jqx-position-absolute {
+    position: absolute !important;
+}
+.jqx-max-size {
+    width: 100% !important;
+    height: 100% !important;
+}
+.jqx-background-reset {
+    background: transparent !important;
+}
+/*Disable browser selection*/
+.jqx-disableselect
+{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -ms-user-select:none;
+    -webkit-touch-callout:none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.jqx-enableselect {
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -o-user-select: auto;
+    -ms-user-select:text;
+    user-select:all;
+}
+.jqx-hideborder
+{
+    border: none !important;
+}
+.jqx-hidescrollbars
+{
+    overflow: hidden !important;
+}
+/*jqxButton, jqxToggleButton, jqxRepeatButton Style*/
+.jqx-button{outline: none; border: 1px solid transparent; padding: 3px; text-align: center; vertical-align: central; margin: 0 0 0 0; cursor: default; }
+button.jqx-button, input[type=button].jqx-button,  input[type=submit].jqx-button {
+    box-sizing: border-box !important; -moz-box-sizing: border-box !important; 
+}
+
+.jqx-buttongroup{}
+.jqx-group-button-normal {
+    vertical-align: middle;
+    text-align: center;
+}
+/*applied to the link button's anchor element.*/
+.jqx-link
+{
+    text-decoration: none;
+    color: #111111;
+}
+
+/*shows elements.*/
+.jqx-visible
+{
+    display: block;
+}
+/*hides elements.*/
+.jqx-hidden
+{
+    display: none;
+}
+.jqx-widget, .jqx-widget-content, .jqx-widget-header, .jqx-fill-state-normal {
+    line-height: 1.231;
+}
+/*jqxGauge Style*/
+.jqx-gauge-label, .jqx-gauge-caption
+{
+    fill: #333333;
+    color: #333333;
+    font-size: 11px;
+    font-family: Verdana;
+}
+.jqx-knob {
+ text-align: center;
+}
+/*jqxChart Style*/
+.jqx-knob-label,
+.jqx-chart-axis-text,
+.jqx-chart-label-text, 
+.jqx-chart-tooltip-text, 
+.jqx-chart-legend-text
+{
+    fill: #333333;
+    color: #333333;
+    font-size: 11px;
+    font-family: Verdana;
+}
+.jqx-chart-axis-description
+{
+    fill: #555555;
+    color: #555555;
+    font-size: 11px;
+    font-family: Verdana;
+}
+.jqx-chart-title-text
+{
+    fill: #111111;
+    color: #111111;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Verdana;
+}
+.jqx-chart-title-description
+{
+    fill: #111111;
+    color: #111111;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Verdana;
+}
+
+/*applied to the Grid's element.*/
+.jqx-grid
+{
+    overflow: hidden;
+    border-style: solid;
+    border-width: 1px;
+}
+/*applied to the Pager.*/
+.jqx-grid-pager
+{
+    border: none;
+    border-top: 1px solid transparent;
+}
+/*applied to the Top Pager.*/
+.jqx-grid-pager-top
+{
+    border: none;
+    border-bottom: 1px solid transparent;
+}
+.jqx-grid-pager-number{
+    padding: 2px 5px;
+    text-decoration: none;
+    margin: 1px;
+    border: 1px solid transparent;
+    color: inherit !important;
+    *color: expression(this.parentNode.currentStyle['color']) !important;     
+    outline: none;
+    font-weight: normal !important;
+}
+.jqx-grid-menu-item-touch {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+}
+/*applied to the Grid's bottom-right area between the horizontal and vertical scrollbars.*/
+.jqx-grid-bottomright
+{
+   
+}
+/*applied to the Grid's header area.*/
+.jqx-grid-header 
+{
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    overflow: hidden;
+    border-color: transparent;
+    margin: 0px;
+    padding: 0px;
+ }
+ /*applied to the columns.*/
+.jqx-grid-column-header, .jqx-grid-columngroup-header {
+    border-style: solid;
+    border-width: 0px 1px 0px 0px;
+    border-color: transparent;
+    white-space: nowrap;
+    border-style: solid;
+    font-weight: normal;  
+    overflow: hidden;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+ }
+.jqx-grid-column-header-rtl, .jqx-grid-columngroup-header-rtl {
+    border-width: 0px 0px 0px 1px;
+}
+.jqx-grid-columngroup-header {
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+ /*applied to the column's button.*/
+ .jqx-grid-column-menubutton {
+    border-style: solid;
+    border-width: 0px 0px 0px 1px;
+    border-color: transparent;
+    background-image: url('images/menubutton.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+ }
+.jqx-grid-column-menubutton-rtl {
+    border-width: 0px 1px 0px 0px;
+}
+ /*applied to the column's sort button when the sort order is ascending.*/
+ .jqx-grid-column-sortascbutton {
+    border: none;
+    background-image: url('images/sortascbutton.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+ }
+ /*applied to the column's sort button when the sort order is descending.*/
+  .jqx-grid-column-sortdescbutton {
+    border: none;
+    background-image: url('images/sortdescbutton.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+ }
+  /*applied to the column's filter button.*/
+  .jqx-grid-column-filterbutton
+ {
+    border: none;
+    background-image: url('images/filter.png');
+    background-repeat: no-repeat;
+    background-position: center;
+ }
+  /*applied to the column's resize line.*/
+ .jqx-grid-column-resizeline {
+   border-right: 1px dotted #555; 
+ }
+ /*applied to the validation popup during cell editing.*/
+ .jqx-grid-validation
+ {
+    background: #df2227 !important;
+    color: #fff  !important;
+    padding: 4px 8px;
+ }
+.jqx-grid-validation-label {
+    color: #fff !important;
+    background: #df2227 !important;
+    border: 1px solid #df2227 !important;    
+}
+  .jqx-grid-validation-arrow-up
+ {
+    background-image: url('images/red_arrow_up.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+ }
+  .jqx-grid-validation-arrow-down
+ {
+    background-image: url('images/red_arrow_down.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+ }
+  /*applied to the column's resize start line.*/
+  .jqx-grid-column-resizestartline {
+   border-right: 1px solid #444; 
+ }
+  /*applied to the sort ascending menu item in the Grid's Context Menu*/
+ .jqx-grid-sortasc-icon
+ {
+    background-image: url('images/sortasc.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-left: -4px;
+    margin-right: 4px;
+ }
+  /*applied to the sort ascending menu item in the Grid's Context Menu*/
+ .jqx-grid-sortdesc-icon
+ {
+    background-image: url('images/sortdesc.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-left: -4px;
+    margin-right: 4px;
+ }
+  /*applied to the grid menu's sort remove item/*/
+ .jqx-grid-sortremove-icon
+ {
+    background-image: url('images/sortremove.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-left: -4px;
+    margin-right: 4px;
+ }
+   /*applied to the grouping column's drag and drop item when the drop operation is allowed.*/
+ .jqx-grid-drag-icon
+ {
+    background-image: url('images/drag.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 16px;
+    height: 16px;
+ }
+   /*applied to the grouping column's drag and drop item when the drop operation is not allowed.*/
+ .jqx-grid-dragcancel-icon
+ {
+    background-image: url('images/dragcancel.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 16px;
+    height: 16px;
+ }
+ /*applied to the 'group by' menu item.*/
+ .jqx-grid-groupby-icon
+ {
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-left: -4px;
+    margin-right: 4px;
+ }
+/*applied to the column anchor tags.*/
+ .jqx-grid-column-header a:link, .jqx-grid-column-header a:visited
+ {
+    display: block;
+    margin: 4px;
+    height: 18px;
+    line-height: 18px !important;
+    color: inherit;
+    outline: 0 none;
+    text-decoration: none;
+    cursor: pointer;
+}
+.jqx-grid-toolbar a:link, .jqx-grid-toolbar a:visited {
+    margin: 4px;
+    height: 18px;
+    line-height: 18px !important;
+    color: inherit;
+    outline: 0 none;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*applied to the groups header area.*/
+ .jqx-grid-groups-header, .jqx-grid-toolbar, .jqx-scheduler-toolbar {
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: #aaa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+ }
+/*applied to a grouping row.*/
+ .jqx-grid-groups-row {
+    font-weight:bold;
+    white-space: nowrap;
+    text-align: left;
+    padding: 0px;
+    top: 50%;
+    margin-top: -8px;
+ }
+ /*applied to the row details.*/
+ .jqx-grid-groups-row-details {
+    font-weight: normal;
+ }
+ /*applied to a grouping column.*/
+ .jqx-grid-group-column 
+ {
+    border: 1px solid transparent;
+    white-space: nowrap;
+    border-style: solid;
+    font-weight: normal;  
+    overflow: hidden;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+ }
+ /*applied to the lines between the group columns.*/
+  .jqx-grid-group-column-line
+ {
+    background: #aaa;
+ }
+ /*applied to the drop line indicators displayed in the grouping header.*/
+  .jqx-grid-group-drag-line
+ {
+    background: #80be09;
+ }
+ /*applied to the anchor tags inside a grouping column.*/
+ .jqx-grid-group-column  a:link{
+    display: block;
+    margin: 4px;
+    height: 18px;
+    line-height: 18px !important;
+    outline: 0 none;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+    *color: expression(this.parentNode.currentStyle['color']);     
+}
+ .jqx-grid-group-column  a:visited{
+    color: inherit;
+    display: block;
+    margin: 4px;
+    height: 18px;
+    line-height: 18px !important;
+    outline: 0 none;
+    text-decoration: none;
+    cursor: pointer;
+     *color: expression(this.parentNode.currentStyle['color']);    
+}
+/*applied to a grid cell*/
+.jqx-grid-cell {
+    border-style: solid;
+    border-width: 0px 1px 1px 0px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    border-color: transparent;  
+    background: #fff;
+    white-space: nowrap;
+    font-weight: normal; 
+    font-size: inherit;
+    overflow: hidden; 
+    position: absolute !important; 
+    height: 100%; 
+ }
+.jqx-grid-cell-locked {
+    color: #aaa !important;
+}
+.jqx-grid-cell-left-align {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 2px; 
+    text-align: left; 
+    margin-right: 2px; 
+    margin-left: 4px;
+}
+.jqx-grid-cell-middle-align {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-bottom: 2px; 
+    text-align: center;
+}
+.jqx-grid-cell-right-align {
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    padding-bottom: 2px; 
+    text-align: right; 
+    margin-right: 4px; 
+    margin-left: 2px;
+}
+
+/*applied to a grid cell that is part of a rows group.*/
+ .jqx-grid-group-cell{ 
+    overflow: hidden; 
+    position: absolute !important; 
+    height: 100%; 
+    background: #fff;
+ }
+/*applied to the grid cells in the sort column*/
+ .jqx-grid-cell-sort {
+    background-color: #f0f0f0;
+ }
+
+ /*applied to the grid cells in the filter column*/
+ .jqx-grid-cell-filter {
+    background-color: #e6e6e6;
+ }
+.jqx-grid-cell-add-new-row {
+    background: #fdfcf3 !important;
+    color: #000 !important;
+}
+
+ /*applied to the grid cells area.*/
+.jqx-grid-content {
+    border-style: solid;
+    border-width: 0px 0px 0px 0px;
+    border-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+ }
+ /*applied to a grid cell that is part of a rows group.*/
+.jqx-grid-group-cell, .jqx-grid-empty-cell {
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    white-space: nowrap;
+    font-weight: normal;   
+ }
+.jqx-widget .jqx-grid-cleared-cell, .jqx-grid-cleared-cell {
+    border: transparent !important;
+}
+.jqx-grid-cell-wrap {white-space: normal !important;}
+
+.jqx-tree-grid-indent {
+    width: 15px;
+    display: inline-block;
+    height: 8px;
+    overflow: hidden;
+    vertical-align: top;
+}
+.jqx-tree-grid-title {
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.jqx-tree-grid-collapse-button, .jqx-tree-grid-expand-button {
+    display: inline-block;
+    margin-top: 0px;
+    margin-right: 0px;
+    position: relative;
+    width: 15px;
+    height: 16px;   
+    vertical-align: top;
+}
+.jqx-tree-grid-checkbox {
+   float: none !important; 
+   width: 14px;
+   height: 14px;
+   cursor: pointer;
+   margin-right: 2px !important;
+   margin-left: 2px !important;
+}
+.jqx-tree-grid-icon {
+   float: none !important; 
+   width: 14px;
+   height: 14px;
+   margin-right: 4px;
+}
+.jqx-tree-grid-icon-rtl {
+   margin-right: 0px;
+   margin-left: 4px;
+}
+.jqx-tree-grid-icon-size {
+   width: 14px;
+   height: 14px;
+   line-height: 16px;
+}
+
+.jqx-tree-grid-checkbox-tick {
+    width: 100%;
+    height: 100%;
+}
+.jqx-tree-grid-expand-button {
+    height: 16px;
+    width: 15px;
+    vertical-align: top;
+}
+
+/*applied to a cell in jqxDataTable*/
+.jqx-cell {
+    min-height: 23px;
+    padding: 6px 4px;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid transparent;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    white-space: normal;
+    line-height: 1.231;
+}
+.jqx-grid-cell-nowrap {white-space: nowrap;}
+
+.jqx-cell-editor {
+    padding-left: 4px !important;
+    padding-right: 3px !important;
+}
+.jqx-left-align {
+    text-align: left;
+}
+.jqx-center-align {
+    text-align: center;
+}
+.jqx-right-align {
+    text-align: right;
+}
+.jqx-top-align {
+    vertical-align:top;
+}
+.jqx-bottom-align {
+    vertical-align: bottom;
+}
+
+.jqx-grid-table .jqx-grid-cell {
+    position: static !important;
+    zoom: 1 !important;
+}
+/*applied to the Grid's Table element.*/
+.jqx-grid-table {
+    font-size: 13px;
+    table-layout: fixed;
+    margin: 0px;
+    padding: 0px;
+    border-collapse: separate;
+    border-spacing: 0px;
+    -webkit-overflow-scrolling: touch;
+    outline: none;
+    zoom: 1 !important;
+    empty-cells: show;
+    border-right: 1px solid #aaa;
+    line-height: 1.231;
+    width: auto;
+    border: none;
+}
+.jqx-grid-table-rtl {
+    border-left-width: 1px;
+    border-right-width: 0px;
+}
+.jqx-details table {
+   border-collapse: collapse;
+   table-layout: fixed;
+   border-spacing: 0px;
+}
+
+ /*applied to a grid cell that is part of a details row and grouping is enabled.*/
+.jqx-grid-group-details-cell {
+
+ }
+ /*applied to a grid cell that is part of a details row.*/
+.jqx-grid-details-cell {
+    border-width: 0px 1px 0px 0px;
+ }
+  /*applied to a grid cell. Represents the alternating cell background.*/
+.jqx-grid-cell-alt {
+    background: #f9f9f9;  
+ }
+/*applied to a sorted and alternating grid cell*/
+.jqx-grid-cell-sort-alt {
+    background-color: #e5e5e5;
+ }/*applied to a sorted and alternating grid cell*/
+.jqx-grid-cell-filter-alt {
+    background-color: #f0f0f0;
+ }
+  /*applied to a pinned grid cell.*/
+.jqx-grid-cell-pinned {
+    background-color: #e5e5e5;
+ }
+ /*applied to a pinned grid cell. Represents the alternating cell background.*/
+.jqx-grid-cell-pinned-alt {
+    background-color: #e5e5e5;
+ }
+ /*applied to a selected grid cell.*/
+ .jqx-grid-cell-selected {
+    border-left: 0px solid transparent;
+ }
+ .jqx-cell-rtl {
+   border-left-width: 1px;
+   border-right-width: 0px;
+ }
+ .jqx-grid-cell-rtl {
+    border-width: 0px 0px 1px 1px;
+ }
+ .jqx-grid-table .jqx-grid-cell {
+   border-width: 0px 0px 1px 1px;
+ }
+.jqx-grid-table-one-cell {
+    border: none;
+    border-right-width: 1px;
+    border-right-style:solid;
+    border-right-color:#aaa;
+}
+
+ .jqx-grid-table .jqx-grid-cell:first-child {
+    border-left-width: 0px;
+ }
+
+  /*applied to the selection area.*/
+ .jqx-grid-selectionarea {
+    border: 1px solid transparent;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+ }
+ /*applied to a hovered grid cell.*/
+ .jqx-grid-cell-hover {
+    border-color: transparent;
+ }
+  /*applied to a grid cell when the grid is empty.*/
+ .jqx-grid-empty-cell{ overflow: visible; border-bottom: none;}
+
+ /*applied to the Grid when its loading the data.*/
+ .jqx-grid-load
+{
+    padding-right: 0px;
+    background-image: url(images/loader.gif);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;  
+    z-index: 9999;
+    display: block;
+}
+/*applied to a group's collapse button.*/
+.jqx-grid-group-collapse
+{
+    padding-right: 0px;
+    background-image: url(images/icon-right.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.jqx-grid-group-collapse-rtl
+{
+    padding-right: 0px;
+    background-image: url(images/icon-left.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+/*applied to a group's expand button.*/
+.jqx-grid-group-expand, .jqx-grid-group-expand-rtl
+{
+    padding-right: 0px;
+    background-image: url(images/icon-down.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+/*jqxProgresBar Style*/
+.jqx-progressbar
+{
+    overflow: hidden;
+    outline: none;
+    border: 1px solid transparent;
+    height: 2em;
+}
+/*applied to the progressbar's value element*/
+.jqx-progressbar-value
+{
+    outline: none;
+    border: 0px solid transparent;
+    height: 100%;
+}
+/*applied to the progress bar's vertical value element- when the widget's orientation is 'vertical'*/
+.jqx-progressbar-value-vertical
+{
+    outline: none;
+    border: 0px solid transparent;
+    height: 100%;
+    background: transparent;
+}
+/*applied to the progressbar's text element*/
+.jqx-progressbar-text
+{
+    font-size: 10px;
+    border: none;
+}
+/*applied to the progress bar when the widget is in disabled state*/
+.jqx-progressbar-disabled
+{
+    outline: none;
+    border: 1px solid transparent; 
+    height: 2em;
+}
+
+/*jqxMenu Style*/
+.jqx-menu
+{
+    border: 1px solid transparent;
+    float: none;
+    margin: 0px;
+    height: 100%;
+    padding: 0px;
+    overflow: hidden;
+    text-align: left;
+}
+.jqx-menu-dropdown-column
+{
+    float: left;
+}
+/*applied to the menu when it is horizontal. Sets the menu's background*/
+.jqx-menu-horizontal
+{
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    text-align: center;
+}
+/*applied to the menu when it is vertical. Sets the menu's background*/
+.jqx-menu-vertical
+{
+    text-align: left;
+}
+/*applied to the sub menu. Sets the sub menu's background*/
+.jqx-menu-dropdown
+{
+    left: 100%;
+    margin: 0px;
+    padding: 0px;
+    right: 0;
+    overflow: hidden;
+    display: none;
+    float: none;
+    width: 150px;
+    border-style: solid;
+    border-width: 1px;
+    text-align: left;
+    padding: 2px;
+}
+/*applied to the sub menu's ul elements.*/
+.jqx-menu-dropdown ul
+{
+    left: 100%;
+    margin: 0px;
+    padding: 0px;
+    right: 0;
+    overflow: hidden;
+    border: none;
+}
+/*applied to the menu's ul elements.*/
+.jqx-menu ul
+{
+    left: 100%;
+    margin: 0px;
+    padding: 2px;
+    right: 0;
+    overflow: hidden;
+    background-color: transparent;
+    border: none;
+}
+/*applied to the menu's li elements.*/
+.jqx-menu li, .jqx-menu-dropdown li
+{
+    line-height: 1.3 !important;
+}
+/*applied to the top level menu items.*/
+.jqx-menu-item-top
+{
+    border: 1px solid transparent;
+    text-indent: 0;
+    list-style: none;
+    padding: 4px 8px 4px 8px;
+    left: 100%;
+    overflow: hidden;
+    color: inherit;
+    right: 0;
+    margin: 0px 1px 0px 1px;
+    cursor: pointer;
+}
+/*applied to the sub menu items.*/
+.jqx-menu-item
+{
+    border: 1px solid transparent;
+    text-indent: 0;
+    list-style: none;
+    padding: 4px 8px 4px 8px;
+    margin: 1px;
+    float: none;
+    overflow: hidden;
+    left: 100%;
+    color: inherit;
+    right: 0;
+    text-align: left;
+    cursor: pointer;
+    *color: expression(this.parentNode.currentStyle['color']);     
+}
+/*applied to a sub menu item when the mouse is over the item.*/
+.jqx-menu-item-hover
+{
+    color: inherit;
+    right: 0;
+    list-style: none;
+    margin: 1px;
+    left: 100%;
+    padding: 4px 8px 4px 8px;
+    text-align: left;
+    cursor: pointer;
+    *color: expression(this.parentNode.currentStyle['color']);     
+}
+/*applied to a top-level menu item when the mouse is over it.*/
+.jqx-menu-item-top-hover
+{
+    color: inherit;
+    right: 0;
+    list-style: none;
+    margin: 0px 1px 0px 1px;
+    left: 100%;
+    padding: 4px 8px 4px 8px;
+    top: 50%;
+    cursor: pointer;
+    *color: expression(this.parentNode.currentStyle['color']);     
+}
+/*applied to a sub menu item when its sub menu is opened.*/
+.jqx-menu-item-selected
+{
+    right: 0;
+    list-style: none;
+    margin: 1px;
+    left: 100%;
+    padding: 4px 8px 4px 8px;
+    text-align: left;
+    cursor: pointer;
+    *color: expression(this.parentNode.currentStyle['color']);     
+}
+/*applied to a disabled sub menu item.*/
+.jqx-menu-item-disabled
+{
+
+}
+/*applied to a top-level menu item when its sub menu is opened.*/
+.jqx-menu-item-top-selected
+{
+    right: 0;
+    list-style: none;
+    margin: 0px 1px 0px 1px;
+    left: 100%;
+    padding: 4px 8px 4px 8px;
+    cursor: pointer;
+}
+/*applied to the menu separator items.*/
+.jqx-menu-item-separator
+{
+    text-indent: 0;
+    background-color: #ddd;
+    border: none;
+    list-style: none;
+    height: 1px;
+    line-height:0 !important;
+    padding: 0px;
+    margin: 1px 2px 1px 2px;
+    float: none;
+    overflow: hidden;
+    left: 100%;
+    color: inherit;
+    right: 0;
+    font-size: 1px;
+}
+/*applied to a sub menu item when it has sub menu items. Displays right arrow icon.*/
+.jqx-menu-item-arrow-right
+{
+    background-image: url(images/icon-right.png);
+}
+/*applied to a sub menu item when it has sub menu items. Displays down arrow icon.*/
+.jqx-menu-item-arrow-down
+{
+    background-image: url(images/icon-down.png);
+}
+/*applied to a sub menu item when it has sub menu items. Displays up arrow icon.*/
+.jqx-menu-item-arrow-up
+{
+    background-image: url(images/icon-up.png);
+}
+.jqx-menu-minimized {
+    position: relative;
+}
+.jqx-menu-title {
+    position: relative;
+    float: right;
+    margin-top: 4px;
+    padding-top: 4px;
+    padding-right: 20px;
+}
+.jqx-menu-minimized-button
+{
+    background-image: url('images/icon-menu-minimized.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    height: 24px;
+    width: 24px;
+    padding: 0px;
+    margin-left: 7px;
+    margin-top: 4px;
+    float : left;
+}
+.jqx-menu-ul-minimized {
+    display: block!important;
+    width: auto !important;
+}
+.jqx-menu-ul-minimized ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow   : none !important;
+    -o-box-shadow     : none !important;
+    box-shadow        : none !important;
+}
+.jqx-menu-minimized li:last-child {
+    padding-bottom: 0px;
+    margin: 0px;
+}
+.jqx-menu-item-arrow-right, .jqx-menu-item-arrow-down, .jqx-menu-item-arrow-up, .jqx-menu-item-arrow-right {
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    padding-right: 0px;
+    margin-right: -8px;
+    width: 17px;
+    height: 15px;
+}
+/*applied to a sub menu item when it has sub menu items. Displays left arrow icon.*/
+.jqx-menu-item-arrow-left
+{
+    padding-right: 0px;
+    padding-left: 5px;
+    width: 17px;
+    height: 15px;
+    background-image: url(images/icon-left.png);
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+}
+/*applied to a sub menu item when it has sub menu items and its sub menu is opened. Displays right arrow icon.*/
+.jqx-menu-item-arrow-right-selected
+{
+    background-image: url(images/icon-right.png);
+}
+/*applied to a sub menu item when it has sub menu items and its sub menu is opened. Displays down arrow icon.*/
+.jqx-menu-item-arrow-down-selected
+{
+    background-image: url(images/icon-down.png);
+}
+/*applied to a sub menu item when it has sub menu items and its sub menu is opened. Displays up arrow icon.*/
+.jqx-menu-item-arrow-up-selected
+{
+    background-image: url(images/icon-up.png);
+}
+.jqx-menu-item-arrow-right-selected, .jqx-menu-item-arrow-up-selected, .jqx-menu-item-arrow-down-selected, .jqx-menu-item-arrow-top-right {
+    padding-right: 0px;
+    margin-right: -8px;
+    width: 17px;
+    height: 15px;
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+}
+/*applied to a top-level menu item when it

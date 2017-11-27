@@ -137,8 +137,8 @@
 				                        	<input type="text" name="user_name" placeholder="Username Minimal 4 karakter dan maksimal 15 karakter" class="form-first-name form-control" id="form-first-name">
 				                        </div>
 				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-last-name">Nomor Handphone</label>
-				                        	<input type="text" name="user_mobile" placeholder="Nomor Handphone..." class="form-last-name form-control" id="form-last-name">
+				                        	<label class="sr-only">Nomor Handphone</label>
+				                        	<input type="text" class="input-medium bfh-phone form-control" data-format="+62 (ddd) ddd-dddd" name="user_mobile" placeholder="Nomor Handphone..." id="form-last-name">
 				                        </div>
 										<div class="form-group">
 				                        	<input type="hidden" name="status" value="3">
@@ -175,7 +175,7 @@
         			
         			<div class="col-sm-8 col-sm-offset-2">
         				<div class="footer-border"></div>
-        				<p>Made by Anli Zaimi at <a href="http://azmind.com" target="_blank"><strong>AZMIND</strong></a> 
+        				<p>Made by Kelompok I at <a href="http://ojo-lali.com" target="_blank"><strong>WISMA HIJAU</strong></a> 
         					having a lot of fun. <i class="fa fa-smile-o"></i></p>
         			</div>
         			
@@ -188,7 +188,7 @@
         <script src="<?php echo assets_url();?>/login_regis/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?php echo assets_url();?>/login_regis/js/jquery.backstretch.min.js"></script>
         <script src="<?php echo assets_url();?>/login_regis/js/scripts.js"></script>
-        
+        <script src="<?php echo assets_url();?>/login_regis/js/bootstrap-formhelpers-phone.js"></script>
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
