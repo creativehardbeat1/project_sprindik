@@ -6,7 +6,7 @@ class Peserta_Diklat extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Peserta_diklat_model','peserta_diklat');
+		$this->load->model('Peserta_diklat_model','pdiklat');
 		$this->load->model('User_diklat_model','udiklat');
 	}
 
@@ -74,7 +74,7 @@ class Peserta_Diklat extends CI_Controller {
 				'url_dok_ijazah' => $this->input->post('url_dok_ijazah'),
 				'time_creation' => $this->input->post('time_creation'),
 			);
-		$insert = $this->peserta_diklat->save($data);
+		$insert = $this->pdiklat->save($data);
 		echo json_encode(array("status" => TRUE));
 	}
 
@@ -86,13 +86,13 @@ class Peserta_Diklat extends CI_Controller {
 				'status_peserta' => $this->input->post('status_peserta'),
 				'status_kegiatan' => $this->input->post('status_kegiatan'),
 			);
-		$this->peserta_diklat->update(array('id_user' => $this->input->post('id_user'),'id_diklat' => $this->input->post('id_diklat')), $data);
+		$this->pdiklat->update(array('id_user' => $this->input->post('id_user'),'id_diklat' => $this->input->post('id_diklat')), $data);
 		echo json_encode(array("status" => TRUE));
 	}
 
 	public function ajax_delete($id)
 	{
-		$this->peserta_diklat->delete_by_id($id);
+		$this->pdiklat->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
 	}
 
