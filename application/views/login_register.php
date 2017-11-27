@@ -131,7 +131,7 @@
 	                        		</div>
 	                            </div>
 	                            <div class="form-bottom">
-				                    <form role="form" action="<?php echo base_url().index_page();?>/auth/register_user" method="post" class="registration-form">
+				                    <form role="form" action="<?php echo base_url().index_page();?>/Auth/register_user" method="post" class="registration-form">
 				                    	<div class="form-group">
 				                    		<label class="sr-only" for="form-first-name">Username</label>
 				                        	<input type="text" name="user_name" placeholder="Username Minimal 4 karakter dan maksimal 15 karakter" class="form-first-name form-control" id="form-first-name">

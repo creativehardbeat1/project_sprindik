@@ -116,16 +116,16 @@ class Persetujuan_peserta extends CI_Controller {
 		
         $ci = get_instance();
         $ci->load->library('email');
-        $config['protocol'] = "smtp";
+        $config['protocol'] = 'smtp';
 		
-        $config['smtp_host'] = gethostbyname(" mail.ojo-lali.com");
-        $config['smtp_port'] = "465";
-        $config['smtp_user'] = "notifikasi@ojo-lali.com";
-        $config['smtp_pass'] = "mustika2009";
-        $config['charset'] = "utf-8";
-        $config['mailtype'] = "html";
-        $config['newline'] = "\r\n";
-        
+        $config['smtp_host'] = gethostbyname('ssl://mail.ojo-lali.com');
+        $config['smtp_port'] = '465';
+        $config['smtp_user'] = 'notifikasi@ojo-lali.com';
+        $config['smtp_pass'] = 'mustika2009';
+        $config['charset'] = 'utf-8';
+        $config['mailtype'] = 'html';
+        $config['newline'] = '\r\n';
+		        
         
         $ci->email->initialize($config);
  
