@@ -62,7 +62,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('persetujuan_peserta/ajax_list')?>",
+            "url": "<?php echo site_url('Persetujuan_peserta/ajax_list')?>",
             "type": "POST"
         },
 
@@ -109,7 +109,7 @@ function edit_persetujuan_peserta(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('persetujuan_peserta/ajax_edit/')?>/" + id,
+        url : "<?php echo site_url('Persetujuan_peserta/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
@@ -154,7 +154,7 @@ function save()
     if(save_method == 'add') {
         // url = "<?php echo site_url('calon/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('persetujuan_peserta/ajax_update')?>";
+        url = "<?php echo site_url('Persetujuan_peserta/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -162,7 +162,7 @@ function save()
         url : url,
         type: "POST",
         data: $('#form').serialize(),
-        //dataType: "JSON",
+        dataType: "JSON",
         success: function(data)
         {
 
@@ -196,7 +196,7 @@ function tolak()
     if(save_method == 'add') {
         // url = "<?php echo site_url('calon/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('persetujuan_peserta/ajax_update_tolakan')?>";
+        url = "<?php echo site_url('Persetujuan_peserta/ajax_update_tolakan')?>";
     }
 
     // ajax adding data to database

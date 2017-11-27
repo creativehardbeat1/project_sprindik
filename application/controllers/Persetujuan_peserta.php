@@ -29,7 +29,7 @@ class Persetujuan_peserta extends CI_Controller {
 			// $row[] = $udiklat->alamat;
 			// $row[] = $udiklat->email;
 			// $row[] = $udiklat->url_dok_ktp;
-			$row[] = '<a href="http://localhost/project_sprindik/assets/uploads/'.$udiklat->url_dok_ktp.'"><i class="glyphicon glyphicon-pencil"></i>KTP</a>';			
+			$row[] = '<a href="http://localhost:83/project_sprindik/assets/uploads/'.$udiklat->url_dok_ktp.'"><i class="glyphicon glyphicon-pencil"></i>KTP</a>';			
 			// $row[] = $udiklat->url_dok_ijazah;
 			$row[] = $udiklat->no_mobile;
 			$row[] = $udiklat->keterangan;
@@ -86,7 +86,7 @@ class Persetujuan_peserta extends CI_Controller {
 			);
 			
 		$this->calon_peserta->update(array('id_user' => $this->input->post('id_user'),'id_diklat' => $this->input->post('id_diklat')), $data);
-		$this->sendMail($email,$nama,$cek);
+		//$this->sendMail($email,$nama,$cek);
 		
 		echo json_encode(array("status" => TRUE));
 		 
@@ -107,7 +107,7 @@ class Persetujuan_peserta extends CI_Controller {
 			);
 			
 		$this->calon_peserta->update(array('id_user' => $this->input->post('id_user'),'id_diklat' => $this->input->post('id_diklat')), $data);
-		$this->sendMail($email,$nama,$cek);
+		//$this->sendMail($email,$nama,$cek);
 		echo json_encode(array("status" => TRUE));
 	}
 	function sendMail($email,$nama,$cek) {
