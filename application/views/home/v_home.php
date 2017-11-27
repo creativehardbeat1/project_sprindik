@@ -23,7 +23,7 @@
 <!-- end load library -->
 <div style="float: left; height: 150px; width: 100%;"></div>
 
-<div id="chartContainer" style="float: left; height: 400px; width: 50%;"> 
+<div id="chartStatusCalon" style="float: left; height: 400px; width: 50%;"> 
 <script type="text/javascript">
 $(document).ready(function () {
 // memanggil data array dengan JSON
@@ -39,8 +39,8 @@ var source =
 var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, loadError: function (xhr, status, error) { alert('Error loading "' + source.url + '" : ' + error); } });
 // pengaturan jqxChart
     var settings = {
-        title: "Grafik Status Calon Peserta",
-        // description: "",
+        title: "Status ",
+        description: "Calon Peserta",
         enableAnimations: true,
         showLegend: true,
         showBorderLine: true,
@@ -74,12 +74,12 @@ var dataAdapter = new $.jqx.dataAdapter(source, { async: false, autoBind: true, 
            ]
          };
        // Menampilkan Chart
-      $('#chartContainer').jqxChart(settings);
+      $('#chartStatusCalon').jqxChart(settings);
    });
 </script>
 </div>
 
-<div id="jqxChart" style="float: left; height: 400px; width: 50%;">     
+<div id="ChartJumlahPendaftar" style="float: left; height: 400px; width: 50%;">     
 <script type="text/javascript">
 $(document).ready(function () {
 // memanggil data array dengan JSON
@@ -102,7 +102,9 @@ $(document).ready(function () {
 		});
 // pengaturan jqxChart
 		var settings = {
-			title: "Grafik Jumlah Pendaftar Per Bulan",
+			title: "Grafik Jumlah Pendaftar",
+        	description: "Per Bulan",
+			// title: "Grafik Jumlah Pendaftar ",
 			showLegend: true,
 			padding: { left: 5, top: 5, right: 5, bottom: 5 },
 			titlePadding: { left: 90, top: 0, right: 0, bottom: 10 },
@@ -147,9 +149,76 @@ $(document).ready(function () {
 				]
 		};
        // Menampilkan Chart
-      $('#jqxChart').jqxChart(settings);
+      $('#ChartJumlahPendaftar').jqxChart(settings);
    });
 </script>     
+</div>
+
+<div id="ChartFavDiklat" style="float: left; height: 400px; width: 50%;"> 
+<script type="text/javascript">
+$(document).ready(function () {
+// memanggil data array dengan JSON
+		var source =
+	     {
+	         datatype: "json",
+	         datafields: [
+	               { name: 'nama_diklat' },
+	                { name: 'jumlah' }
+	         ],
+	         url: '<?php echo base_url() ?>index.php/Home/survey_diklat_fav'
+	     };
+	   var dataAdapter = new $.jqx.dataAdapter(source,
+		{
+			autoBind: true,
+			async: false,
+			downloadComplete: function () { },
+			loadComplete: function () { },
+			loadError: function () { }
+		});
+// pengaturan jqxChart
+		var settings = {
+                title: "5 Diklat terfavorite",
+                description: " ",
+                showLegend: true,
+                enableAnimations: true,
+                padding: { left: 20, top: 5, right: 20, bottom: 5 },
+                titlePadding: { left: 90, top: 0, right: 0, bottom: 10 },
+                source: dataAdapter,
+                categoryAxis:
+                    {
+                        dataField: 'nama_diklat',
+                        showGridLines: true,
+                        flip: false
+                    },
+                colorScheme: 'scheme01',
+  seriesGroups:
+	[
+		{
+			type: 'column',
+			orientation: 'horizontal',
+			columnsGapPercent: 100,
+			toolTipFormatSettings: { thousandsSeparator: ',' },
+			valueAxis:
+			{
+				flip: true,
+				unitInterval: 5,
+				maxValue: 50,
+				displayValueAxis: true,
+				description: '',
+				formatFunction: function (value) {
+					return parseInt(value / 1);
+				}
+			},
+			series: [
+					{ dataField: 'jumlah', displayText: 'Jumlah dipilih' }
+				]
+		}
+	]
+		};
+            // setup the chart
+            $('#ChartFavDiklat').jqxChart(settings);
+        });
+</script>
 </div>
 
 </section>

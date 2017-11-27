@@ -23,6 +23,17 @@ class Home_model extends CI_Model {
 				GROUP BY bulan";
       return $this->db->query($sql);
   	}
+
+  	function diklat_fav() {
+      $sql = "SELECT b.keterangan AS nama_diklat, COUNT(a.id_diklat) AS jumlah
+				FROM oltp_calon_peserta a 
+				LEFT JOIN ref_diklat b
+				ON a.id_diklat = b.id_diklat
+				GROUP BY a.id_diklat
+				ORDER BY jumlah DESC 
+				LIMIT 5";
+      return $this->db->query($sql);
+  	}
   
   
 		

@@ -113,7 +113,7 @@ class Web extends CI_Controller {
 		$this->form_validation->set_rules('umur','Umur','required|alpha_numeric');
 		$this->form_validation->set_rules('alamat','Alamat','required');
 		$this->form_validation->set_rules('email','E-mail','required');
-		$this->form_validation->set_rules('nomorhp','Nomor HP','required|alpha_numeric');
+		$this->form_validation->set_rules('nomorhp','Nomor HP','required');
 		if ($this->form_validation->run() == FALSE)
 		{
 			 $this->session->set_flashdata('error_msg', 'Mohon lengkapi isian.');

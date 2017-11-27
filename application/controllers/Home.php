@@ -39,13 +39,16 @@ class Home extends CI_Controller {
 		  echo json_encode($data);  
 	}
 	
-	
-	
-	
-	
-		
-	
-	
-
+	public function survey_diklat_fav()
+	{
+				foreach($this->Home_model->diklat_fav()->result_array() as $row)
+			{ 
+		  $data[] = array(
+		   'nama_diklat' => $row['nama_diklat'],
+		   'jumlah' => $row['jumlah']
+				  );    
+		  } 
+		  echo json_encode($data);  
+	}
  
 }
