@@ -37,31 +37,31 @@ if(!$user_id){
 		  <a class="navbar-brand" href="#">Aplikasi Sistem Perekaman Diklat</a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="<?php echo base_url().index_page();?>/web/home">Home</a></li>
+			<li class="active"><a href="<?php echo base_url().index_page();?>/Web/home">Home</a></li>
 		<?php
 			if($status=="1"){ //level admin
 		?>
-		<li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/pegawai">Pegawai</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/pengguna">Pengguna</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/pegawai">Pegawai</a></li>
 		<?php
 			}elseif($status=="2"){ //level pegawai sesuai id_usernya
 		?>
-		<li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/calon_peserta">Calon Peserta</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/diklat">Diklat</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/persetujuan_dokumen">Persetujuan Dokumen</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/persetujuan_peserta">Persetujuan Peserta</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/peserta_diklat">Peserta Diklat</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/peserta">Peserta</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/laporan_diklat">Laporan Diklat</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/pengguna">Pengguna</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/calon_peserta">Calon Peserta</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/diklat">Diklat</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/persetujuan_dokumen">Persetujuan Dokumen</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/persetujuan_peserta">Persetujuan Peserta</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/peserta_diklat">Peserta Diklat</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/peserta">Peserta</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/laporan_diklat">Laporan Diklat</a></li>
 		<?php	
 			}elseif($status=="3"){ //level umum sesuai id_usernya
 		?>
-		<li><a href="<?php echo base_url().index_page();?>/web/pengguna">Pengguna</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/calon_peserta">Calon Peserta</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/profil">Profil Peserta</a></li>			
-		<li><a href="<?php echo base_url().index_page();?>/web/permohonan_diklat">Permohonan Diklat</a></li>
-		<li><a href="<?php echo base_url().index_page();?>/web/peserta_diklat">Peserta Diklat</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/pengguna">Pengguna</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/calon_peserta">Calon Peserta</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/profil">Profil Peserta</a></li>			
+		<li><a href="<?php echo base_url().index_page();?>/Web/permohonan_diklat">Permohonan Diklat</a></li>
+		<li><a href="<?php echo base_url().index_page();?>/Web/peserta_diklat">Peserta Diklat</a></li>
 		<?php	
 			}else{
 		?>

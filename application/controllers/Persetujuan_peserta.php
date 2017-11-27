@@ -116,16 +116,20 @@ class Persetujuan_peserta extends CI_Controller {
 		
         $ci = get_instance();
         $ci->load->library('email');
-        $config['protocol'] = 'smtp';
+        $config['protocol'] = "smtp";
 		
-        $config['smtp_host'] = gethostbyname('ssl://mail.ojo-lali.com');
-        $config['smtp_port'] = '465';
-        $config['smtp_user'] = 'notifikasi@ojo-lali.com';
-        $config['smtp_pass'] = 'mustika2009';
-        $config['charset'] = 'utf-8';
-        $config['mailtype'] = 'html';
-        $config['newline'] = '\r\n';
-		        
+        $config['smtp_host'] = gethostbyname("ssl://smtp.gmail.com");
+        $config['smtp_port'] = "465";
+        $config['smtp_user'] = "blogiouss@gmail.com";
+        $config['smtp_pass'] = "minang2009";
+        $config['charset'] = "utf-8";
+        $config['mailtype'] = "html";
+        $config['newline'] = "\r\n";
+		
+/* 		user : notifikasi@ojo-lali.com
+		pass : mustika2009
+		host : mail.ojo-lali.com
+ */        
         
         $ci->email->initialize($config);
  
@@ -154,6 +158,41 @@ class Persetujuan_peserta extends CI_Controller {
             show_error($this->email->print_debugger());
         }
     }
+	
+	public function sendMail1($email,$nama,$cek) {
+		//$email='creativehardbeat1@gmail.com';
+		//var_dump($email);
+		$this->load->library('phpmailer.php');
+		if ($cek=="1") {
+			$message = $nama.' Anda telah terdaftar sebagai peserta';
+			
+		}else{
+			$message = $nama.' Anda telah ditolak sebagai peserta';
+		}
+
+
+		$mail = new PHPMailer;
+		$mail->IsSMTP();
+		$mail->SMTPSecure = 'ssl';
+		$mail->Host = gethostbyname('mail.ojo-lali.com');
+
+		$mail->SMTPDebug = 0;
+		$mail->Port = 465;
+		$mail->SMTPAuth = true;
+		$mail->Username = "notifikasi@ojo-lali.com"; //user email yang sebelumnya anda buat
+		$mail->Password = "mustika2009"; //password email yang sebelumnya anda buat
+		$mail->SetFrom("notifikasi@ojo-lali.com","Admin Pendaftaran Diklat"); //set email pengirim
+		$mail->Subject = "Notifikasi Aplikasi Sprindik"; //subyek email
+		$mail->AddAddress($email,$nama);  //tujuan email
+		$mail->MsgHTML($message);
+		if($mail->Send()){
+
+		echo "Email Notifikasi berhasil dikirim";
+
+		}else {
+				//echo $email.' dengan '.$nama." gagal pengiriman";
+			}	
+	}
 
 
 }
