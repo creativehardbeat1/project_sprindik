@@ -40,7 +40,7 @@ class Welcome extends CI_Controller {
 	  'user_name'=>$this->input->post('form-username'),
 	  'user_password'=>md5($this->input->post('form-password'))
 		);
-		$data=$this->auth_model->login_user($user_login['user_name'],$user_login['user_password']);
+		$data=$this->Auth_model->login_user($user_login['user_name'],$user_login['user_password']);
 		
 		  if($data){
 
@@ -59,9 +59,7 @@ class Welcome extends CI_Controller {
 		  }
 	}
 
-	function user_profile(){
-		$this->load->view('dashboard1');
-	}
+	
 	public function user_logout(){
 	  $this->session->sess_destroy();
 	  redirect('Welcome', 'refresh');
